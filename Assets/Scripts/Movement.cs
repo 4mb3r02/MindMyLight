@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-
+    public string test;
     public bool JumpKeyWasPressed;
 
     public float speed = 6f;
