@@ -1,19 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Stardust : Collectible
+public class Stardust : MonoBehaviour, ICollectible
 {
-    private int coin = 0;
-
-    public override void OnTriggerEnter(Collider other)
+    public static event Action OnStardustCollected;
+    public void Collect()
     {
-        if (other.transform.tag == "coin")
-        {
-            coin++;
-            Debug.Log(coin);
-            Destroy(other.gameObject);
-        }
+        Destroy(gameObject);
+        OnStardustCollected?.Invoke();
     }
+
 }
