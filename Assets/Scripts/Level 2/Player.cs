@@ -84,10 +84,36 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Im touching the tree");
             // Animation aproach beggins
+            Animation();
             // Conversation beggins
+            Conversation();
             // Figure how to pass from a dialoge to anotherone
+            PassConversation();
             // Change of scene between the 1ºPhase to the 2ºPhase
+            ChangeScene();
         }
 
     }
+
+    public void Animation()
+    {
+
+    }
+
+    private void Conversation()
+    {
+
+    }
+
+    private void PassConversation()
+    {
+
+    }
+
+    private void ChangeScene()
+    {
+
+    }
+
+
 }
