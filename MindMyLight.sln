@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.7.34221.43
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nobi.UiRoundedCorners", "Nobi.UiRoundedCorners.csproj", "{9581A858-6F73-BE41-E7ED-FF1BB51C65E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{8EC0737F-B612-188F-A52F-3B7DCD75644E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{F920AC99-BE6C-29B4-DB30-7E8CB61AC10B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +19,6 @@ Global
 		{8EC0737F-B612-188F-A52F-3B7DCD75644E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EC0737F-B612-188F-A52F-3B7DCD75644E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EC0737F-B612-188F-A52F-3B7DCD75644E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F920AC99-BE6C-29B4-DB30-7E8CB61AC10B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F920AC99-BE6C-29B4-DB30-7E8CB61AC10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F920AC99-BE6C-29B4-DB30-7E8CB61AC10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F920AC99-BE6C-29B4-DB30-7E8CB61AC10B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
