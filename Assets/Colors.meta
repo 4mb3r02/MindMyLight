@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/TutorialInfo.meta
+guid: b8f3606b82652ef42bc9f9939017c113
+========
 guid: 237373fa7bf3d4b40b84fecac0a21258
+>>>>>>>> Develop:Assets/Colours.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

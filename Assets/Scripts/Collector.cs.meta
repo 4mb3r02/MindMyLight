@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/Movement.cs.meta
-guid: 3f2f976eef4ac4846b8c643e4fff7131
-========
-guid: 91dcefbb78a13c246a9cd59394d245f5
->>>>>>>> Develop:Assets/MainMenu.cs.meta
+guid: 21dd750c26450d14c8aae33ea635ebff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
