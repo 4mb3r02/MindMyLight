@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Transform groundCheckTransform = null;
+    public new AutoAnimation animation;
     //public LayerMask playerMask;
 
     private bool jumpKeyWasPressed;
@@ -43,18 +44,9 @@ public class Player : MonoBehaviour
 
         HorizontalMovement();
 
-        // --------- Ground Check ---------
-
-        // Here it checks if it's colliding with any object, the imaginarie sphere arround the player 
-        //if (Physics.OverlapSphere(groundCheckTransform.position, 0.1f, playerMask).Length == 0)
-        //{
-        //   return;
-        //}
-
 
         // --------- Jump ---------
 
-        // It's better to make the physics change in the physicUpdate loop for a better performance
         if (jumpKeyWasPressed)
         {
             Jump();
@@ -79,41 +71,18 @@ public class Player : MonoBehaviour
     //Method that checks if we are colliding with another object
     private void OnTriggerEnter(Collider other)
     {
-        // Layer 6 = Tree
-        if (other.gameObject.layer == 6)
+        if(animation != null)
         {
-            Debug.Log("Im touching the tree");
-            // Animation aproach beggins
-            Animation();
-            // Conversation beggins
-            Conversation();
-            // Figure how to pass from a dialoge to anotherone
-            PassConversation();
-            // Change of scene between the 1ºPhase to the 2ºPhase
-            ChangeScene();
+            animation.Collision(other);
+        }
+        else
+        {
+            Debug.Log("Im not finding the script, animation is null");
         }
 
     }
 
-    public void Animation()
-    {
-
-    }
-
-    private void Conversation()
-    {
-
-    }
-
-    private void PassConversation()
-    {
-
-    }
-
-    private void ChangeScene()
-    {
-
-    }
+    
 
 
 }

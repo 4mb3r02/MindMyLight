@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Lvl Selector\LevelSelector.cs" />
+    <Compile Include="Assets\Scripts\Level 2\AutoAnimation.cs" />
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Level 2\Player.cs" />
