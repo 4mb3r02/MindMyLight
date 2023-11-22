@@ -49,11 +49,12 @@ public class Player : MonoBehaviour
     {
         if (animation != null)
         {
+
             animation.Collision(other);
         }
         else
         {
-            Debug.Log("Im not finding the script, animation is null");
+            Debug.Log("Im not finding the script, animation is null. Try to add the player Script to animation");
         }
 
     }

@@ -7,7 +7,8 @@ using UnityEngine;
 public class AutoAnimation : MonoBehaviour
 {
     public Transform target;
-    public float moveSpeed;
+
+    float moveSpeed = 0.35f;
     bool checkColl;
 
     void Update()
