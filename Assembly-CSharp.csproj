@@ -60,11 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
+    <Compile Include="Assets\Scripts\Level 1\Wave.cs" />
     <Compile Include="Assets\Scripts\Level 1\Stardust.cs" />
     <Compile Include="Assets\Scripts\Level 2\AutoAnimation.cs" />
     <Compile Include="Assets\Scripts\General\Movement.cs" />
     <Compile Include="Assets\Scripts\General\MovementGravity.cs" />
     <Compile Include="Assets\Scripts\General\Collector.cs" />
+    <Compile Include="Assets\Scripts\Level 1\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelector.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
