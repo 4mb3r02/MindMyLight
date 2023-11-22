@@ -50,6 +50,8 @@ public class MainMenu : MonoBehaviour
         audioMixer.SetFloat("volume", volume);
     }
 
+    //Héctor es tonto
+
     public void setMusic(float music)
     {
         //Debug.Log(volume);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerJavi : MonoBehaviour
 {
     public Transform groundCheckTransform = null;
     public new AutoAnimation animation;
