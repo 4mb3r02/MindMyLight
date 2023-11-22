@@ -1,13 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Stylesheets/LevelSelector.uss?fileID=7433441132597879392&amp;guid=3201020df8e8200459a08d697613d8ea&amp;type=3#LevelSelector" />
-    <ui:VisualElement class="play-level-button" style="flex-grow: 1;">
-        <Shadow shadow-scale="1" shadow-corner-radius="20" shadow-offset-x="4" shadow-offset-y="8" class="level-button-image-container">
-            <ui:VisualElement name="LevelButtonImage" class="level-button-image" />
+    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" class="play-button">
+        <Shadow shadow-scale="1" shadow-corner-radius="20" shadow-offset-x="4" shadow-offset-y="8" class="play-button-image-container">
+            <ui:VisualElement name="PlayButtonImage" focusable="false" class="play-button-image" style="display: none; overflow: visible; visibility: visible;" />
+            <ui:VisualElement name="PlayButtonHiddenImage" focusable="false" class="play-button-image play-button-hidden-image" style="display: flex; visibility: visible;" />
         </Shadow>
-        <Shadow shadow-scale="1" shadow-corner-radius="20" focusable="false" shadow-offset-x="0" shadow-offset-y="6" usage-hints="None" class="level-button-text-container-shadow">
-            <ui:VisualElement class="level-button-text-container">
-                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LevelButtonLabel" class="level-button-text" />
+        <Shadow shadow-scale="1" shadow-corner-radius="20" focusable="false" shadow-offset-x="0" shadow-offset-y="6" usage-hints="None" class="play-button-text-container-shadow">
+            <ui:VisualElement class="play-button-text-container">
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PlayButtonLabel" class="play-button-text" />
             </ui:VisualElement>
         </Shadow>
-    </ui:VisualElement>
+    </ui:Button>
 </ui:UXML>

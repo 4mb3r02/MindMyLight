@@ -1,4 +1,12 @@
-.level-button-image {
+.unity-button {
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+}
+
+.play-button-image {
     flex-grow: 1;
     background-color: rgb(202, 202, 202);
     border-top-left-radius: 20px;
@@ -10,7 +18,6 @@
     border-bottom-width: 10px;
     border-left-width: 10px;
     border-color: rgb(255, 255, 255);
-    background-image: url('project://database/Assets/Images/examplebackground.jpg?fileID=2800000&guid=3c66ba27331fc49418456cb415b6189e&type=3#examplebackground');
 }
 
 #PlayButton2 {
@@ -18,20 +25,23 @@
     margin-right: 100px;
 }
 
-.play-level-button:hover {
+.play-button:hover {
     opacity: 0.8;
 }
 
-.play-level-button:focus {
+.play-button:focus {
     opacity: 0.8;
 }
 
-.page-arrow:hover,
+.page-arrow:hover {
+    opacity: 0.8;
+}
+
 .page-arrow:focus {
     opacity: 0.8;
 }
 
-.level-button-text-container-shadow {
+.play-button-text-container-shadow {
     scale: 1 1;
     flex-grow: 1;
     position: absolute;
@@ -52,7 +62,7 @@
     border-bottom-width: 6px;
 }
 
-.level-button-text {
+.play-button-text {
     -unity-text-align: upper-center;
     justify-content: flex-start;
     align-self: auto;
@@ -61,7 +71,7 @@
     color: rgb(0, 0, 0);
 }
 
-.level-button-text-container {
+.play-button-text-container {
     flex-grow: 1;
     align-items: stretch;
     align-self: stretch;
@@ -74,7 +84,7 @@
     justify-content: center;
 }
 
-.level-button-image-container {
+.play-button-image-container {
     flex-grow: 1;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -91,10 +101,6 @@
     height: auto;
     -unity-background-image-tint-color: rgb(219, 219, 219);
     -unity-background-scale-mode: scale-to-fit;
-    flex-grow: 1;
-}
-
-.play-button {
     flex-grow: 1;
 }
 
@@ -141,4 +147,34 @@
 .main-content {
     flex-grow: 1;
     flex-direction: row;
+}
+
+.play-button {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    overflow: visible;
+    flex-grow: 1;
+}
+
+.play-button-hidden-image {
+    background-image: url('project://database/Assets/Images/LevelSelector/HiddenLevel.png?fileID=2800000&guid=9f9ed64895a5ead40ad1073e35657361&type=3#HiddenLevel');
+    align-items: stretch;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: rgb(0, 0, 0);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
