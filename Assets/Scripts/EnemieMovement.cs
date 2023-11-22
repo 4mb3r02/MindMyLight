@@ -1,60 +1,80 @@
+//using System;
+//using System;
+//using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+
+
 
 public class EnemieMovement : MonoBehaviour
 {
-    private float rotationSpeed;
-    private Rigidbody cometShark;
-    float x;
-    Vector3 wanderSpeed = new Vector3(-2, 0, 0);
-    //float wanderRotation = 5.0;
-    // Start is called before the first frame update
-    void Awake()
+    int movementSpeed = 1;
+    float rotationRangeLeft = 90f;
+    float rotationRangeRight = 90f;
+    float cooldownTimeMin = 3f;
+    float cooldownTimeMax = 8f;
+    float turnSpeed = 1;
+
+
+
+    private float changeDirectionCooldown;
+    Rigidbody enemyBody;
+
+    Vector3 _targetDirection;
+    public void Awake()
     {
-        cometShark = GetComponent<Rigidbody>();
-        //transform.position += new Vector3(0, 0, 0);
+        changeDirectionCooldown = Random.Range(cooldownTimeMin, cooldownTimeMax);
+        enemyBody = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+        GetRotationChange();
+        UpdateRotation();
+    }
+
+    private void Move()
+    {
+        enemyBody.velocity = transform.up * movementSpeed;
+    }
+
+    private void GetRotationChange()
+    {
+        changeDirectionCooldown -= Time.deltaTime;
+        if (changeDirectionCooldown <= 0)
+        {
+            float angleChange = Random.Range(rotationRangeLeft, rotationRangeRight);
+            if (_targetDirection.z + angleChange > 360) {
+                _targetDirection.z = transform.eulerAngles.z + angleChange - 360;
+            } else
+            {
+                _targetDirection.z = transform.eulerAngles.z + angleChange;
+            }
+            
+            changeDirectionCooldown = Random.Range(cooldownTimeMin, cooldownTimeMax);
+        }
+        _targetDirection.z = 365;
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void UpdateRotation()
     {
-        //float horizontalInput = Input.GetAxis("Horizontal");
-        // float verticalInput = Input.GetAxis("Vertical");
-        // Vector3 movement = new Vector3(horizontalInput, verticalInput, 0).normalized;
-
-        SetEnemieMovement();
-        RotateInDirectionOfInput();
-
-
-        //  transform.rotation = Quaternion.Euler(0, 0, x);
-        //  wanderSpeed += new Vector3();
-        //Quaternion targetRotation = Quaternion.LookRotation(wanderSpeed);
-        //       targetRotation = Quaternion.RotateTowards(
-        //               transform.rotation,
-        //               targetRotation,
-        //                360 * Time.fixedDeltaTime);
-        //cometShark.MoveRotation(targetRotation);
-        //cometShark.rotation = targetRotation;
-
-        //transform.rotation = Quaternion.LookRotation(wanderSpeed);
-        //transform.rotation = Quaternion.LookRotation(wanderSpeed);
+        Vector3 currentRotation = new Vector3(0, 0, 1);
+        Debug.Log("old X: " + transform.rotation.eulerAngles.x + " Y: " + transform.rotation.eulerAngles.y + " Z: " + transform.rotation.eulerAngles.z);
+        //transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, _targetDirection, turnSpeed * Time.deltaTime);
+        transform.eulerAngles = Vector3.Lerp(currentRotation, _targetDirection, turnSpeed * Time.deltaTime);
+        Debug.Log("Go to X: " + _targetDirection.x + " Y: " + _targetDirection.y + " Z: " + _targetDirection.z);
+        //Debug.Log("old X: " + transform.rotation.eulerAngles.x + " Y: " + transform.rotation.eulerAngles.y + " Z: " + transform.rotation.eulerAngles.z); 
     }
+    
 
-    private void SetEnemieMovement()
+    public void setEnemieMovement()
     {
-        x += Time.deltaTime * 20;
-        transform.position += wanderSpeed * Time.deltaTime;
-
+        Move();
+        GetRotationChange();
+        UpdateRotation();
     }
-
-    private void RotateInDirectionOfInput()
-    {
-        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, transform.position);
-        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-        cometShark.MoveRotation(rotation);
-    }
-
 }
