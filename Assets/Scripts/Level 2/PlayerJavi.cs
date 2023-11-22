@@ -51,7 +51,6 @@ public class PlayerJavi : MonoBehaviour
         {
             Jump();
         }
-        //Let's code :)
 
     }
 
