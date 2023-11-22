@@ -1,3 +1,4 @@
+using Assets.Scripts.General;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Assets.Scripts.LevelSelector
         private void Start()
         {
             VisualElement root = GetComponent<UIDocument>().rootVisualElement;
+            root.Q<Button>("HomeButton").clicked += OnHomeClicked;
 
             // Construct level buttons
             playLevelButtons = new PlayLevelButton[PageCount];
@@ -33,6 +35,11 @@ namespace Assets.Scripts.LevelSelector
             // todo Add functionality for navigation buttons
             root.Q<VisualElement>("PreviousPageButton").visible = false;
             root.Q<VisualElement>("NextPageButton").visible = false;
+        }
+
+        public void OnHomeClicked()
+        {
+            SceneLoader.LoadMenu();
         }
 
         private void SetLevelPage(int page)

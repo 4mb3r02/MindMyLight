@@ -1,8 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="PlayLevelButton" src="project://database/Assets/Prefabs/LevelSelector/PlayButton.uxml?fileID=9197481963319205126&amp;guid=b4d5c691c5de3c5499f26bdd8b24f3ff&amp;type=3#PlayButton" />
+    <ui:Template name="PlayLevelButton" src="project://database/Assets/Prefabs/Level%20Selector/PlayLevelButton.uxml?fileID=9197481963319205126&amp;guid=b4d5c691c5de3c5499f26bdd8b24f3ff&amp;type=3#PlayLevelButton" />
     <Style src="project://database/Assets/Stylesheets/LevelSelector.uss?fileID=7433441132597879392&amp;guid=3201020df8e8200459a08d697613d8ea&amp;type=3#LevelSelector" />
     <ui:VisualElement class="container">
-        <ui:Label tabindex="-1" text="Select chapter" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title" />
+        <ui:VisualElement style="flex-grow: 0; height: 150px; flex-direction: row;">
+            <ui:Label tabindex="-1" text="Select chapter" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title" style="position: absolute; top: 0; bottom: 0; right: 0; left: 0; -unity-text-align: middle-center;" />
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="HomeButton" style="border-top-left-radius: 75px; border-top-right-radius: 75px; border-bottom-right-radius: 75px; border-bottom-left-radius: 75px; flex-grow: 0; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); position: relative; width: 120px; height: 120px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; align-self: center;">
+                <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Images/General/home.png?fileID=2800000&amp;guid=a086c307f935a8442800e858fdb569c7&amp;type=3#home&apos;); -unity-background-scale-mode: scale-and-crop;" />
+            </ui:Button>
+        </ui:VisualElement>
         <ui:VisualElement class="main-content">
             <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="PreviousPageButton" class="page-arrow-container">
                 <ui:VisualElement class="page-arrow page-arrow-left" />

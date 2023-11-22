@@ -59,19 +59,19 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
+    <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Level 1\Stardust.cs" />
     <Compile Include="Assets\Scripts\Level 2\AutoAnimation.cs" />
     <Compile Include="Assets\Scripts\External\SoftShadow.cs" />
-    <Compile Include="Assets\Scripts\LevelSelector\PlayLevelButton.cs" />
     <Compile Include="Assets\Scripts\General\Movement.cs" />
-    <Compile Include="Assets\Scripts\LevelSelector\LevelSelectorPresenter.cs" />
     <Compile Include="Assets\Scripts\General\MovementGravity.cs" />
     <Compile Include="Assets\Scripts\General\Collector.cs" />
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\General\MovementNoGravity.cs" />
+    <Compile Include="Assets\Scripts\General\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Level 2\PlayerJavi.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
   </ItemGroup>
@@ -82,7 +82,7 @@
     <None Include="Assets\Stylesheets\LevelSelector.uss" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\Prefabs\LevelSelector\PlayLevelButton.uxml" />
+    <None Include="Assets\Prefabs\Level Selector\PlayLevelButton.uxml" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -94,7 +94,7 @@
     <None Include="Assets\Text-Fonts\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Prefabs\LevelSelector\LevelSelectorWindow.uxml" />
+    <None Include="Assets\Prefabs\Level Selector\LevelSelectorWindow.uxml" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Text-Fonts\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
