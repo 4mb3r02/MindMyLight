@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="PlayLevelButton" src="project://database/Assets/Prefabs/Level%20Selector/PlayLevelButton.uxml?fileID=9197481963319205126&amp;guid=b4d5c691c5de3c5499f26bdd8b24f3ff&amp;type=3#PlayLevelButton" />
+    <Style src="project://database/Assets/Scripts/Level%20Selector/LevelSelector.uss?fileID=7433441132597879392&amp;guid=79ca30d8e42f44049b8d1fce59c640ad&amp;type=3#LevelSelector" />
+    <ui:VisualElement name="VisualElement" class="container">
+        <ui:VisualElement class="header">
+            <ui:Label tabindex="-1" text="Select chapter" parse-escape-sequences="true" display-tooltip-when-elided="true" class="title" />
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="HomeButton" class="home-button">
+                <ui:VisualElement class="home-button-icon" />
+            </ui:Button>
+        </ui:VisualElement>
+        <ui:VisualElement class="main-content">
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="PreviousPageButton" class="page-arrow-container">
+                <ui:VisualElement class="page-arrow page-arrow-left" />
+            </ui:Button>
+            <ui:VisualElement name="PlayButtonsList" class="play-button-row" style="visibility: visible; display: flex;">
+                <ui:Instance template="PlayLevelButton" name="PlayButton1" class="play-button" />
+                <ui:Instance template="PlayLevelButton" name="PlayButton2" class="play-button" />
+                <ui:Instance template="PlayLevelButton" name="PlayButton3" class="play-button" />
+            </ui:VisualElement>
+            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextPageButton" class="page-arrow-container">
+                <ui:VisualElement class="page-arrow page-arrow-right" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
