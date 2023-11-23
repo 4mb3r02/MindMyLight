@@ -11,23 +11,28 @@ using UnityEngine;
 
 public class EnemieMovement : MonoBehaviour
 {
+    
     int movementSpeed = 1;
-    float rotationRangeLeft = 90f;
-    float rotationRangeRight = 90f;
+    float rotationRangeLeft = -180f;
+    float rotationRangeRight = 180f;
     float cooldownTimeMin = 3f;
     float cooldownTimeMax = 8f;
-    float turnSpeed = 1;
-
-
+    float turnSpeed = 2;
+    private Quaternion Quaternion_Rotate_From;
+    private Quaternion Quaternion_Rotate_To;
 
     private float changeDirectionCooldown;
     Rigidbody enemyBody;
+    Quaternion currentRotation;
+    float angleChange;
 
-    Vector3 _targetDirection;
+    Quaternion _targetDirection;
     public void Awake()
     {
+        Random.seed = System.DateTime.Now.Millisecond;
         changeDirectionCooldown = Random.Range(cooldownTimeMin, cooldownTimeMax);
         enemyBody = GetComponent<Rigidbody>();
+        currentRotation = new Quaternion(0, 0, gameObject.transform.rotation.z, 1); ;
     }
 
     private void FixedUpdate()
@@ -44,32 +49,23 @@ public class EnemieMovement : MonoBehaviour
 
     private void GetRotationChange()
     {
+        
         changeDirectionCooldown -= Time.deltaTime;
         if (changeDirectionCooldown <= 0)
         {
-            float angleChange = Random.Range(rotationRangeLeft, rotationRangeRight);
-            if (_targetDirection.z + angleChange > 360) {
-                _targetDirection.z = transform.eulerAngles.z + angleChange - 360;
-            } else
-            {
-                _targetDirection.z = transform.eulerAngles.z + angleChange;
-            }
-            
+            angleChange = Random.Range(rotationRangeLeft, rotationRangeRight);
+            _targetDirection.z = _targetDirection.z + angleChange;
             changeDirectionCooldown = Random.Range(cooldownTimeMin, cooldownTimeMax);
+            currentRotation.z = gameObject.transform.rotation.z;
         }
-        _targetDirection.z = 365;
-        
     }
     private void UpdateRotation()
     {
-        Vector3 currentRotation = new Vector3(0, 0, 1);
-        Debug.Log("old X: " + transform.rotation.eulerAngles.x + " Y: " + transform.rotation.eulerAngles.y + " Z: " + transform.rotation.eulerAngles.z);
-        //transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, _targetDirection, turnSpeed * Time.deltaTime);
-        transform.eulerAngles = Vector3.Lerp(currentRotation, _targetDirection, turnSpeed * Time.deltaTime);
-        Debug.Log("Go to X: " + _targetDirection.x + " Y: " + _targetDirection.y + " Z: " + _targetDirection.z);
-        //Debug.Log("old X: " + transform.rotation.eulerAngles.x + " Y: " + transform.rotation.eulerAngles.y + " Z: " + transform.rotation.eulerAngles.z); 
+        Quaternion_Rotate_From = transform.rotation;
+        Quaternion_Rotate_To = Quaternion.Euler(0, 0, _targetDirection.z);
+        transform.rotation = Quaternion.Lerp(Quaternion_Rotate_From, Quaternion_Rotate_To, Time.deltaTime * turnSpeed);
     }
-    
+
 
     public void setEnemieMovement()
     {
