@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public enum SpawnState { SPAWNING, WAITING, COUNTING}
+    private enum SpawnState { SPAWNING, WAITING, COUNTING}
 
     public Wave[] waves;
     private int nextWave = 0;
 
     public Transform[] spawnPoints;
 
-    public float timeBetweenWaves = 5f;
-    public float waveCountdown;
+    private float timeBetweenWaves = 5f;
+    private float waveCountdown;
 
     private float searchCountdown = 1f;
 
