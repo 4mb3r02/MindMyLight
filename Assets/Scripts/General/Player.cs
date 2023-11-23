@@ -9,16 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform groundCheck = null;
     [SerializeField] private LayerMask playerMask;
 
-    //I have changed it to public so we can choose in each level, we choose in unity
     public bool gravity;
     public Movement movement;
-    // Added the animation script
     public new AutoAnimation animation;
 
-
-
     private Rigidbody rigidbodyComponent;
-    
+    private bool canMove = true;
+    private bool canJump = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,18 +28,29 @@ public class Player : MonoBehaviour
         {
             movement = gameObject.AddComponent(typeof(MovementGravity)) as MovementGravity;
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement.MovementController();
+        if (canMove)
+        {
+            movement.MovementController();
+        }
     }
 
     private void FixedUpdate()
     {
-        movement.Jump(rigidbodyComponent, groundCheck, playerMask);
-        movement.Moving(rigidbodyComponent);
+        if (canJump)
+        {
+            movement.Jump(rigidbodyComponent, groundCheck, playerMask);
+        }
+
+        if (canMove)
+        {
+            movement.Moving(rigidbodyComponent);
+        }
     }
 
     // For the animation
@@ -58,4 +67,9 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public void AllowMovement() {canMove = true;}
+    public void BlockMovement() {canMove = false;}
+    public void AllowJump() {canJump = true;}
+    public void BlockJump() {canJump = false;}
 }

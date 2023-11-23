@@ -7,6 +7,7 @@ using UnityEngine;
 public class AutoAnimation : MonoBehaviour
 {
     public Transform target;
+    public Player player;
 
     float moveSpeed = 0.35f;
     bool checkColl;
@@ -42,6 +43,8 @@ public class AutoAnimation : MonoBehaviour
     public void GoClose()
     {
         // Player can't move
+        player.BlockJump();
+        player.BlockMovement();
 
         Debug.Log("I'm moving to the objective!");
 
@@ -55,6 +58,8 @@ public class AutoAnimation : MonoBehaviour
         {
             checkColl = false;
             Debug.Log("Im free!");
+            player.AllowJump();
+            player.AllowMovement();
 
         }
     }
