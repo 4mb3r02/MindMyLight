@@ -56,7 +56,7 @@ namespace Assets.Scripts.LevelSelector
             Reference.Q<VisualElement>("PlayButtonHiddenImage").style.display = !visible ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
-        public void OnPlayClicked()
+        private void OnPlayClicked()
         {
             if (Visible)
                 SceneLoader.LoadLevel(Level);
