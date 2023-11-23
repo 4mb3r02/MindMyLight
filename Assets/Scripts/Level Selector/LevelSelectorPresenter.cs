@@ -39,7 +39,7 @@ namespace Assets.Scripts.LevelSelector
 
         public void OnHomeClicked()
         {
-            SceneLoader.LoadMenu();
+            SceneLoader.LoadMainMenu();
         }
 
         private void SetLevelPage(int page)

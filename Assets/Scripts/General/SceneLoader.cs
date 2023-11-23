@@ -10,7 +10,7 @@ namespace Assets.Scripts.General
             SceneManager.LoadScene($"Level {level} Start", LoadSceneMode.Single);
         }
 
-        public static void LoadMenu()
+        public static void LoadMainMenu()
         {
             SceneManager.LoadScene($"Main Menu", LoadSceneMode.Single);
         }
