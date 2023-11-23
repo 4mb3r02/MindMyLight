@@ -211,3 +211,8 @@
     padding-left: 25px;
     align-self: center;
 }
+
+.footer {
+    height: 150px;
+    margin-bottom: 0;
+}
