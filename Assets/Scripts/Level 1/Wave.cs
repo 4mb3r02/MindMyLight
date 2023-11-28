@@ -7,6 +7,7 @@ public class Wave
 {
     public string name;
     public Transform enemy;
+    public Transform collectible;
     public int count;
     public float rate;
 }

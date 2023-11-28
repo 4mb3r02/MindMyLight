@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -11,6 +12,9 @@ public class WaveSpawner : MonoBehaviour
     private int nextWave = 0;
 
     public Transform[] spawnPoints;
+    public Transform[] enemySpawnPoints;
+
+    private ArrayList enemy;
 
     private float timeBetweenWaves = 5f;
     private float waveCountdown;
@@ -26,7 +30,7 @@ public class WaveSpawner : MonoBehaviour
             Debug.LogError(" There are no Spawnpoints");
         }
         waveCountdown = timeBetweenWaves;
-
+        
     }
 
     void Update()
@@ -62,11 +66,13 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
+        enemy =  new ArrayList();
         Debug.Log("Spawning Wave " + _wave.name);
         state = SpawnState.SPAWNING;
 
-        
-        for(int i = 0; i < _wave.count; i++)
+        spawnStardust(_wave.collectible);
+
+        for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemy);
             yield return new WaitForSeconds(1f / _wave.rate);
@@ -80,6 +86,13 @@ public class WaveSpawner : MonoBehaviour
     void WaveIsCompleted()
     {
         Debug.Log("Wave completed");
+
+        
+        foreach (Transform _enemy in enemy)
+        {
+            Destroy(_enemy.gameObject);
+        }
+
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
@@ -118,10 +131,19 @@ public class WaveSpawner : MonoBehaviour
     {
         //Spawning logic
         Debug.Log("Spawning enemy: " + _enemy.name);
+        
+        Transform _esp = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
+
+        enemy.Add( Instantiate(_enemy, _esp.position, _esp.rotation));
+
+        //Instantiate(_enemy, _sp.position, _sp.rotation);
+        
+    }
+
+    void spawnStardust(Transform _collectible)
+    {
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-
-        Instantiate(_enemy, _sp.position, _sp.rotation);
-        
+        Instantiate(_collectible, _sp.position, _sp.rotation);
     }
 }
