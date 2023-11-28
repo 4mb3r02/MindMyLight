@@ -59,11 +59,11 @@
     <Analyzer Include="D:\2022.3.11f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\Editor\ImageWithIndependentRoundedCornersInspector.cs" />
-    <Compile Include="Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\ImageWithIndependentRoundedCorners.cs" />
-    <Compile Include="Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\Editor\ImageWithRoundedCornersInspector.cs" />
-    <Compile Include="Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\ImageWithRoundedCorners.cs" />
-    <Compile Include="Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\DestroyHelper.cs" />
+    <Compile Include="Assets\Unity-Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\Editor\ImageWithRoundedCornersInspector.cs" />
+    <Compile Include="Assets\Unity-Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\ImageWithRoundedCorners.cs" />
+    <Compile Include="Assets\Unity-Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\Editor\ImageWithIndependentRoundedCornersInspector.cs" />
+    <Compile Include="Assets\Unity-Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\DestroyHelper.cs" />
+    <Compile Include="Assets\Unity-Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\ImageWithIndependentRoundedCorners.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Unity-Assets\Unity-UI-Rounded-Corners\UiRoundedCorners\SDFUtils.cginc" />
@@ -325,14 +325,11 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>D:\2022.3.11f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.WebGL.Extensions">
-      <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\WebGLSupport\UnityEditor.WebGL.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Android.Extensions">
-      <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions">
-      <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.WebGL.Extensions">
       <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\WebGLSupport\UnityEditor.WebGL.Extensions.dll</HintPath>
@@ -371,19 +368,19 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.1.0\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
-      <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Gradle">
-      <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.GradleProject">
-      <HintPath>D:\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\2022.3.11f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
