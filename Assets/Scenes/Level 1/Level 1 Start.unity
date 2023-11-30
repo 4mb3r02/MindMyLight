@@ -669,7 +669,7 @@ MonoBehaviour:
     enemy: {fileID: 6758861130678720640, guid: acf2955ef2ad45b4196e436a5e08b1a1, type: 3}
     collectible: {fileID: 5864449325433754980, guid: f1619aa0c08cfbb47a5e687b2a115137,
       type: 3}
-    count: 1
+    count: 2
     rate: 1
   spawnPoints:
   - {fileID: 1839449448}
