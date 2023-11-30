@@ -59,12 +59,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Level 1\PlayerAwareness.cs" />
     <Compile Include="Assets\Scripts\Level 1\cometShark.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
     <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Level 1\Stardust.cs" />
     <Compile Include="Assets\Scripts\Level 2\AutoAnimation.cs" />
+    <Compile Include="Assets\enemie.cs" />
     <Compile Include="Assets\Scripts\General\Movement.cs" />
     <Compile Include="Assets\Scripts\General\MovementGravity.cs" />
     <Compile Include="Assets\Scripts\General\Collector.cs" />
