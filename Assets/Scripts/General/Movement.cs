@@ -10,6 +10,9 @@ public class Movement : MonoBehaviour
 
     public float speed = 6f;
 
+    public Vector3 topRightLimit;
+    public Vector3 bottomLeftLimit;
+
 
     public void MovementController()
     {
