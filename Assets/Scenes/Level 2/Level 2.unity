@@ -761,45 +761,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2089515534}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &606431854
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 700, g: 300, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!4 &609749711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5180775279872141555, guid: 1f24c0d5ee922df438fd967960b5ab9f,
@@ -889,6 +850,7 @@ GameObject:
   - component: {fileID: 675705631}
   - component: {fileID: 675705633}
   - component: {fileID: 675705634}
+  - component: {fileID: 675705635}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1046,6 +1008,24 @@ MonoBehaviour:
   gravity: 1
   movement: {fileID: 0}
   animation: {fileID: 675705633}
+--- !u!114 &675705635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675705626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f001d5e4356f57478416c5b7c3bb56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Jan
+    sentences:
+    - Hello Breze! Its been a while. How is your cat?
+    - Well, he is a bit fat. But anyways he still goes to the gym.
+    - Oh nice, to burn all the lasagnia that he eats rigth? Anyways, jump in!
 --- !u!4 &796751953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5180775279872141555, guid: 63ddaffb45654fc4ea91833650eab102,
@@ -1081,6 +1061,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60344dbc7d7f974429986ea28aaaf1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 199889449}
+  dialogueText: {fileID: 1519684487}
+  animator: {fileID: 1431930956}
 --- !u!4 &809621471
 Transform:
   m_ObjectHideFlags: 0
@@ -1749,6 +1732,45 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f24c0d5ee922df438fd967960b5ab9f, type: 3}
+--- !u!21 &1338172363
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 700, g: 300, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!4 &1352691307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5180775279872141555, guid: 63ddaffb45654fc4ea91833650eab102,
@@ -1835,6 +1857,7 @@ GameObject:
   - component: {fileID: 1431930955}
   - component: {fileID: 1431930954}
   - component: {fileID: 1431930953}
+  - component: {fileID: 1431930956}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -1890,7 +1913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 606431854}
+  m_Material: {fileID: 1338172363}
   m_Color: {r: 1, g: 1, b: 1, a: 0.7019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1916,6 +1939,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431930951}
   m_CullTransparentMesh: 1
+--- !u!95 &1431930956
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431930951}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3646e4ced4fea4242bdd350b990e9666, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1471311914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,7 +2685,7 @@ GameObject:
   - component: {fileID: 2051036929}
   - component: {fileID: 2051036928}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2710,7 +2754,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2051036929}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 809621470}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2051036929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,7 +2924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2064649126
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2932,31 +2988,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2064649128}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2064649130}
-        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
-        m_MethodName: TriggerDialogue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2064649130}
-        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
-        m_MethodName: check
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2064649128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3008,7 +3040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
+    name: Jan
     sentences:
     - Hello Breze! Its been a while. How is your cat?
     - Well, he is a bit fat. But anyways he still goes to the gym.
@@ -3159,8 +3191,8 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1131937918}
   - {fileID: 809621471}
+  - {fileID: 1131937918}
   - {fileID: 2053727663}
   - {fileID: 151793931}
   - {fileID: 675705630}

@@ -27,14 +27,6 @@ public class AutoAnimation : MonoBehaviour
         {
             Debug.Log("Im touching the tree");
             checkColl = true;
-            // Animation aproach beggins
-
-            // Conversation beggins
-            Conversation();
-            // Figure how to pass from a dialoge to anotherone
-            PassConversation();
-            // Change of scene between the 1ºPhase to the 2ºPhase
-            ChangeScene();
         }
     }
 
@@ -58,24 +50,13 @@ public class AutoAnimation : MonoBehaviour
         {
             checkColl = false;
             Debug.Log("Im free!");
-            player.AllowJump();
-            player.AllowMovement();
+            
+            FindObjectOfType<DialogueTrigger>().TriggerDialogue();
 
+            // We need to start an animation here that goes from the point where the player is to Breze and the next scene starts -- Artists Work 
+            //player.AllowJump();
+            //player.AllowMovement();
         }
     }
 
-    private void Conversation()
-    {
-
-    }
-
-    private void PassConversation()
-    {
-
-    }
-
-    private void ChangeScene()
-    {
-
-    }
 }
