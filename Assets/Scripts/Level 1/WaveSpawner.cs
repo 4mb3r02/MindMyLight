@@ -64,18 +64,18 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnWave(Wave _wave)
+    IEnumerator SpawnWave(Wave wave)
     {
         enemy =  new ArrayList();
-        Debug.Log("Spawning Wave " + _wave.name);
+        Debug.Log("Spawning Wave " + wave.name);
         state = SpawnState.SPAWNING;
 
-        SpawnStardust(_wave.collectible);
+        SpawnStardust(wave.collectible);
 
-        for (int i = 0; i < _wave.count; i++)
+        for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy(_wave.enemy);
-            yield return new WaitForSeconds(1f / _wave.rate);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
         }
 
         state = SpawnState.WAITING;
@@ -127,14 +127,14 @@ public class WaveSpawner : MonoBehaviour
     }
 
     //Change the transform to the enemy object
-    void SpawnEnemy(Transform _enemy)
+    void SpawnEnemy(Transform enemyInstance)
     {
         //Spawning logic
-        Debug.Log("Spawning enemy: " + _enemy.name);
+        Debug.Log("Spawning enemy: " + enemyInstance.name);
         
         Transform _esp = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
 
-        enemy.Add( Instantiate(_enemy, _esp.position, _esp.rotation));
+        enemy.Add( Instantiate(enemyInstance, _esp.position, _esp.rotation));
 
         //Instantiate(_enemy, _sp.position, _sp.rotation);
         
