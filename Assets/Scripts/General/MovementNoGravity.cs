@@ -9,6 +9,7 @@ public class MovementNoGravity : Movement
     public override void Moving(Rigidbody rigidbody)
     {
         border.BorderCollition(rigidbody, bottomLeftLimit, topRightLimit);
+        rigidbody.useGravity = false;
 
         rigidbody.velocity = new Vector3(border.input.x * speed, border.input.y * speed, 0);
     }
