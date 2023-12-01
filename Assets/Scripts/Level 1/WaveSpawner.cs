@@ -70,7 +70,7 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("Spawning Wave " + _wave.name);
         state = SpawnState.SPAWNING;
 
-        spawnStardust(_wave.collectible);
+        SpawnStardust(_wave.collectible);
 
         for (int i = 0; i < _wave.count; i++)
         {
@@ -140,7 +140,7 @@ public class WaveSpawner : MonoBehaviour
         
     }
 
-    void spawnStardust(Transform _collectible)
+    void SpawnStardust(Transform _collectible)
     {
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
