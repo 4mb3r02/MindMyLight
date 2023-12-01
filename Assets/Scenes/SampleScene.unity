@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5d048f7d0d4b62e46b267bc3c3b9f08d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3269f6ecbce2d6641ba439807a95cf38, type: 2}
     - target: {fileID: 919132149155446097, guid: 5d048f7d0d4b62e46b267bc3c3b9f08d, type: 3}
       propertyPath: m_Name
       value: SittingBag
@@ -436,6 +440,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 09b33db2ce7e2a447bd6925edcbae1a6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4df29091b7533f648b69a88ed37ecbfa, type: 2}
     - target: {fileID: 919132149155446097, guid: 09b33db2ce7e2a447bd6925edcbae1a6, type: 3}
       propertyPath: m_Name
       value: DeskLamp
@@ -798,6 +806,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: af50341932fa9e04ba699996c80fcd1d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aaaf23393d6985644995efa10b2962a0, type: 2}
     - target: {fileID: 919132149155446097, guid: af50341932fa9e04ba699996c80fcd1d, type: 3}
       propertyPath: m_Name
       value: Cactus
@@ -855,6 +867,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fb5d5ad0daa24934fa2d0a09ad130346, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 922ca931ca2720e4bae730891690d463, type: 2}
     - target: {fileID: 919132149155446097, guid: fb5d5ad0daa24934fa2d0a09ad130346, type: 3}
       propertyPath: m_Name
       value: Desk
@@ -912,6 +928,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: aeb86ab4a0ef8744a8a790016a0f4827, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2909217171fca7489f8efb585d5bde5, type: 2}
     - target: {fileID: 919132149155446097, guid: aeb86ab4a0ef8744a8a790016a0f4827, type: 3}
       propertyPath: m_Name
       value: Chair
@@ -1364,6 +1384,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: bfb733f53ccbe3f4a9f05ef79f169875, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b7450c69f9a75cf45bb90149ce6cb6f3, type: 2}
     - target: {fileID: 919132149155446097, guid: bfb733f53ccbe3f4a9f05ef79f169875, type: 3}
       propertyPath: m_Name
       value: Table
@@ -1570,6 +1594,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fb279ffa0cbb28c438e6d3a2ec844426, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e33cdcd71695c1943bcb7b579047294e, type: 2}
     - target: {fileID: 919132149155446097, guid: fb279ffa0cbb28c438e6d3a2ec844426, type: 3}
       propertyPath: m_Name
       value: LampTall
@@ -1627,6 +1655,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: aeb19fbb3d953f443accdcc20ac181d4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c7c8a22d19f667f46bba2691ee847bc5, type: 2}
     - target: {fileID: 919132149155446097, guid: aeb19fbb3d953f443accdcc20ac181d4, type: 3}
       propertyPath: m_Name
       value: BedsideTable
