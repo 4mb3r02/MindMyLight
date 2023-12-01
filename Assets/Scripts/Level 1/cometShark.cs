@@ -5,49 +5,55 @@ using static UnityEngine.GraphicsBuffer;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    double detectionRange = 5;
+    
+    int chargeSpeed = 5;
+    int roamSpeed = 1;
+
+    float turnSpeed = 2;
+
+    float rotationRangeLeft = -180f;
+    float rotationRangeRight = 180f;
+    float cooldownTimeMin = 3f;
+    float cooldownTimeMax = 8f;
+
     EnemieMovement enemieMovement;
-    private PlayerAwareness _playerAwareness;
-    GameObject Player;
-    double detectionRange;
+    GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player");
         enemieMovement = gameObject.AddComponent(typeof(EnemieMovement)) as EnemieMovement;
         enemieMovement.Awake();
-        _playerAwareness = GetComponent<PlayerAwareness>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemieMovement.moveForward();
-       // GetRotationChange();
-        enemieMovement.UpdateRotation(GetRotationChange());
-        //i//f (_playerAwareness.AwareOfPlayer)
-        //{
-            //_targetDirection = _playerAwarenessController.DirectionToPlayer;
-
-        //}
-       
-        //if player is near
-        //charge
-        //if not -->
-        
-
+        GetSharkBehaviour();
     }
-    private Quaternion GetRotationChange()
+    private void GetSharkBehaviour()
     {
-        Vector3 playerDirections = Player.transform.position - transform.position;
+        Vector3 playerDirections = player.transform.position - transform.position;
         if (playerDirections.magnitude <= detectionRange) //<--
         {
-            return enemieMovement.findPlayerDirection();
-
+            SharkCharge();
         }
         else
         {
-            return enemieMovement.GenerateRandomRotation();
+            SharkRoam();
         }
+    } 
+    private void SharkCharge()
+    {
+        enemieMovement.MoveForward(chargeSpeed);
+        enemieMovement.UpdateRotation(enemieMovement.FindPlayerDirection(), turnSpeed);
     }
-        
+    
+    private void SharkRoam()
+    {
+        enemieMovement.MoveForward(roamSpeed);
+        enemieMovement.UpdateRotation(enemieMovement.GenerateRandomRotation(rotationRangeLeft, rotationRangeRight, cooldownTimeMin, cooldownTimeMax), turnSpeed);
+    }
 }
