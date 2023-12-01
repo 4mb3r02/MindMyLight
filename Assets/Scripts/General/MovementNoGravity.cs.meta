@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/MovementNoGravity.cs.meta
+guid: 5fbd44f4fa4e09446a147c4ea6f6336d
+========
+guid: 2364a6676566e7842a1a053d02d5ec5b
+>>>>>>>> Develop:Assets/Unity-UI-Rounded-Corners/UiRoundedCorners/Editor/ImageWithIndependentRoundedCornersInspector.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

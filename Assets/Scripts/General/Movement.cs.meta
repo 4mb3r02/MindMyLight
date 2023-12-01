@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Movement.cs.meta
+guid: d219d32a27a622548808e275396860fa
+========
+guid: 91dcefbb78a13c246a9cd59394d245f5
+>>>>>>>> Develop:Assets/MainMenu.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
