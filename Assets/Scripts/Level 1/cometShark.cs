@@ -17,15 +17,15 @@ public class NewBehaviourScript : MonoBehaviour
     float cooldownTimeMin = 3f;
     float cooldownTimeMax = 8f;
 
-    EnemieMovement enemieMovement;
+    EnemieMovement enemyMovement;
     GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        enemieMovement = gameObject.AddComponent(typeof(EnemieMovement)) as EnemieMovement;
-        enemieMovement.Awake();
+        enemyMovement = gameObject.AddComponent(typeof(EnemieMovement)) as EnemieMovement;
+        enemyMovement.Awake();
     }
 
     // Update is called once per frame
@@ -47,13 +47,13 @@ public class NewBehaviourScript : MonoBehaviour
     } 
     private void SharkCharge()
     {
-        enemieMovement.MoveForward(chargeSpeed);
-        enemieMovement.UpdateRotation(enemieMovement.FindPlayerDirection(), turnSpeed);
+        enemyMovement.MoveForward(chargeSpeed);
+        enemyMovement.UpdateRotation(enemyMovement.FindPlayerDirection(), turnSpeed);
     }
     
     private void SharkRoam()
     {
-        enemieMovement.MoveForward(roamSpeed);
-        enemieMovement.UpdateRotation(enemieMovement.GenerateRandomRotation(rotationRangeLeft, rotationRangeRight, cooldownTimeMin, cooldownTimeMax), turnSpeed);
+        enemyMovement.MoveForward(roamSpeed);
+        enemyMovement.UpdateRotation(enemyMovement.GenerateRandomRotation(rotationRangeLeft, rotationRangeRight, cooldownTimeMin, cooldownTimeMax), turnSpeed);
     }
 }
