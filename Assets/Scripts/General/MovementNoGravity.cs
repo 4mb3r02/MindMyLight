@@ -6,7 +6,7 @@ using UnityEngine.Windows;
 public class MovementNoGravity : Movement
 {
     Borders border = new Borders();
-    public override void Moving(Rigidbody rigidbody)
+    public override void Moving(Rigidbody rigidbody, float speed)
     {
         border.BorderCollition(rigidbody, bottomLeftLimit, topRightLimit);
         rigidbody.useGravity = false;

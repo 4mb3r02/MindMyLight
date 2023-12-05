@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private Rigidbody rigidbodyComponent;
     private bool canMove = true;
     private bool canJump = true;
+    public float speed;
 
     public GameObject topRightLimitGameobject;
     public GameObject bottomLeftLimitGameobject;
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
 
         if (canMove)
         {
-            movement.Moving(rigidbodyComponent);
+            movement.Moving(rigidbodyComponent, speed);
         }
     }
 
