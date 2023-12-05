@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Images/LevelSelector.meta
+guid: 78b5dfe79b7accd48826b5e8cd438e6f
+========
 guid: 19db54ab4c16d3246b2316f6e0dfa717
+>>>>>>>> Develop:Assets/Images/Level 1.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
