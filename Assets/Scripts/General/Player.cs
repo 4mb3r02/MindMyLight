@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     private bool canMove = true;
     private bool canJump = true;
 
+    public float speed = 6f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +52,7 @@ public class Player : MonoBehaviour
 
         if (canMove)
         {
-            movement.Moving(rigidbodyComponent);
+            movement.Moving(rigidbodyComponent, speed);
         }
     }
 

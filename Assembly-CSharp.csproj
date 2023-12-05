@@ -60,9 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Level 1\cometShark.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
     <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
+    <Compile Include="Assets\Scripts\Level 2\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Level 1\Wave.cs" />
+    <Compile Include="Assets\Scripts\Level 2\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\Level 1\Stardust.cs" />
     <Compile Include="Assets\Scripts\Level 2\AutoAnimation.cs" />
     <Compile Include="Assets\Scripts\General\Movement.cs" />
@@ -72,7 +76,9 @@
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\General\MovementNoGravity.cs" />
-    <Compile Include="Assets\Scripts\Level 2\PlayerJavi.cs" />
+    <Compile Include="Assets\Scripts\General\SceneLoader.cs" />
+    <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
+    <Compile Include="Assets\Scripts\General\EnemieMovement.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
   </ItemGroup>
   <ItemGroup>
