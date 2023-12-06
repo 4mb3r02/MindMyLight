@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 // DELETE THE COMENTS WHEN YOU HAVE IT CLEAR, THEY ARE JUST FOR NOT BURNING YOUR BRAIN ;)
 
@@ -16,14 +17,22 @@ public class Player : MonoBehaviour
     private Rigidbody rigidbodyComponent;
     private bool canMove = true;
     private bool canJump = true;
+    public float speed;
+
+    public GameObject topRightLimitGameobject;
+    public GameObject bottomLeftLimitGameobject;
 
     // Start is called before the first frame update
     void Start()
     {
+
         rigidbodyComponent = GetComponent<Rigidbody>();
         if (gravity == false)
         {
             movement = gameObject.AddComponent(typeof(MovementNoGravity)) as MovementNoGravity;
+
+            movement.bottomLeftLimit = bottomLeftLimitGameobject.transform.position;
+            movement.topRightLimit = topRightLimitGameobject.transform.position;
         } else
         {
             movement = gameObject.AddComponent(typeof(MovementGravity)) as MovementGravity;
@@ -49,7 +58,7 @@ public class Player : MonoBehaviour
 
         if (canMove)
         {
-            movement.Moving(rigidbodyComponent);
+            movement.Moving(rigidbodyComponent, speed);
         }
     }
 

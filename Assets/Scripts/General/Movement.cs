@@ -10,7 +10,10 @@ public class Movement : MonoBehaviour
 
     // It needs to have a way to change it in unity depending on the level
     // I'll let you do that, I have kinda an idea but I don't want to touch your code to much
-    public float speed = 6f;
+    
+
+    public Vector3 topRightLimit;
+    public Vector3 bottomLeftLimit;
 
 
     public void MovementController()
@@ -23,7 +26,7 @@ public class Movement : MonoBehaviour
 
     }
 
-    public virtual void Moving(Rigidbody rigidbody)
+    public virtual void Moving(Rigidbody rigidbody, float speed)
     {
 
     }

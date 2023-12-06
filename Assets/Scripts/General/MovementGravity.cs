@@ -19,7 +19,7 @@ public class MovementGravity : Movement
 
     }
 
-    public override void Moving(Rigidbody rigidbody)
+    public override void Moving(Rigidbody rigidbody, float speed)
     {
         rigidbody.velocity = new Vector3(Input.GetAxis("Horizontal") * speed, rigidbody.velocity.y, 0);
     }
