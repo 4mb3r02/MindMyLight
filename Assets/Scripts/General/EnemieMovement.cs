@@ -15,7 +15,6 @@ public class EnemieMovement : MonoBehaviour
     private Quaternion Quaternion_Rotate_To;
 
     private float changeDirectionCooldown;
-    public PlayerAwareness playerAwareness;
     Rigidbody enemyBody;
     float angleChange;
     GameObject player;
@@ -26,11 +25,6 @@ public class EnemieMovement : MonoBehaviour
         changeDirectionCooldown = 5.0f;
         enemyBody = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
-    }
-
-    private void DamagePlayer()
-    {
-        //make player take damage
     }
 
     public Quaternion FindPlayerDirection()
