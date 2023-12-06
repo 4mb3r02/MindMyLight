@@ -13,7 +13,7 @@ namespace Assets.Scripts.LevelSelector
     public class PlayLevelButton
     {
         private readonly Button _playLevelButton;
-        private const string ImagePath = "Assets/Images/LevelSelector";
+        private const string ImagePath = "Assets/Images/Level Selector";
 
         public TemplateContainer Reference { get; }
         public bool Visible { get; private set; }
