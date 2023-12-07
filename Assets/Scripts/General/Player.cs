@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private Rigidbody rigidbodyComponent;
     private bool canMove = true;
     private bool canJump = true;
+    static int lives = 3;
 
     public float speed = 6f;
 
@@ -96,6 +97,19 @@ public class Player : MonoBehaviour
     }
 
 
+
+    public void TakeDamage()
+    {
+        lives = lives - 1;
+        //set model ( array )
+        Debug.Log("Amound of lives:" + lives);
+        if (lives <= 0)
+        {
+            Debug.Log("player dies");
+            //Destroy(rigidbodyComponent);//get game over screen;
+        }
+
+    }
 
     public void AllowMovement() {canMove = true;}
     public void BlockMovement() {canMove = false;}

@@ -124,7 +124,7 @@ public class AudioManager : MonoBehaviour
 
     public void TouchColliderSoundf(Collider other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 9)
         {
             Debug.Log("I'm starting the music!");
             StartMusic();
