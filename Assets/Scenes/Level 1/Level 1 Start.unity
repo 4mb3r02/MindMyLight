@@ -1089,7 +1089,10 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 55
+  gravity: 0
   movement: {fileID: 0}
+  animation: {fileID: 0}
+  speed: 6
   topRightLimitGameobject: {fileID: 930044216}
   bottomLeftLimitGameobject: {fileID: 1968618201}
 --- !u!114 &1248479478
