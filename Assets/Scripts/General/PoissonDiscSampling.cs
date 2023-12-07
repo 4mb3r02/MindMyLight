@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Assets.Scripts.General
@@ -6,11 +7,21 @@ namespace Assets.Scripts.General
     // https://www.youtube.com/watch?v=7WcmyxyFO7o
     public static class PoissonDiscSampling
     {
-        public static List<Vector2> GeneratePoints(float radius, Vector2 sampleRegionSize, int numSamplesBeforeRejection = 30)
+        public static List<Vector2> GeneratePoints(float radius, Vector2 sampleRegionSize)
+        {
+            float cellSize = radius / Mathf.Sqrt(2);
+            int x = Mathf.CeilToInt(sampleRegionSize.x / cellSize);
+            int y = Mathf.CeilToInt(sampleRegionSize.y / cellSize);
+            int numSamplesBeforeRejection = x * y;
+
+            return GeneratePoints(radius, sampleRegionSize, numSamplesBeforeRejection);
+        }
+        public static List<Vector2> GeneratePoints(float radius, Vector2 sampleRegionSize, int numSamplesBeforeRejection)
         {
             float cellSize = radius / Mathf.Sqrt(2);
 
             int[,] grid = new int[Mathf.CeilToInt(sampleRegionSize.x / cellSize), Mathf.CeilToInt(sampleRegionSize.y / cellSize)];
+
             var points = new List<Vector2>();
             var spawnPoints = new List<Vector2>
             {

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using Assets.Scripts.General;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,23 +12,22 @@ public class LevelGenerator : MonoBehaviour
     [field: SerializeField]
     public GameObject CloudPrefab { get; set; }
 
+    [field: SerializeField] 
+    public GameObject BackgroundLayer { get; set; }
+
+    [field: SerializeField] 
+    public int DistanceBetweenRadius { get; set; } = 50;
+
     // Start is called before the first frame update
     void Start()
     {
-        var rectSize =/* this.gameObject.*/GetComponent<RectTransform>().rect.size;
-        var radius = 25;
-        float cellSize = radius / Mathf.Sqrt(2);
+        var rectSize = BackgroundLayer.GetComponent<RectTransform>().rect.size;
 
-        int[,] grid = new int[Mathf.CeilToInt(rectSize.x / cellSize), Mathf.CeilToInt(rectSize.y / cellSize)];
-        int x = grid.GetLength(0);
-        int y = grid.GetLength(1);
-
-        var points = PoissonDiscSampling.GeneratePoints(radius, rectSize, x * y);
+        var points = PoissonDiscSampling.GeneratePoints(DistanceBetweenRadius, rectSize);
         foreach (var point in points)
         {
-            var position = point;
-
-            Instantiate(CloudPrefab, position, Quaternion.identity);
+            var position = BackgroundLayer.transform.TransformPoint(point);
+            Instantiate(CloudPrefab, position, Quaternion.identity, BackgroundLayer.transform);
         }
     }
 
