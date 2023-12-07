@@ -51,6 +51,7 @@ public class AutoAnimation : MonoBehaviour
             checkColl = false;
             Debug.Log("Im free!");
             
+            // Starts the dialogue
             FindObjectOfType<DialogueTrigger>().TriggerDialogue();
 
             // We need to start an animation here that goes from the point where the player is to Breze and the next scene starts -- Artists Work 
