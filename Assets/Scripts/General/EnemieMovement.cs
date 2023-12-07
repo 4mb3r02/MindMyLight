@@ -25,14 +25,15 @@ public class EnemieMovement : MonoBehaviour
         changeDirectionCooldown = 5.0f;
         enemyBody = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
+        Debug.Log(transform);
     }
 
     public Quaternion FindPlayerDirection()
     {
         Vector3 direction = player.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.z) * Mathf.Rad2Deg;
 
-        targetDirection.z = angle - 90;
+        targetDirection.x = angle - 90;
         return targetDirection;
     }
 
@@ -47,7 +48,7 @@ public class EnemieMovement : MonoBehaviour
         if (changeDirectionCooldown <= 0)
         {
             angleChange = Random.Range(rotationRangeLeft, rotationRangeRight);
-            targetDirection.z = targetDirection.z + angleChange;
+            targetDirection.x = targetDirection.x + angleChange;
             changeDirectionCooldown = Random.Range(cooldownTimeMin, cooldownTimeMax);
         }
         return targetDirection;
@@ -56,7 +57,7 @@ public class EnemieMovement : MonoBehaviour
     public void UpdateRotation(Quaternion rotate, float turnSpeed)
     {
         Quaternion_Rotate_From = transform.rotation;
-        Quaternion_Rotate_To = Quaternion.Euler(0, 0, rotate.z);
+        Quaternion_Rotate_To = Quaternion.Euler(rotate.x, 270, 0);
         transform.rotation = Quaternion.Lerp(Quaternion_Rotate_From, Quaternion_Rotate_To, Time.deltaTime * turnSpeed);
     }
 }

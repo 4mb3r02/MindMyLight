@@ -32,6 +32,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         GetSharkBehaviour();
+        
     }
     private void GetSharkBehaviour()
     {

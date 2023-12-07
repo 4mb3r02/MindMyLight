@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -297,12 +297,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1452939713}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &255945313 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8967527084884577972, guid: 97041fffa6ea4894aa1d8b12f5123331,
-    type: 3}
-  m_PrefabInstance: {fileID: 575155044}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &335495420
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +438,7 @@ PrefabInstance:
     - target: {fileID: 1497123032076187092, guid: 97041fffa6ea4894aa1d8b12f5123331,
         type: 3}
       propertyPath: m_Name
-      value: Spawner (1)
+      value: 'Spawner '
       objectReference: {fileID: 0}
     - target: {fileID: 8967527084884577972, guid: 97041fffa6ea4894aa1d8b12f5123331,
         type: 3}
@@ -735,20 +729,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Stardust
-    enemy: {fileID: 6758861130678720640, guid: acf2955ef2ad45b4196e436a5e08b1a1, type: 3}
+    enemy: {fileID: 1342566706545245292, guid: 52b903f3f0983ff4b9052a257d6144a9, type: 3}
     collectible: {fileID: 5864449325433754980, guid: f1619aa0c08cfbb47a5e687b2a115137,
       type: 3}
     count: 1
     rate: 1
   - name: Stardust
-    enemy: {fileID: 6758861130678720640, guid: acf2955ef2ad45b4196e436a5e08b1a1, type: 3}
+    enemy: {fileID: 1342566706545245292, guid: 52b903f3f0983ff4b9052a257d6144a9, type: 3}
     collectible: {fileID: 5864449325433754980, guid: f1619aa0c08cfbb47a5e687b2a115137,
       type: 3}
     count: 2
     rate: 1
   spawnPoints:
   - {fileID: 1839449448}
-  - {fileID: 255945313}
+  - {fileID: 691959063}
   enemySpawnPoints:
   - {fileID: 1368295400}
   - {fileID: 1474091213}
@@ -770,7 +764,7 @@ Transform:
   - {fileID: 1368295400}
   - {fileID: 1474091213}
   - {fileID: 238163219}
-  - {fileID: 255945313}
+  - {fileID: 691959063}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893624559
