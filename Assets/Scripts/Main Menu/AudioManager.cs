@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class AudioManager : MonoBehaviour
 {
+
+    // ===================================== DECLARATIONS =====================================
     //Message in the unity interface
     [Header("----------- Audio Source -----------")]
     
@@ -13,12 +17,14 @@ public class AudioManager : MonoBehaviour
 
     [Header("----------- Audio Clip -----------")]
 
-    public AudioClip backgroundMusic;
+    public AudioClip backgroundMusicMMenu;
+    public AudioClip backgroundMusiclvl2;
     public AudioClip birds;
     public AudioClip treeWind;
     public AudioClip stepsGrass;
 
     private bool playerIsMoving = true;
+    private int NumScene;
 
 
     //public AudioClip clickSound;
@@ -26,9 +32,17 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
 
+    // ===================================== ONENABLE / AWAKE / START / UPDATE =====================================
+
+    private void OnEnable()
+    {
+        // Ejecutes OnSceneLoades
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -39,47 +53,89 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
-    //This starts when the scene charges
     private void Start()
     {
-        musicSource.clip = backgroundMusic;
-        musicSource.Play();
-
-        SFXbirds.clip = birds;
-        SFXbirds.Play();
-
-        SFXgrass.clip = stepsGrass;
 
     }
 
     void Update()
     {
-        IsPlayerMoving();
-        
-        if (!SFXgrass.isPlaying)
+        //Debug.Log(scene);
+
+
+        // Lvl 1
+        if (NumScene == 2)
         {
-            IsMovingGrass();
+
         }
-        
+        // Lvl 2
+        else if (NumScene == 3)
+        {
+            IsPlayerMoving();
+
+            if (!SFXgrass.isPlaying)
+            {
+                IsMovingGrass();
+            }
+        }
     }
 
-    //Gets a clip of audio and plays it
+    // ===================================== METHODS =====================================
+    
+    // This method is called each time a scene is called
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        NumScene = SceneManager.GetActiveScene().buildIndex;
+
+        Debug.Log("Escena cargada: " + scene.name);
+
+        Debug.Log(NumScene);
+
+        if (NumScene == 0)
+        {
+            musicSource.clip = backgroundMusicMMenu;
+            musicSource.Play();
+
+        }
+
+        if (NumScene == 3)
+        {
+            Debug.Log("Este es el start que solo se ve en la escena 3");
+            musicSource.Stop();
+
+            //SI
+            musicSource.clip = backgroundMusiclvl2;
+
+            //NO
+            SFXbirds.clip = birds;
+            SFXbirds.Play();
+
+            //SI
+            SFXgrass.clip = stepsGrass;
+        }
+    }
+
+    
+
     public void playSFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);    
     }
 
-    public void TouchColliderSoundf()
+    public void TouchColliderSoundf(Collider other)
     {
-
+        if (other.gameObject.layer == 7)
+        {
+            Debug.Log("I'm starting the music!");
+            StartMusic();
+        }
     }
 
     public void IsMovingGrass()
     {
         if(playerIsMoving)
         {
-            Debug.Log("I'm walking on grass!");
+            //Debug.Log("I'm walking on grass!");
             SFXgrass.Play();
         }
     }
@@ -89,13 +145,27 @@ public class AudioManager : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             playerIsMoving = true;
-            Debug.Log("Im pressing it!");
+            //Debug.Log("Im pressing it!");
         }
         else
         {
             playerIsMoving = false;
-            Debug.Log("QUIETO!");
+            //Debug.Log("QUIETO!");
             SFXgrass.Stop();
+        }
+    }
+
+    public void StartMusic()
+    {
+        if(musicSource.isPlaying)
+        {
+            Debug.Log("The music is alrready playing!!");
+            return;
+        }
+        else
+        {
+            musicSource.Play();
+
         }
     }
 }

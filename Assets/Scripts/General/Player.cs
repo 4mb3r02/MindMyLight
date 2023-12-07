@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public bool gravity;
     public Movement movement;
     public new AutoAnimation animation;
+    public AudioManager manager;
 
     private Rigidbody rigidbodyComponent;
     private bool canMove = true;
@@ -30,6 +31,20 @@ public class Player : MonoBehaviour
         } else
         {
             movement = gameObject.AddComponent(typeof(MovementGravity)) as MovementGravity;
+        }
+
+        // Finds the object that doesn't die from the first scene
+        GameObject oldObject = GameObject.Find("AudioManager");
+
+        if (oldObject != null)
+        {
+            // Access the script of the persistant object and asigns the component
+            AudioManager oldScript = oldObject.GetComponent<AudioManager>();
+
+            if (oldScript != null)
+            {
+                manager = oldScript;
+            }
         }
 
     }
@@ -69,7 +84,18 @@ public class Player : MonoBehaviour
             Debug.Log("Im not finding the script, animation is null. Try to add the player Script to animation");
         }
 
+        if (manager != null)
+        {
+            manager.TouchColliderSoundf(other);
+        }
+        else
+        {
+            Debug.Log("Im not finding the script, manager is null.");
+        }
+
     }
+
+
 
     public void AllowMovement() {canMove = true;}
     public void BlockMovement() {canMove = false;}

@@ -8,27 +8,6 @@ using UnityEngine.Audio;
 public class MainMenu : MonoBehaviour
 {
 
-    AudioManager audioManager;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
-    //This method is called when the object inicialites
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
     // ===================================== PLAY GAME =====================================
     public void PlayGame()
     {
@@ -36,8 +15,6 @@ public class MainMenu : MonoBehaviour
         // We change it from 0 to 1
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
-
 
 
     // ===================================== VOLUME SETTINGS =====================================
