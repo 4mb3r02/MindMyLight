@@ -11,66 +11,52 @@ using UnityEngine;
 
 public class EnemieMovement : MonoBehaviour
 {
-    
-    int movementSpeed = 1;
-    float rotationRangeLeft = -180f;
-    float rotationRangeRight = 180f;
-    float cooldownTimeMin = 3f;
-    float cooldownTimeMax = 8f;
-    float turnSpeed = 2;
     private Quaternion Quaternion_Rotate_From;
     private Quaternion Quaternion_Rotate_To;
 
     private float changeDirectionCooldown;
     Rigidbody enemyBody;
-    Quaternion currentRotation;
     float angleChange;
+    GameObject player;
 
-    Quaternion _targetDirection;
+    Quaternion targetDirection;
     public void Awake()
     {
-        Random.seed = System.DateTime.Now.Millisecond;
-        changeDirectionCooldown = Random.Range(cooldownTimeMin, cooldownTimeMax);
+        changeDirectionCooldown = 5.0f;
         enemyBody = GetComponent<Rigidbody>();
-        currentRotation = new Quaternion(0, 0, gameObject.transform.rotation.z, 1); ;
+        player = GameObject.FindWithTag("Player");
     }
 
-    private void FixedUpdate()
+    public Quaternion FindPlayerDirection()
     {
-        Move();
-        GetRotationChange();
-        UpdateRotation();
+        Vector3 direction = player.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        targetDirection.z = angle - 90;
+        return targetDirection;
     }
 
-    private void Move()
+    public void MoveForward(int movementSpeed)
     {
         enemyBody.velocity = transform.up * movementSpeed;
     }
 
-    private void GetRotationChange()
+    public Quaternion GenerateRandomRotation(float rotationRangeLeft, float rotationRangeRight, float cooldownTimeMin, float cooldownTimeMax)
     {
-        
         changeDirectionCooldown -= Time.deltaTime;
         if (changeDirectionCooldown <= 0)
         {
             angleChange = Random.Range(rotationRangeLeft, rotationRangeRight);
-            _targetDirection.z = _targetDirection.z + angleChange;
+            targetDirection.z = targetDirection.z + angleChange;
             changeDirectionCooldown = Random.Range(cooldownTimeMin, cooldownTimeMax);
-            currentRotation.z = gameObject.transform.rotation.z;
         }
+        return targetDirection;
     }
-    private void UpdateRotation()
+
+    public void UpdateRotation(Quaternion rotate, float turnSpeed)
     {
         Quaternion_Rotate_From = transform.rotation;
-        Quaternion_Rotate_To = Quaternion.Euler(0, 0, _targetDirection.z);
+        Quaternion_Rotate_To = Quaternion.Euler(0, 0, rotate.z);
         transform.rotation = Quaternion.Lerp(Quaternion_Rotate_From, Quaternion_Rotate_To, Time.deltaTime * turnSpeed);
-    }
-
-
-    public void setEnemieMovement()
-    {
-        Move();
-        GetRotationChange();
-        UpdateRotation();
     }
 }

@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private Rigidbody rigidbodyComponent;
     private bool canMove = true;
     private bool canJump = true;
+    static int lives = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +65,19 @@ public class Player : MonoBehaviour
         else
         {
             Debug.Log("Im not finding the script, animation is null. Try to add the player Script to animation");
+        }
+
+    }
+
+    public void TakeDamage()
+    {
+        lives = lives - 1;
+        //set model ( array )
+        Debug.Log("Amound of lives:" + lives);
+        if (lives <= 0)
+        {
+            Debug.Log("player dies");
+            //Destroy(rigidbodyComponent);//get game over screen;
         }
 
     }
