@@ -729,13 +729,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Stardust
-    enemy: {fileID: 1342566706545245292, guid: 52b903f3f0983ff4b9052a257d6144a9, type: 3}
+    enemy: {fileID: 5209583064908883283, guid: ef0f00393c46eb24c98d1bda5828122a, type: 3}
     collectible: {fileID: 5864449325433754980, guid: f1619aa0c08cfbb47a5e687b2a115137,
       type: 3}
     count: 1
     rate: 1
   - name: Stardust
-    enemy: {fileID: 1342566706545245292, guid: 52b903f3f0983ff4b9052a257d6144a9, type: 3}
+    enemy: {fileID: 5209583064908883283, guid: ef0f00393c46eb24c98d1bda5828122a, type: 3}
     collectible: {fileID: 5864449325433754980, guid: f1619aa0c08cfbb47a5e687b2a115137,
       type: 3}
     count: 2
