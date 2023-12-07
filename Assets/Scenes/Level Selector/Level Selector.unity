@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -314,7 +314,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b41309d52609b441bc24fd01ebd4dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LevelCount>k__BackingField: 2
+  LevelCount: 2
+  PlayLevelButtonSoundEffect: {fileID: 8300000, guid: 17d2175adadff244aa69309a1a0296fb,
+    type: 3}
+  HomeButtonSoundEffect: {fileID: 8300000, guid: 803d89894165ed1448113c1592ac19f1,
+    type: 3}
 --- !u!1 &422211665
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,8 +350,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 8079987}
   SFXSource: {fileID: 2019172841}
-  backgroundMusic: {fileID: 8300000, guid: 5efce57fb87fb4f4882744e392f93867, type: 3}
-  clickSound: {fileID: 8300000, guid: 1535fb3674649b4448f47e3d05e2b364, type: 3}
+  SFXgrass: {fileID: 0}
+  SFXbirds: {fileID: 0}
+  backgroundMusicMMenu: {fileID: 0}
+  backgroundMusiclvl2: {fileID: 0}
+  birds: {fileID: 0}
+  treeWind: {fileID: 0}
+  stepsGrass: {fileID: 0}
 --- !u!4 &422211667
 Transform:
   m_ObjectHideFlags: 0

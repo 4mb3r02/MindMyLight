@@ -8,8 +8,13 @@ namespace Assets.Scripts.LevelSelector
 {
     public class LevelSelectorPresenter : MonoBehaviour
     {
-        [field: SerializeField]
-        public int LevelCount { get; set; } = 2;
+        [Header("----------- General ---------")]
+        public int LevelCount = 2;
+
+        [Header("----------- Audio -----------")]
+        public AudioClip PlayLevelButtonSoundEffect;
+        public AudioClip HomeButtonSoundEffect;
+
 
         private const int PageCount = 3;
 
@@ -26,7 +31,10 @@ namespace Assets.Scripts.LevelSelector
             playLevelButtons = new PlayLevelButton[PageCount];
             for (int i = 0; i < PageCount; i++)
             {
-                playLevelButtons[i] = new PlayLevelButton(root.Q<TemplateContainer>($"PlayButton{i + 1}"));
+                playLevelButtons[i] = new PlayLevelButton(root.Q<TemplateContainer>($"PlayButton{i + 1}"))
+                {
+                    PlayLevelSoundEffect = PlayLevelButtonSoundEffect
+                };
             }
             
             // Initialize level buttons
@@ -39,6 +47,7 @@ namespace Assets.Scripts.LevelSelector
 
         public void OnHomeClicked()
         {
+            AudioManager.instance.playSFX(HomeButtonSoundEffect);
             SceneLoader.LoadMainMenu();
         }
 

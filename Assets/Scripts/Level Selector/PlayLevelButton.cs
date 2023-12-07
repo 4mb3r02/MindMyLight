@@ -18,6 +18,7 @@ namespace Assets.Scripts.LevelSelector
         public TemplateContainer Reference { get; }
         public bool Visible { get; private set; }
         public int Level { get; private set; }
+        public AudioClip PlayLevelSoundEffect { get; set; }
 
         public PlayLevelButton(TemplateContainer reference)
         {
@@ -59,7 +60,10 @@ namespace Assets.Scripts.LevelSelector
         public void OnPlayClicked()
         {
             if (Visible)
+            {
+                AudioManager.instance.playSFX(PlayLevelSoundEffect);
                 SceneLoader.LoadLevel(Level);
+            }
         }
     }
 
