@@ -6,9 +6,6 @@ public class CameraNoRotate : MonoBehaviour
 {
     Vector3 offset;
 
-    Vector3 newpos;
-    private Quaternion myRotation;
-
     public GameObject player;
     // Start is called before the first frame update
     void Start()
