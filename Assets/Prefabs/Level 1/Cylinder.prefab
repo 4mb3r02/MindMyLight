@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6783623134379976869}
   - component: {fileID: 262215988228484372}
   - component: {fileID: 7407792816912701406}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcb68572dbdc2346a72f9559d1f68be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: {fileID: 0}
+  player: {fileID: 0}

@@ -76,11 +76,13 @@
     <Compile Include="Assets\Scripts\General\Collector.cs" />
     <Compile Include="Assets\Scripts\Level 1\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\General\EndScreen.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\General\MovementNoGravity.cs" />
     <Compile Include="Assets\Scripts\General\SceneLoader.cs" />
     <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
     <Compile Include="Assets\Scripts\General\EnemieMovement.cs" />
+    <Compile Include="Assets\Scripts\General\SceneChange.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
   </ItemGroup>
   <ItemGroup>

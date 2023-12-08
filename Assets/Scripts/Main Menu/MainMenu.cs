@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
     {
         // A way to change the scene with the Scene Manager -- File/ Build Settings/ Sccenes in Build
         // We change it from 0 to 1
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

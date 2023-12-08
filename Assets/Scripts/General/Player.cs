@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public bool gravity;
     public Movement movement;
     public new AutoAnimation animation;
-
+    public EndScreen endScreen;
     private Rigidbody rigidbodyComponent;
     private bool canMove = true;
     private bool canJump = true;
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         Debug.Log("Amound of lives:" + lives);
         if (lives <= 0)
         {
-            Debug.Log("player dies");
+            endScreen.TurnOnDeathScreen();
             //Destroy(rigidbodyComponent);//get game over screen;
         }
 
