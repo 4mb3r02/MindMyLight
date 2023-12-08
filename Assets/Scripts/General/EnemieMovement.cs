@@ -19,19 +19,14 @@ public class EnemieMovement : MonoBehaviour
     float angleChange;
     GameObject player;
 
-    public Vector3 topRightLimit;
-    public Vector3 bottomLeftLimit;
-
     Quaternion targetDirection;
-
-    Borders border;
     public void Awake()
     {
         changeDirectionCooldown = 5.0f;
         enemyBody = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
         Debug.Log(transform);
-        border = gameObject.AddComponent(typeof(Borders)) as Borders;
+
     }
 
     public Quaternion FindPlayerDirection()
@@ -43,9 +38,8 @@ public class EnemieMovement : MonoBehaviour
         return targetDirection;
     }
 
-    public void MoveForward(int movementSpeed, Rigidbody rigidbody)
-    {
-        border.BorderCollitionEnemy(rigidbody, bottomLeftLimit, topRightLimit);
+    public void MoveForward(int movementSpeed)
+    { 
         enemyBody.velocity = transform.up * movementSpeed;
     }
 

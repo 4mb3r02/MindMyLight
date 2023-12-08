@@ -17,10 +17,14 @@ public class NewBehaviourScript : MonoBehaviour
     float cooldownTimeMin = 3f;
     float cooldownTimeMax = 8f;
 
+    public Vector3 topRightLimit;
+    public Vector3 bottomLeftLimit;
+
     private Rigidbody rigidbodyComponent;
 
     EnemieMovement enemyMovement;
     GameObject player;
+    Borders border;
 
     // Start is called before the first frame update
     void Start()
@@ -28,14 +32,18 @@ public class NewBehaviourScript : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         rigidbodyComponent = GetComponent<Rigidbody>();
         enemyMovement = gameObject.AddComponent(typeof(EnemieMovement)) as EnemieMovement;
+        border = gameObject.AddComponent(typeof(Borders)) as Borders;
+        bottomLeftLimit = GameObject.Find("BottomLeftLimit").transform.position;
+        topRightLimit = GameObject.Find("TopRightLimit").transform.position;
         enemyMovement.Awake();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         GetSharkBehaviour();
-        
+
     }
     private void GetSharkBehaviour()
     {
@@ -51,13 +59,13 @@ public class NewBehaviourScript : MonoBehaviour
     } 
     private void SharkCharge()
     {
-        enemyMovement.MoveForward(chargeSpeed, rigidbodyComponent);
+        enemyMovement.MoveForward(chargeSpeed);
         enemyMovement.UpdateRotation(enemyMovement.FindPlayerDirection(), turnSpeed);
     }
     
     private void SharkRoam()
     {
-        enemyMovement.MoveForward(roamSpeed, rigidbodyComponent);
+        enemyMovement.MoveForward(roamSpeed);
         enemyMovement.UpdateRotation(enemyMovement.GenerateRandomRotation(rotationRangeLeft, rotationRangeRight, cooldownTimeMin, cooldownTimeMax), turnSpeed);
     }
 }
