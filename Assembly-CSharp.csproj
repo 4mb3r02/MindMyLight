@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Level 2\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
     <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
+    <Compile Include="Assets\Scripts\General\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Level 2\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Level 1\Wave.cs" />

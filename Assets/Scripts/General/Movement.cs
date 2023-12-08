@@ -7,6 +7,9 @@ public class Movement : MonoBehaviour
 
     public string test;
     public bool JumpKeyWasPressed;
+    public bool leftOrRight;
+    public enum MovementDirection { IDLE, RIGHT, LEFT };
+    public MovementDirection movementDirection = MovementDirection.IDLE;
 
     // It needs to have a way to change it in unity depending on the level
     // I'll let you do that, I have kinda an idea but I don't want to touch your code to much
@@ -23,6 +26,15 @@ public class Movement : MonoBehaviour
             JumpKeyWasPressed = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            movementDirection = MovementDirection.RIGHT;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            movementDirection = MovementDirection.LEFT;
+        }
 
     }
 

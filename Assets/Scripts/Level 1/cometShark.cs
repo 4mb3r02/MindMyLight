@@ -17,6 +17,8 @@ public class NewBehaviourScript : MonoBehaviour
     float cooldownTimeMin = 3f;
     float cooldownTimeMax = 8f;
 
+    private Rigidbody rigidbodyComponent;
+
     EnemieMovement enemyMovement;
     GameObject player;
 
@@ -24,6 +26,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        rigidbodyComponent = GetComponent<Rigidbody>();
         enemyMovement = gameObject.AddComponent(typeof(EnemieMovement)) as EnemieMovement;
         enemyMovement.Awake();
     }
@@ -48,13 +51,13 @@ public class NewBehaviourScript : MonoBehaviour
     } 
     private void SharkCharge()
     {
-        enemyMovement.MoveForward(chargeSpeed);
+        enemyMovement.MoveForward(chargeSpeed, rigidbodyComponent);
         enemyMovement.UpdateRotation(enemyMovement.FindPlayerDirection(), turnSpeed);
     }
     
     private void SharkRoam()
     {
-        enemyMovement.MoveForward(roamSpeed);
+        enemyMovement.MoveForward(roamSpeed, rigidbodyComponent);
         enemyMovement.UpdateRotation(enemyMovement.GenerateRandomRotation(rotationRangeLeft, rotationRangeRight, cooldownTimeMin, cooldownTimeMax), turnSpeed);
     }
 }

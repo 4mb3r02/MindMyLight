@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public GameObject topRightLimitGameobject;
     public GameObject bottomLeftLimitGameobject;
 
-    public float speed = 6f;
+    
 
 
     // Start is called before the first frame update
@@ -79,6 +79,20 @@ public class Player : MonoBehaviour
         {
             movement.Moving(rigidbodyComponent, speed);
         }
+
+        if (movement.movementDirection.Equals(Movement.MovementDirection.RIGHT))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * 5f);
+        } 
+        else if (movement.movementDirection.Equals(Movement.MovementDirection.LEFT))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, -90, 0), Time.deltaTime * 5f);
+        } 
+        else if (movement.movementDirection.Equals(Movement.MovementDirection.IDLE))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * 5f);
+        }
+
     }
 
     // For the animation
