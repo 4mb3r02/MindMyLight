@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+            //gameObject.AddComponent(typeof(EndScreen)) as EndScreen;
         rigidbodyComponent = GetComponent<Rigidbody>();
         if (gravity == false)
         {
@@ -92,21 +94,26 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("Im not finding the script, manager is null.");
+           Debug.Log("Im not finding the script, manager is null.");
         }
 
-    }
+   }
 
 
 
     public void TakeDamage()
     {
+        //EndScreen endScreen = GetComponent<EndScreen>();
+        //Debug.Log("Amound of lives:" + lives);
+        Debug.Log(EndScreen.instance);
         lives = lives - 1;
         //set model ( array )
-        Debug.Log("Amound of lives:" + lives);
+        
         if (lives <= 0)
         {
-            endScreen.TurnOnDeathScreen();
+            EndScreen.instance.TurnOnDeathScreen();
+            
+            //Destroy(gameObject);
             //Destroy(rigidbodyComponent);//get game over screen;
         }
 

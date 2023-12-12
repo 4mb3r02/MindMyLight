@@ -6,30 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour
 {
-    GameObject endScreen;
+    public static EndScreen instance;
+
+    [SerializeField] GameObject deathScreen;
+    [SerializeField] GameObject succeedScreen;
+
     GameObject youDied;
     GameObject mainMenuButton;
     GameObject retryButton;
     // Start is called before the first frame update
     public void Start()
     {
-        endScreen = GameObject.Find("End Screen");
-    }
-
-    // Update is called once per frame
-    public void Update()
-    {
-        
-    }
-
-    public void ShowDeathScreen()
-    {
-
-    }
-
-    public void ShowSucceedScreen()
-    {
-
+        Debug.Log("test");
+        if (EndScreen.instance == null)
+        {
+            instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }     
     }
 
     public void GetScene()
@@ -42,9 +37,27 @@ public class EndScreen : MonoBehaviour
         SceneLoader.LoadMainMenu();
     }
 
+    public void LoadNextLevel()
+    {
+        SceneLoader.LoadLevel(2);
+        //make non harcore
+    }
+
+    public void reloadLevel()
+    {
+        SceneLoader.LoadLevel(1);
+        //make non hardcode
+    }
+
     public void TurnOnDeathScreen()
     {
-        endScreen.SetActive(true);
+       // Debug.Log("player died");
+        deathScreen.SetActive(true);
+    }
+
+    public void TurnOnSucceedScreen()
+    {
+        succeedScreen.SetActive(true);
     }
     
 }
