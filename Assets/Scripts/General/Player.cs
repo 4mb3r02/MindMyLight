@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     public EndScreen endScreen;
     private Rigidbody rigidbodyComponent;
-    private bool canMove = true;
+    private bool canMove;
     private bool canJump = true;
     static int lives = 3;
     public float speed;
@@ -25,13 +25,17 @@ public class Player : MonoBehaviour
     public GameObject topRightLimitGameobject;
     public GameObject bottomLeftLimitGameobject;
 
-    
+    private WaveSpawner waveSpawner;
 
 
     // Start is called before the first frame update
     void Start()
     {
 
+        canMove = true;
+        Debug.Log("does it call?");
+        waveSpawner = GetComponent<WaveSpawner>();
+        lives = 3;
         rigidbodyComponent = GetComponent<Rigidbody>();
         if (gravity == false)
         {
@@ -57,7 +61,7 @@ public class Player : MonoBehaviour
                 manager = oldScript;
             }
         }
-
+        
     }
 
     // Update is called once per frame
@@ -65,6 +69,7 @@ public class Player : MonoBehaviour
     {
         if (canMove)
         {
+            Debug.Log("moves1" + canMove);
             movement.MovementController();
         }
     }
@@ -78,6 +83,7 @@ public class Player : MonoBehaviour
 
         if (canMove)
         {
+            Debug.Log("moves2" + canMove);
             movement.Moving(rigidbodyComponent, speed);
         }
 
@@ -124,20 +130,22 @@ public class Player : MonoBehaviour
 
     public void TakeDamage()
     {
-        //EndScreen endScreen = GetComponent<EndScreen>();
-        //Debug.Log("Amound of lives:" + lives);
-        Debug.Log(EndScreen.instance);
+        Debug.Log("test instance:" + EndScreen.instance);
         lives = lives - 1;
-        //set model ( array )
         
         if (lives <= 0)
         {
             EndScreen.instance.TurnOnDeathScreen();
-            
-            //Destroy(gameObject);
-            //Destroy(rigidbodyComponent);//get game over screen;
+            BlockMovement();
+            Debug.Log("canMove :" + canMove);
         }
 
+    }
+
+    
+    public void DestroyPlayer()
+    {
+       // Destroy();
     }
 
     public void AllowMovement() {canMove = true;}

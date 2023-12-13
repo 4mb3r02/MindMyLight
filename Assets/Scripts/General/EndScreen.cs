@@ -17,7 +17,6 @@ public class EndScreen : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        Debug.Log("test");
         if (EndScreen.instance == null)
         {
             instance = this;
