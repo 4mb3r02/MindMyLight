@@ -83,18 +83,16 @@ public class WaveSpawner : MonoBehaviour
         yield break; 
     }
 
-    public void DestroyAllEnemies()
-    {
-        foreach (Transform _enemy in enemy)
-        {
-        Destroy(_enemy.gameObject);
-        }  
-    }
     void WaveIsCompleted()
     {
         Debug.Log("Wave completed");
 
-        DestroyAllEnemies();
+        
+        foreach (Transform _enemy in enemy)
+        {
+            Destroy(_enemy.gameObject);
+        }
+
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
@@ -102,10 +100,8 @@ public class WaveSpawner : MonoBehaviour
         if(nextWave + 1 > waves.Length - 1)
         {
             // needs to be end of level
-            //nextWave = 0;
+            nextWave = 0;
             Debug.Log("All waves completed looping");
-            EndScreen.instance.TurnOnSucceedScreen();
-            Destroy(gameObject);
         }
         else
         {
@@ -138,7 +134,7 @@ public class WaveSpawner : MonoBehaviour
         
         Transform _esp = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
 
-        enemy.Add( Instantiate(enemyInstance, _esp.position, enemyInstance.transform.rotation));
+        enemy.Add( Instantiate(enemyInstance, _esp.position, _esp.rotation));
 
         //Instantiate(_enemy, _sp.position, _sp.rotation);
         

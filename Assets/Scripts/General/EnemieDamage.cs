@@ -12,10 +12,9 @@ public class EnemieDamage : MonoBehaviour
        player = new Player();
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("test");
-        if(collider.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player")
         {
             player.TakeDamage();
         }

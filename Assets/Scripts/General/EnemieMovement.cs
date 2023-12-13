@@ -25,8 +25,6 @@ public class EnemieMovement : MonoBehaviour
         changeDirectionCooldown = 5.0f;
         enemyBody = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
-        Debug.Log(transform);
-
     }
 
     public Quaternion FindPlayerDirection()
@@ -39,7 +37,7 @@ public class EnemieMovement : MonoBehaviour
     }
 
     public void MoveForward(int movementSpeed)
-    { 
+    {
         enemyBody.velocity = transform.up * movementSpeed;
     }
 
