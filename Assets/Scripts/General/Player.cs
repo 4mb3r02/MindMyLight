@@ -15,8 +15,9 @@ public class Player : MonoBehaviour
     public new AutoAnimation animation;
     public AudioManager manager;
 
+    public EndScreen endScreen;
     private Rigidbody rigidbodyComponent;
-    private bool canMove = true;
+    private bool canMove;
     private bool canJump = true;
     static int lives = 3;
     public float speed;
@@ -24,13 +25,16 @@ public class Player : MonoBehaviour
     public GameObject topRightLimitGameobject;
     public GameObject bottomLeftLimitGameobject;
 
-    
+    private WaveSpawner waveSpawner;
 
 
     // Start is called before the first frame update
     void Start()
     {
 
+        canMove = true;
+        waveSpawner = GetComponent<WaveSpawner>();
+        lives = 3;
         rigidbodyComponent = GetComponent<Rigidbody>();
         if (gravity == false)
         {
@@ -56,7 +60,7 @@ public class Player : MonoBehaviour
                 manager = oldScript;
             }
         }
-
+        
     }
 
     // Update is called once per frame
@@ -114,22 +118,21 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("Im not finding the script, manager is null.");
+           Debug.Log("Im not finding the script, manager is null.");
         }
 
-    }
+   }
 
 
 
     public void TakeDamage()
     {
         lives = lives - 1;
-        //set model ( array )
-        Debug.Log("Amound of lives:" + lives);
+        
         if (lives <= 0)
         {
-            Debug.Log("player dies");
-            //Destroy(rigidbodyComponent);//get game over screen;
+            EndScreen.instance.TurnOnDeathScreen();
+            BlockMovement();
         }
 
     }
