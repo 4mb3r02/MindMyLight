@@ -18,7 +18,8 @@ public class NewBehaviourScript : MonoBehaviour
     float cooldownTimeMin = 3f;
     float cooldownTimeMax = 8f;
 
-    private float changeDirectionCooldown;
+    private bool rotationDone = true;
+    float rotationBorder;
 
     public Vector3 topRightLimit;
     public Vector3 bottomLeftLimit;
@@ -40,11 +41,13 @@ public class NewBehaviourScript : MonoBehaviour
         topRightLimit = GameObject.Find("TopRightLimit").transform.position;
         enemyMovement.Awake();
         
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(rotationDone);
         GetSharkBehaviour();
 
     }
@@ -62,37 +65,51 @@ public class NewBehaviourScript : MonoBehaviour
     } 
     private void SharkCharge()
     {
-        
         enemyMovement.MoveForward(chargeSpeed);
-        if (border.BorderCollitionEnemy(rigidbodyComponent, bottomLeftLimit, topRightLimit) )
+        if (border.BorderCollitionEnemy(rigidbodyComponent, bottomLeftLimit, topRightLimit, rotationDone))
         {
            
             Quaternion direction = new Quaternion();
-            direction.z += 180f;
+            direction.z += transform.rotation.z * -1;
+            rotationDone = false;
+            rotationBorder = direction.z;
             enemyMovement.UpdateRotation(direction, turnSpeed);
             
+
+        } else if (rotationBorder == transform.rotation.z && !rotationDone)
+        {
+            rotationDone = true;
         }
         else
         {
             enemyMovement.UpdateRotation(enemyMovement.FindPlayerDirection(), turnSpeed);
         }
+        
     }
     
     private void SharkRoam()
     {
-        
         enemyMovement.MoveForward(roamSpeed);
-        if (border.BorderCollitionEnemy(rigidbodyComponent, bottomLeftLimit, topRightLimit) )
+        if (border.BorderCollitionEnemy(rigidbodyComponent, bottomLeftLimit, topRightLimit, rotationDone))
         {
             
             Quaternion direction = new Quaternion();
-            direction.z += 180f;
-            enemyMovement.UpdateRotation(direction, turnSpeed);
-            
+            direction.z += transform.rotation.z * -1;
+            rotationDone = false;
+            rotationBorder = direction.z;
+            enemyMovement.UpdateRotation(direction, turnSpeed);   
         }
         else
         {
             enemyMovement.UpdateRotation(enemyMovement.GenerateRandomRotation(rotationRangeLeft, rotationRangeRight, cooldownTimeMin, cooldownTimeMax), turnSpeed);
         }
+        if (rotationBorder == transform.rotation.z && !rotationDone)
+        {
+            rotationDone = true;
+        }
+
+
+        
+
     }
 }

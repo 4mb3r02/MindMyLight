@@ -25,7 +25,6 @@ public class EnemieMovement : MonoBehaviour
         changeDirectionCooldown = 5.0f;
         enemyBody = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
-        Debug.Log(transform);
 
     }
 
@@ -58,6 +57,7 @@ public class EnemieMovement : MonoBehaviour
     public void UpdateRotation(Quaternion rotate, float turnSpeed)
     {
         Quaternion_Rotate_From = transform.rotation;
+        Debug.Log(Quaternion_Rotate_From);
         Quaternion_Rotate_To = Quaternion.Euler(0, 0, rotate.z);
         transform.rotation = Quaternion.Lerp(Quaternion_Rotate_From, Quaternion_Rotate_To, Time.deltaTime * turnSpeed);
     }

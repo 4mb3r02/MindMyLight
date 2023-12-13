@@ -21,17 +21,20 @@ public class Borders : MonoBehaviour
         }
     }
 
-    public bool BorderCollitionEnemy(Rigidbody rigidbody, Vector3 cornerBottomLeft, Vector3 cornerTopRight)
+    public bool BorderCollitionEnemy(Rigidbody rigidbody, Vector3 cornerBottomLeft, Vector3 cornerTopRight, bool rotationDone)
     {
         input = new Vector2(rigidbody.velocity.x, rigidbody.velocity.y);
+        
 
-        if ((rigidbody.position.x <= cornerBottomLeft.x) || (rigidbody.position.x >= cornerTopRight.x))
+        if (((rigidbody.position.x <= cornerBottomLeft.x) || (rigidbody.position.x >= cornerTopRight.x)) && rotationDone)
         {
             return true;
+            
         }
-        else if ((rigidbody.position.y <= cornerBottomLeft.y) || (rigidbody.position.y >= cornerTopRight.y))
+        else if (((rigidbody.position.y <= cornerBottomLeft.y) || (rigidbody.position.y >= cornerTopRight.y)) && rotationDone)
         {
             return true;
+            
         }
         else
         {
