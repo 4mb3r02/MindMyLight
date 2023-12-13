@@ -37,7 +37,7 @@ namespace Assets.Scripts.LevelSelector
             root.Q<VisualElement>("NextPageButton").visible = false;
         }
 
-        public void OnHomeClicked()
+        private void OnHomeClicked()
         {
             SceneLoader.LoadMainMenu();
         }
