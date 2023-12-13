@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     private bool canMove;
     private bool canJump = true;
     static int lives = 3;
-    public float speed;
 
     public GameObject topRightLimitGameobject;
     public GameObject bottomLeftLimitGameobject;
