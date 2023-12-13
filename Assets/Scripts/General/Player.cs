@@ -14,10 +14,15 @@ public class Player : MonoBehaviour
     public new AutoAnimation animation;
     public AudioManager manager;
 
+    public EndScreen endScreen;
     private Rigidbody rigidbodyComponent;
-    private bool canMove = true;
+    private bool canMove;
     private bool canJump = true;
     static int lives = 3;
+    public float speed;
+
+    public GameObject topRightLimitGameobject;
+    public GameObject bottomLeftLimitGameobject;
 
     public float speed = 6f;
 
@@ -25,6 +30,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        canMove = true;
+        lives = 3;
         rigidbodyComponent = GetComponent<Rigidbody>();
         if (gravity == false)
         {
@@ -47,7 +55,7 @@ public class Player : MonoBehaviour
                 manager = oldScript;
             }
         }
-
+        
     }
 
     // Update is called once per frame
@@ -70,6 +78,20 @@ public class Player : MonoBehaviour
         {
             movement.Moving(rigidbodyComponent, speed);
         }
+
+        if (movement.movementDirection.Equals(Movement.MovementDirection.RIGHT))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * 5f);
+        } 
+        else if (movement.movementDirection.Equals(Movement.MovementDirection.LEFT))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, -90, 0), Time.deltaTime * 5f);
+        } 
+        else if (movement.movementDirection.Equals(Movement.MovementDirection.IDLE))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * 5f);
+        }
+
     }
 
     // For the animation
@@ -91,22 +113,21 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("Im not finding the script, manager is null.");
+           Debug.Log("Im not finding the script, manager is null.");
         }
 
-    }
+   }
 
 
 
     public void TakeDamage()
     {
         lives = lives - 1;
-        //set model ( array )
-        Debug.Log("Amound of lives:" + lives);
+        
         if (lives <= 0)
         {
-            Debug.Log("player dies");
-            //Destroy(rigidbodyComponent);//get game over screen;
+            EndScreen.instance.TurnOnDeathScreen();
+            BlockMovement();
         }
 
     }
