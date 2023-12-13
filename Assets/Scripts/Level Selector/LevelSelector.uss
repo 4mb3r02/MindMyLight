@@ -28,8 +28,9 @@
 }
 
 #PlayButton2 {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 0;
 }
 
 .play-button:hover {
@@ -127,33 +128,32 @@
 .play-button-row {
     flex-grow: 1;
     flex-direction: row;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    margin-bottom: 0;
+    margin-top: 0;
     padding-top: 50px;
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
+    margin-right: 100px;
+    margin-left: 100px;
 }
 
 .container {
     flex-grow: 1;
     background-color: rgb(255, 255, 255);
-    padding-top: 4%;
+    padding-top: 2%;
     padding-right: 2%;
-    padding-bottom: 4%;
+    padding-bottom: 2%;
     padding-left: 2%;
 }
 
 .title {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    position: relative;
     align-items: auto;
     font-size: 72px;
     -unity-text-align: middle-center;
     -unity-font-style: bold;
+    flex-grow: 1;
 }
 
 .main-content {
@@ -183,6 +183,7 @@
     flex-grow: 0;
     height: 150px;
     flex-direction: row;
+    margin-bottom: 75px;
 }
 
 .home-button-icon {
@@ -201,12 +202,17 @@
     border-right-color: rgb(255, 255, 255);
     border-top-color: rgb(255, 255, 255);
     border-bottom-color: rgb(255, 255, 255);
-    position: relative;
-    width: 120px;
-    height: 120px;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
     align-self: center;
+}
+
+.footer {
+    height: 150px;
+    margin-bottom: 0;
 }

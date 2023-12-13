@@ -12,7 +12,7 @@
             <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="PreviousPageButton" class="page-arrow-container">
                 <ui:VisualElement class="page-arrow page-arrow-left" />
             </ui:Button>
-            <ui:VisualElement name="PlayButtonsList" class="play-button-row" style="visibility: visible; display: flex;">
+            <ui:VisualElement name="PlayButtonsList" class="play-button-row">
                 <ui:Instance template="PlayLevelButton" name="PlayButton1" class="play-button" />
                 <ui:Instance template="PlayLevelButton" name="PlayButton2" class="play-button" />
                 <ui:Instance template="PlayLevelButton" name="PlayButton3" class="play-button" />
@@ -21,5 +21,6 @@
                 <ui:VisualElement class="page-arrow page-arrow-right" />
             </ui:Button>
         </ui:VisualElement>
+        <ui:VisualElement class="footer" />
     </ui:VisualElement>
 </ui:UXML>

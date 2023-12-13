@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Windows;
 
 // DELETE THE COMENTS WHEN YOU HAVE IT CLEAR, THEY ARE JUST FOR NOT BURNING YOUR BRAIN ;)
 
@@ -25,21 +24,18 @@ public class Player : MonoBehaviour
     public GameObject topRightLimitGameobject;
     public GameObject bottomLeftLimitGameobject;
 
-    private WaveSpawner waveSpawner;
-
 
     // Start is called before the first frame update
     void Start()
     {
 
         canMove = true;
-        waveSpawner = GetComponent<WaveSpawner>();
         lives = 3;
         rigidbodyComponent = GetComponent<Rigidbody>();
         if (gravity == false)
         {
             movement = gameObject.AddComponent(typeof(MovementNoGravity)) as MovementNoGravity;
-
+            
             movement.bottomLeftLimit = bottomLeftLimitGameobject.transform.position;
             movement.topRightLimit = topRightLimitGameobject.transform.position;
         } else
