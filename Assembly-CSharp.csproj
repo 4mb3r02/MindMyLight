@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
     <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
     <Compile Include="Assets\Scripts\Level 2\LevelGenerator.cs" />
+    <Compile Include="Assets\Scripts\General\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Level 2\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Level 1\Wave.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\Scripts\Level 1\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Level 2\Collisions\HazardSpawner.cs" />
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\General\EndScreen.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\General\MovementNoGravity.cs" />
     <Compile Include="Assets\Scripts\Level 2\Collisions\Spike.cs" />
@@ -86,6 +88,7 @@
     <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
     <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
     <Compile Include="Assets\Scripts\General\EnemieMovement.cs" />
+    <Compile Include="Assets\Scripts\General\SceneChange.cs" />
     <Compile Include="Assets\Scripts\Level 2\Collisions\Bird.cs" />
     <Compile Include="Assets\Scripts\Level 2\Collisions\Balloon.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
