@@ -86,6 +86,7 @@
     <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
     <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
     <Compile Include="Assets\Scripts\General\EnemieMovement.cs" />
+    <Compile Include="Assets\Scripts\General\SceneChange.cs" />
     <Compile Include="Assets\Scripts\Level 2\Collisions\Bird.cs" />
     <Compile Include="Assets\Scripts\Level 2\Collisions\Balloon.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
