@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
     {
 
         canMove = true;
-        Debug.Log("does it call?");
         waveSpawner = GetComponent<WaveSpawner>();
         lives = 3;
         rigidbodyComponent = GetComponent<Rigidbody>();
@@ -69,7 +68,6 @@ public class Player : MonoBehaviour
     {
         if (canMove)
         {
-            Debug.Log("moves1" + canMove);
             movement.MovementController();
         }
     }
@@ -83,7 +81,6 @@ public class Player : MonoBehaviour
 
         if (canMove)
         {
-            Debug.Log("moves2" + canMove);
             movement.Moving(rigidbodyComponent, speed);
         }
 
@@ -130,22 +127,14 @@ public class Player : MonoBehaviour
 
     public void TakeDamage()
     {
-        Debug.Log("test instance:" + EndScreen.instance);
         lives = lives - 1;
         
         if (lives <= 0)
         {
             EndScreen.instance.TurnOnDeathScreen();
             BlockMovement();
-            Debug.Log("canMove :" + canMove);
         }
 
-    }
-
-    
-    public void DestroyPlayer()
-    {
-       // Destroy();
     }
 
     public void AllowMovement() {canMove = true;}
