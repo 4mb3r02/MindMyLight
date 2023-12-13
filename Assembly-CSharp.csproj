@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\General\Borders.cs" />
     <Compile Include="Assets\Scripts\Level 1\cometShark.cs" />
-    <Compile Include="Assets\Scripts\General\PoissonDiscSampling.cs" />
     <Compile Include="Assets\Scripts\Level 2\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
     <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
@@ -85,8 +84,10 @@
     <Compile Include="Assets\Scripts\Level 2\Collisions\Spike.cs" />
     <Compile Include="Assets\Scripts\General\SceneLoader.cs" />
     <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
+    <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
     <Compile Include="Assets\Scripts\General\EnemieMovement.cs" />
     <Compile Include="Assets\Scripts\Level 2\Collisions\Bird.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Collisions\Balloon.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
   </ItemGroup>
   <ItemGroup>
