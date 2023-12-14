@@ -1,4 +1,5 @@
 using Assets.Scripts.General;
+using Assets.Scripts.General.Models;
 using Assets.Scripts.Level_2.Collisions;
 using UnityEngine;
 
@@ -40,57 +41,31 @@ namespace Assets.Scripts.Level_2
 
         void CreateBalloons()
         {
-            // var worldCorners = GetWorldCorners();
-            //   var bl = worldCorners[0];
-            //var tr = worldCorners[2];
-
-            // var settings = PoissonDiskSampling.GetSettings(bl, tr, DistanceBetweenRadius);
-
-
-            //var settings = PoissonDiskSampling.GetSettings(bl, tr, DistanceBetweenRadius, AmountOfBalloons);
-
-            // var points = PoissonDiskSampling.Sampling(settings);
             var balloon = new Balloon()
             {
                 BalloonPrefab = BalloonPrefab,
                 LevelLayer = LevelLayer
             };
-            // LevelLayer.GetComponent<RectTransform>();
-            for (int i = 0; i < AmountOfBalloons; i++)
+
+            var points = LevelBuilder.GeneratePoints(SpawnAreas, AmountOfBalloons, 50);
+            foreach (var point in points)
             {
-                int area = Random.Range(0, SpawnAreas.Length);
-                var spawnArea = SpawnAreas[area];
-                float x = Random.Range(spawnArea.rect.xMin, spawnArea.rect.xMax);
-                float y = Random.Range(spawnArea.rect.yMin, spawnArea.rect.yMax);
-                Vector2 spawnPoint = new Vector2(x, y);
-                var point = spawnArea.TransformPoint(spawnPoint);
                 balloon.Spawn(point);
             }
         }
 
         void CreateClouds()
         {
-            var worldCorners = GetWorldCorners();
-            var bl = worldCorners[0];
-            var tr = worldCorners[2];
+            var rect = GetComponent<RectTransform>();
+            var settings = GridSettings.Create(rect, DistanceBetweenRadius);
+            var iterationPerPoint = PoissonDiskSampling.CalculateIterationPerPoint(settings);
 
-            var settings = PoissonDiskSampling.GetSettings(bl, tr, DistanceBetweenRadius);
-            settings.IterationPerPoint = PoissonDiskSampling.CalculateIterationPerPoint(settings);
-
-            var points = PoissonDiskSampling.Sampling(settings);
+            var points = PoissonDiskSampling.Sampling(settings, iterationPerPoint);
 
             foreach (var point in points)
             {
                 Instantiate(CloudPrefab, point, Quaternion.identity, CloudLayer.transform);
             }
-        }
-
-        Vector3[] GetWorldCorners()
-        {
-            var transform = GetComponent<RectTransform>();
-            Vector3[] v = new Vector3[4];
-            transform.GetWorldCorners(v);
-            return v;
         }
     }
 }

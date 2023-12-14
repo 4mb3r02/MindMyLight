@@ -4,6 +4,7 @@ using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Assets.Scripts.Level_2.Collisions
 {
@@ -17,7 +18,8 @@ namespace Assets.Scripts.Level_2.Collisions
 
         public void Spawn(Vector2 pos)
         {
-            Instantiate(BalloonPrefab, pos, Quaternion.identity, LevelLayer.transform);
+            var newBalloon = Instantiate(BalloonPrefab, pos, Quaternion.identity);
+            newBalloon.transform.SetParent(LevelLayer.transform, worldPositionStays: false);
         }
 
         public static event Action OnBalloonCollected;

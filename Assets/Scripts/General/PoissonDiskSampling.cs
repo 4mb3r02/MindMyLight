@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.General.Models;
+using UnityEditor.Presets;
 using UnityEngine;
 
 namespace Assets.Scripts.General
@@ -8,52 +11,19 @@ namespace Assets.Scripts.General
 
     public static class PoissonDiskSampling
     {
-        public const float InvertRootTwo = 0.70710678118f; // Becaust two dimension grid.
         public const int DefaultIterationPerPoint = 30;
 
-        #region "Structures"
-        public class Settings
+        public static List<Vector2> Sampling(RectTransform rect, float minimumDistance, int iterationPerPoint = DefaultIterationPerPoint)
         {
-            public Vector2 BottomLeft;
-            public Vector2 TopRight;
-            public Vector2 Center;
-            public Rect Dimension;
+            var settings = GridSettings.Create(
+                rect,
+                minimumDistance
+                );
 
-            public float MinimumDistance;
-            public int IterationPerPoint;
-
-            public float CellSize;
-            public int GridWidth;
-            public int GridHeight;
+            return Sampling(settings, iterationPerPoint);
         }
 
-        private class Bags
-        {
-            public Vector2?[,] Grid;
-            public List<Vector2> SamplePoints;
-            public List<Vector2> ActivePoints;
-        }
-        #endregion
-
-
-        public static List<Vector2> Sampling(Vector2 bottomLeft, Vector2 topRight, float minimumDistance)
-        {
-            return Sampling(bottomLeft, topRight, minimumDistance, DefaultIterationPerPoint);
-        }
-
-        public static List<Vector2> Sampling(Vector2 bottomLeft, Vector2 topRight, float minimumDistance, int iterationPerPoint)
-        {
-            var settings = GetSettings(
-                bottomLeft,
-                topRight,
-                minimumDistance,
-                iterationPerPoint <= 0 ? DefaultIterationPerPoint : iterationPerPoint
-            );
-
-            return Sampling(settings);
-        }
-
-        public static List<Vector2> Sampling(Settings settings)
+        public static List<Vector2> Sampling(GridSettings settings, int iterationPerPoint = DefaultIterationPerPoint)
         {
             var bags = new Bags()
             {
@@ -64,6 +34,7 @@ namespace Assets.Scripts.General
 
             GetFirstPoint(settings, bags);
 
+            var fixedIterationPerPoint = iterationPerPoint <= 0 ? DefaultIterationPerPoint : iterationPerPoint;
             do
             {
                 var index = Random.Range(0, bags.ActivePoints.Count);
@@ -71,7 +42,7 @@ namespace Assets.Scripts.General
                 var point = bags.ActivePoints[index];
 
                 var found = false;
-                for (var k = 0; k < settings.IterationPerPoint; k++)
+                for (var k = 0; k < fixedIterationPerPoint; k++)
                 {
                     found = found | GetNextPoint(point, settings, bags);
                 }
@@ -87,7 +58,7 @@ namespace Assets.Scripts.General
         }
 
         #region "Algorithm Calculations"
-        private static bool GetNextPoint(Vector2 point, Settings set, Bags bags)
+        private static bool GetNextPoint(Vector2 point, GridSettings set, Bags bags)
         {
             var found = false;
             var p = GetRandPosInCircle(set.MinimumDistance, 2f * set.MinimumDistance) + point;
@@ -130,7 +101,7 @@ namespace Assets.Scripts.General
             return found;
         }
 
-        private static void GetFirstPoint(Settings set, Bags bags)
+        private static void GetFirstPoint(GridSettings set, Bags bags)
         {
             var first = GetRandomPosition(set);
 
@@ -143,25 +114,8 @@ namespace Assets.Scripts.General
         #endregion
 
         #region "Utils"
-
-        //public static Vector2 GetRandomPositionWithCenterExclusion(Settings set, )
-        //{
-        //    var centerIndex = GetGridIndex(set.Center, set);
-        //    Mathf.CeilToInt(set.GridHeight - (centerIndex.y))
-        //    var gridIndex = new Vector2Int(Random.Range(0, set.GridWidth), Random.Range(0, set.GridHeight));
-
-        //    var excludeCenter = 6;
-        //    var h = Mathf.CeilToInt(set.GridHeight / excludeCenter);
-        //    var v = Mathf.CeilToInt(set.GridWidth / excludeCenter);
-
-
-        //    return new Vector2(
-        //        Random.Range(set.BottomLeft.x, set.TopRight.x),
-        //        Random.Range(set.BottomLeft.y, set.TopRight.y)
-        //    );
-        //}
-
-        public static Vector2 GetRandomPosition(Settings set)
+        
+        public static Vector2 GetRandomPosition(GridSettings set)
         {
             return new Vector2(
                 Random.Range(set.BottomLeft.x, set.TopRight.x),
@@ -169,7 +123,7 @@ namespace Assets.Scripts.General
             );
         }
 
-        public static Vector2Int GetGridIndex(Vector2 point, Settings set)
+        public static Vector2Int GetGridIndex(Vector2 point, GridSettings set)
         {
             return new Vector2Int(
                 Mathf.FloorToInt((point.x - set.BottomLeft.x) / set.CellSize),
@@ -177,28 +131,7 @@ namespace Assets.Scripts.General
             );
         }
 
-        public static Settings GetSettings(Vector2 bl, Vector2 tr, float min, int iteration = DefaultIterationPerPoint)
-        {
-            var dimension = (tr - bl);
-            var cell = min * InvertRootTwo;
-
-            return new Settings()
-            {
-                BottomLeft = bl,
-                TopRight = tr,
-                Center = (bl + tr) * 0.5f,
-                Dimension = new Rect(new Vector2(bl.x, bl.y), new Vector2(dimension.x, dimension.y)),
-
-                MinimumDistance = min,
-                IterationPerPoint = iteration,
-
-                CellSize = cell,
-                GridWidth = Mathf.CeilToInt(dimension.x / cell),
-                GridHeight = Mathf.CeilToInt(dimension.y / cell)
-            };
-        }
-
-        public static int CalculateIterationPerPoint(Settings settings)
+        public static int CalculateIterationPerPoint(GridSettings settings)
         {
             return Mathf.CeilToInt(settings.GridHeight * settings.GridWidth);
         }
