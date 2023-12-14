@@ -13,7 +13,7 @@ namespace Assets.Scripts.LevelSelector
     public class PlayLevelButton
     {
         private readonly Button _playLevelButton;
-        private const string ImagePath = "Assets/Images/LevelSelector";
+        private const string ImagePath = "Assets/Images/Level Selector";
 
         public TemplateContainer Reference { get; }
         public bool Visible { get; private set; }
@@ -56,7 +56,7 @@ namespace Assets.Scripts.LevelSelector
             Reference.Q<VisualElement>("PlayButtonHiddenImage").style.display = !visible ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
-        public void OnPlayClicked()
+        private void OnPlayClicked()
         {
             if (Visible)
                 SceneLoader.LoadLevel(Level);
