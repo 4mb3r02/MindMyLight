@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BalloonRange : MonoBehaviour, ICollectibleRange
+public class BalloonRange : MonoBehaviour
 {
     float moveAwaySpeed = 3;
     bool exitRange = true;
