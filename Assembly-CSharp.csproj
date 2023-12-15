@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{8EC0737F-B612-188F-A52F-3B7DCD75644E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -60,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\General\Borders.cs" />
-    <Compile Include="Assets\Scripts\General\ICollectibleMovement.cs" />
+    <Compile Include="Assets\Scripts\General\ICollectibleRange.cs" />
     <Compile Include="Assets\Scripts\Level 1\cometShark.cs" />
     <Compile Include="Assets\Scripts\Level 2\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
@@ -80,7 +81,7 @@
     <Compile Include="Assets\Scripts\General\Collector.cs" />
     <Compile Include="Assets\Scripts\Level 1\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Level 2\Collisions\HazardSpawner.cs" />
-    <Compile Include="Assets\Scripts\Level 2\BalloonMovement.cs" />
+    <Compile Include="Assets\Scripts\Level 2\BalloonRange.cs" />
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
     <Compile Include="Assets\Scripts\General\EndScreen.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
