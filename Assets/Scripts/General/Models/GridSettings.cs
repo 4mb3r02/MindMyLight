@@ -2,6 +2,7 @@
 
 namespace Assets.Scripts.General.Models
 {
+
     public class GridSettings
     {
         public const float InvertRootTwo = 0.70710678118f; // Becaust two dimension grid.
@@ -27,7 +28,7 @@ namespace Assets.Scripts.General.Models
             var dimension = (tr - bl);
             var cell = min * InvertRootTwo;
 
-            return new GridSettings()
+            return new GridSettings
             {
                 BottomLeft = bl,
                 TopRight = tr,

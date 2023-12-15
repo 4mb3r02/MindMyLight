@@ -1,11 +1,11 @@
 using Assets.Scripts.General;
 using Assets.Scripts.General.Models;
-using Assets.Scripts.Level_2.Collisions;
+using Assets.Scripts.Level_2.Entities;
 using UnityEngine;
 
 namespace Assets.Scripts.Level_2
 {
-    public class LevelGenerator : MonoBehaviour
+    public class LevelController : MonoBehaviour
     {
         [Header("----------- Level Settings -----------")]
         public int AmountOfBalloons = 4;
@@ -20,11 +20,13 @@ namespace Assets.Scripts.Level_2
         public GameObject CloudLayer;
         public int DistanceBetweenRadius = 50;
 
+        private LevelBuilder _levelBuilder;
+
         // Start is called before the first frame update
         void Start()
         {
             CreateClouds();
-            //todo
+
             ConstructLevel();
         }
 
@@ -36,10 +38,15 @@ namespace Assets.Scripts.Level_2
 
         void ConstructLevel()
         {
-            CreateBalloons();
+            _levelBuilder = new LevelBuilder();
+            _levelBuilder.SetSpawnAreas(SpawnAreas);
+
+            AddBalloons();
+
+            _levelBuilder.Build(50);
         }
 
-        void CreateBalloons()
+        void AddBalloons()
         {
             var balloon = new Balloon()
             {
@@ -47,11 +54,7 @@ namespace Assets.Scripts.Level_2
                 LevelLayer = LevelLayer
             };
 
-            var points = LevelBuilder.GeneratePoints(SpawnAreas, AmountOfBalloons, 50);
-            foreach (var point in points)
-            {
-                balloon.Spawn(point);
-            }
+            _levelBuilder.AddSpawnEntity(balloon, AmountOfBalloons);
         }
 
         void CreateClouds()
