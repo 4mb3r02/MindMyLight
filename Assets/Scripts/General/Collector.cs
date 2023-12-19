@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AdaptivePerformance.VisualScripting;
 
 public class Collector : MonoBehaviour
 {
@@ -10,6 +11,6 @@ public class Collector : MonoBehaviour
         if (collectible != null)
         {
             collectible.Collect();
-        }
+        }      
     }
 }
