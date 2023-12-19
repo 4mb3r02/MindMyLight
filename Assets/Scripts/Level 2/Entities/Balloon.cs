@@ -31,6 +31,7 @@ namespace Assets.Scripts.Level_2.Entities
         {
             Destroy(gameObject);
             OnBalloonCollected?.Invoke();
+
         }
     }
 }
