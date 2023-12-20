@@ -95,6 +95,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jan
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8bdabde631cf91044aefe19ee37742ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1033695694142898965, guid: 8bdabde631cf91044aefe19ee37742ec,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -203,6 +208,7 @@ MonoBehaviour:
   movement: {fileID: 0}
   animation: {fileID: 0}
   manager: {fileID: 0}
+  endScreen: {fileID: 0}
   speed: 6
   topRightLimitGameobject: {fileID: 0}
   bottomLeftLimitGameobject: {fileID: 0}
