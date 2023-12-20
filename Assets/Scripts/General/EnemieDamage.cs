@@ -14,7 +14,7 @@ public class EnemieDamage : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("test");
+
         if(collider.gameObject.tag == "Player")
         {
             player.TakeDamage();
