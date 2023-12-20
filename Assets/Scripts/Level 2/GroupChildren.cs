@@ -14,4 +14,9 @@ public class GroupChildren : MonoBehaviour
         player.animator.SetBool("IsWalking", false);
     }
 
+    private void Update()
+    {
+       
+    }
+
 }
