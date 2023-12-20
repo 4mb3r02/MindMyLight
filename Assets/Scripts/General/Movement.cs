@@ -13,11 +13,10 @@ public class Movement : MonoBehaviour
 
     // It needs to have a way to change it in unity depending on the level
     // I'll let you do that, I have kinda an idea but I don't want to touch your code to much
-    
+
 
     public Vector3 topRightLimit;
     public Vector3 bottomLeftLimit;
-
 
     public void MovementController()
     {
@@ -26,14 +25,20 @@ public class Movement : MonoBehaviour
             JumpKeyWasPressed = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             movementDirection = MovementDirection.RIGHT;
+            
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             movementDirection = MovementDirection.LEFT;
+        }
+
+        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D)) 
+        {
+            movementDirection=MovementDirection.IDLE;
         }
 
     }

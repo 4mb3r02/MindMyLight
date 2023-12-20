@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public Movement movement;
     public new AutoAnimation animation;
     public AudioManager manager;
+    public Animator animator;
 
     public EndScreen endScreen;
     private Rigidbody rigidbodyComponent;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
         canMove = true;
         lives = 3;
         rigidbodyComponent = GetComponent<Rigidbody>();
+        animator = gameObject.GetComponent<Animator>();
         if (gravity == false)
         {
             movement = gameObject.AddComponent(typeof(MovementNoGravity)) as MovementNoGravity;
@@ -65,6 +67,7 @@ public class Player : MonoBehaviour
         if (canMove)
         {
             movement.MovementController();
+            
         }
     }
 
@@ -78,21 +81,25 @@ public class Player : MonoBehaviour
         if (canMove)
         {
             movement.Moving(rigidbodyComponent, speed);
+            
         }
 
         if (movement.movementDirection.Equals(Movement.MovementDirection.RIGHT))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * 5f);
+            animator.SetBool("IsWalking", true);
         } 
         else if (movement.movementDirection.Equals(Movement.MovementDirection.LEFT))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, -90, 0), Time.deltaTime * 5f);
+            animator.SetBool("IsWalking", true);
         } 
         else if (movement.movementDirection.Equals(Movement.MovementDirection.IDLE))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * 5f);
+            animator.SetBool("IsWalking", false);
         }
-
+        
     }
 
     // For the animation
