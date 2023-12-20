@@ -83,21 +83,24 @@ public class Player : MonoBehaviour
             movement.Moving(rigidbodyComponent, speed);
             
         }
+        if (canMove)
+        {
 
-        if (movement.movementDirection.Equals(Movement.MovementDirection.RIGHT))
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * 5f);
-            animator.SetBool("IsWalking", true);
-        } 
-        else if (movement.movementDirection.Equals(Movement.MovementDirection.LEFT))
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, -90, 0), Time.deltaTime * 5f);
-            animator.SetBool("IsWalking", true);
-        } 
-        else if (movement.movementDirection.Equals(Movement.MovementDirection.IDLE))
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * 5f);
-            animator.SetBool("IsWalking", false);
+            if (movement.movementDirection.Equals(Movement.MovementDirection.RIGHT))
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90, 0), Time.deltaTime * 5f);
+                animator.SetBool("IsWalking", true);
+            }
+            else if (movement.movementDirection.Equals(Movement.MovementDirection.LEFT))
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, -90, 0), Time.deltaTime * 5f);
+                animator.SetBool("IsWalking", true);
+            }
+            else if (movement.movementDirection.Equals(Movement.MovementDirection.IDLE))
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 180, 0), Time.deltaTime * 5f);
+                animator.SetBool("IsWalking", false);
+            }
         }
         
     }
