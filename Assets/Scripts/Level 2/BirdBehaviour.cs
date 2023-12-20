@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class birdBehaviour : MonoBehaviour
+public class BirdBehaviour : MonoBehaviour
 {
     Rigidbody rigidbodyComponent;
     enum movementDirection

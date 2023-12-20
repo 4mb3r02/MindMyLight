@@ -31,14 +31,14 @@ public class SpikesBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Exelerate(exelerationSpeed);
+        Accelerate(exelerationSpeed);
         Spin(rotationSpeed);
         DestroySpikeCheck(destroyY);
     }
 
-    public void Exelerate(float exeleration)
+    public void Accelerate(float acceleration)
     {
-        movementSpeed = movementSpeed * exeleration;
+        movementSpeed = movementSpeed * acceleration;
         MoveDown(movementSpeed);
     }
 
