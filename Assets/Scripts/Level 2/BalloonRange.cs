@@ -33,7 +33,6 @@ public class BalloonRange : MonoBehaviour
 
     private void Update()
     {
-
         if (exitRange)
         {
             MovingToPlayer();

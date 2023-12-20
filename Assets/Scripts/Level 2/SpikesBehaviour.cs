@@ -18,15 +18,14 @@ public class SpikesBehaviour : MonoBehaviour
     [field: SerializeField]
     float exelerationSpeed;
 
+    [field: SerializeField]
+    float destroyY;
+
     void Start()
     {
         rigidbodyComponent = GetComponent<Rigidbody>();
         rigidbodyComponent.velocity = -transform.up;
         spikeModel = GameObject.Find("SpikeModel");
-
-        movementSpeed = 1f;
-        exelerationSpeed = 1.002f;
-        rotationSpeed = 5f;
     }
 
     // Update is called once per frame
@@ -34,15 +33,16 @@ public class SpikesBehaviour : MonoBehaviour
     {
         Exelerate(exelerationSpeed);
         Spin(rotationSpeed);
+        DestroySpikeCheck(destroyY);
     }
 
     public void Exelerate(float exeleration)
     {
         movementSpeed = movementSpeed * exeleration;
-        moveDown(movementSpeed);
+        MoveDown(movementSpeed);
     }
 
-    public void moveDown(float movementSpeed)
+    public void MoveDown(float movementSpeed)
     {
         rigidbodyComponent.velocity = -transform.up * movementSpeed;
     }
@@ -50,5 +50,14 @@ public class SpikesBehaviour : MonoBehaviour
     public void Spin(float rotationSpeed)
     {
         spikeModel.transform.Rotate(0, 0, +rotationSpeed);
+    }
+
+    public void DestroySpikeCheck(float destroyLocation)
+    {
+        if (destroyLocation >= transform.position.y)
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }
