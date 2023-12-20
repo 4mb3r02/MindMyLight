@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 
-public class SpikesBehaviour : MonoBehaviour
+public class SpikeBehaviour : MonoBehaviour
 {
     Rigidbody rigidbodyComponent;
     public GameObject spikeModel;
