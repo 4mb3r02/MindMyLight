@@ -5,6 +5,7 @@ using UnityEngine;
 public class GroupChildren : MonoBehaviour
 {
     public Player player;
+    public DialogueManager manager;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -12,11 +13,7 @@ public class GroupChildren : MonoBehaviour
         player.BlockJump();
         player.BlockMovement();
         player.animator.SetBool("IsWalking", false);
-    }
-
-    private void Update()
-    {
-       
+        manager.convoChildrenOver = true;
     }
 
 }

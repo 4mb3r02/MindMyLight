@@ -8,16 +8,27 @@ public class AutoAnimation : MonoBehaviour
 {
     public Transform target;
     public Player player;
+    public Rigidbody rigidbodyComponent;
+    
 
     float moveSpeed = 0.35f;
     bool checkColl;
+    public bool checkConvoFinished;
 
+    private void Start()
+    {
+        rigidbodyComponent = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         // If i'm touching the wall I start the movement
         if(checkColl == true)
         {
             GoClose();
+        }
+        if(checkConvoFinished == true)
+        {
+            FlyUp();
         }
     }
     public void Collision(Collider other)
@@ -57,6 +68,22 @@ public class AutoAnimation : MonoBehaviour
             // We need to start an animation here that goes from the point where the player is to Breze and the next scene starts -- Artists Work 
             //player.AllowJump();
             //player.AllowMovement();
+        }
+    }
+
+    public void FlyUp()
+    {
+        player.animator.SetBool("IsFlying", true);
+        rigidbodyComponent.useGravity = false;
+
+        Vector3 PosA = transform.position;
+        Vector3 PosB = target.position;
+
+       transform.position = Vector3.Lerp(PosA, PosB, 0.5f * Time.deltaTime);
+        if (Math.Abs(PosA.x - PosB.x) < 0.1)
+        {
+            checkConvoFinished = false;
+            Debug.Log("up reached");
         }
     }
 
