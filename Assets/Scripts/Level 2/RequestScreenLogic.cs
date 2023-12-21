@@ -5,24 +5,41 @@ using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class CollectionFeedbackScreen : MonoBehaviour
+public class RequestScreenLogic : MonoBehaviour
 {
     public Animator animator;
     public GameObject Balloon;
     public GameObject Convetti;
 
-    public GameObject cheering;
-    public GameObject asking;
+    public GameObject kid1Cheering;
+    public GameObject kid1Asking;
+
+    public GameObject kid2Cheering;
+    public GameObject kid2Asking;
+
+    public GameObject kid3Cheering;
+    public GameObject kid3Asking;
+
+    public GameObject kid4Cheering;
+    public GameObject kid4Asking;
+
+    public GameObject kid5Cheering;
+    public GameObject kid5Asking;
     int number;
+    int kidNumber;
+
+    GameObject[] asking;
+    GameObject[] cheering;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        asking = new GameObject[] { kid1Asking, kid2Asking, kid3Asking, kid4Asking, kid5Asking};
+        cheering = new GameObject[] { kid1Cheering, kid2Cheering, kid3Cheering, kid4Cheering, kid5Cheering};
         number = 0;
-        //MoveScreenUp();
-        ////KidAskBalloon();
-        //KidCheering();
-        ////MoveScreenDown();
+        kidNumber = 1;
     }
 
     // Update is called once per frame
@@ -34,7 +51,6 @@ public class CollectionFeedbackScreen : MonoBehaviour
             number++;
             switch (number)
             {
-                // number++;
                 case 1:
                     KidAskBalloon();
                     MoveScreenUp();
@@ -54,11 +70,14 @@ public class CollectionFeedbackScreen : MonoBehaviour
     }
     public void KidAskBalloon()
     {
+        
         Convetti.SetActive(false);
         Balloon.SetActive(true);
 
-        cheering.SetActive(false);
-        asking.SetActive(true);
+        cheering[kidNumber].SetActive(false);
+        kidNumber = Random.Range(0, 5);
+
+        asking[kidNumber].SetActive(true);
     }
 
     public void KidCheering()
@@ -66,8 +85,8 @@ public class CollectionFeedbackScreen : MonoBehaviour
         Balloon.SetActive(false);
         Convetti.SetActive(true);
 
-        asking.SetActive(false);
-        cheering.SetActive(true);
+        asking[kidNumber].SetActive(false);
+        cheering[kidNumber].SetActive(true);
         
     }
 
