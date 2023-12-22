@@ -29,6 +29,7 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: c9723cf6390ab5547a589d653f50d148
   m_Children:
+  - {fileID: 8934681771699884543}
   - {fileID: 5691820448076669095}
   - {fileID: 1203380763671102910}
   m_Volume: 6961a6004b05b384186a7cc265690e4b
@@ -50,6 +51,20 @@ AudioMixerEffectController:
   m_EffectID: 1b3a5060c096b03459e8234996ae2b16
   m_EffectName: Attenuation
   m_MixLevel: 4d61913a0bd0afc42b4586da3e960e24
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-3954467433389892280
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: d6fe6e8801005874a8499bcffae8b7ec
+  m_EffectName: Attenuation
+  m_MixLevel: 39c2155caac2a4e4992c1fcce518b5ed
   m_Parameters: []
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
@@ -83,6 +98,7 @@ AudioMixerController:
     - c9723cf6390ab5547a589d653f50d148
     - 0419a8cbb1ccc8847bbe782dd0857563
     - cc88d4aa485330e469a895d07420493e
+    - 07f504c11fa6fc04fb5b8f969199b9de
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -131,10 +147,12 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 9ce0eb9dee61ccd49adae7a12af35946
   m_FloatValues:
-    6961a6004b05b384186a7cc265690e4b: -19.928473
+    6961a6004b05b384186a7cc265690e4b: -19.928469
     6c0a7352358aeff46a450f2a8e2262ea: 20
     6e082fd2d1055944c86e2c52e869e6eb: -10.345207
     f9d220f25f4dfe94782e2617c3037993: 10.437403
+    62f6df554cec9134f9d76584f0003e09: -0.27209902
+    5f88e56e8f001a441a7c476c0c16e3f3: 11.852726
   m_TransitionOverrides: {}
 --- !u!243 &1203380763671102910
 AudioMixerGroupController:
@@ -212,6 +230,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 3024884282221999159}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &8934681771699884543
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SharkWave
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 07f504c11fa6fc04fb5b8f969199b9de
+  m_Children: []
+  m_Volume: 5f88e56e8f001a441a7c476c0c16e3f3
+  m_Pitch: aafd3b718b16c9f428b743c2f07986ad
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -3954467433389892280}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
