@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEngine.GraphicsBuffer;
 
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
+    public AutoAnimation autoAnimation;
+
     
 
     private Queue<string> sentencesQueue;
+
+    public bool convoChildrenOver = false;
+    public bool cameraOff = false;
 
     void Start()
     {
@@ -71,6 +77,10 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("I'm ending the dialogue!");
         animator.SetBool("IsOpen", false);
-
+        if (convoChildrenOver)
+        {
+            autoAnimation.checkConvoFinished = true;
+            cameraOff = true;
+        }
     }
 }
