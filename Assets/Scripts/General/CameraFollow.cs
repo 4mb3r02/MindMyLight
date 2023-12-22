@@ -17,9 +17,16 @@ public class CameraNoRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dialogueManager.cameraOff)
+        if (dialogueManager != null)
         {
-            Destroy(this);
+            if (dialogueManager.cameraOff)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                transform.position = player.transform.position - offset;
+            }
         }
         else
         {
