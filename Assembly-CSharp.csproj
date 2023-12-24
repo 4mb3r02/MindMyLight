@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Level 2\Entities\Obstacle.cs" />
     <Compile Include="Assets\Scripts\General\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
+    <Compile Include="Assets\Scripts\Level 2\GroupChildren.cs" />
     <Compile Include="Assets\Scripts\Level 2\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Level 1\Wave.cs" />
     <Compile Include="Assets\Scripts\Level 2\DialogueTrigger.cs" />
