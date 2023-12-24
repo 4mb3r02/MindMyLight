@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -49,7 +50,13 @@ public class SpikeBehaviour : MonoBehaviour
 
     public void Spin(float rotationSpeed)
     {
-        spikeModel.transform.Rotate(0, 0, +rotationSpeed);
+        if (spikeModel != null)
+            spikeModel.transform.Rotate(0, 0, +rotationSpeed);
+    }
+
+    public void SetDestroyLocation(float destroyLocation)
+    {
+        destroyY = destroyLocation;
     }
 
     public void DestroySpikeCheck(float destroyLocation)
@@ -58,6 +65,6 @@ public class SpikeBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
     }
 }

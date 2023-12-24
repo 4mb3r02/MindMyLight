@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Assets.Scripts.General.Models;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Level_2
 {
     internal class LevelBuilder
     {
@@ -12,10 +14,43 @@ namespace Assets.Scripts
             public IEntitySpawner Entity;
         }
 
+        private class SpawnAreaSettings
+        {
+            public RectTransform[] SpawnAreas;
+            public List<SpawnEntitySettings> SpawnEntities = new();
+        }
+
+        //private readonly Dictionary<Guid, SpawnAreaSettings> spawnAreas = new();
+
+        //public Guid AddSpawnArea(RectTransform[] area)
+        //{
+        //    var spawnArea = new SpawnAreaSettings()
+        //    {
+        //        SpawnAreas = area
+        //    };
+        //    var key = Guid.NewGuid();
+
+        //    spawnAreas.Add(key, spawnArea);
+
+        //    return key;
+        //}
+
+        //public void AddSpawnEntity(Guid areaId, IEntitySpawner entity, int amount)
+        //{
+        //    if (!spawnAreas.ContainsKey(areaId))
+        //        throw new KeyNotFoundException("Spawn entity could not be added, because spawn area could not be found");
+
+        //    spawnAreas[areaId].SpawnEntities.Add(new SpawnEntitySettings()
+        //    {
+        //        Entity = entity,
+        //        Amount = amount,
+        //    });
+        //}
+
         private List<SpawnEntitySettings> spawnEntities = new();
         private RectTransform[] spawnAreas;
 
-        public void SetSpawnAreas(RectTransform[] areas)
+        public void SetSpawnAreas(params RectTransform[] areas)
         {
             this.spawnAreas = areas;
         }
@@ -31,14 +66,16 @@ namespace Assets.Scripts
 
         public void Reset()
         {
-            spawnEntities = new List<SpawnEntitySettings>();
+           // spawnAreas.Clear();
+           spawnAreas = null;
+           spawnEntities = new List<SpawnEntitySettings>();
         }
 
         /// <summary>
         /// Builds the level
         /// </summary>
         /// <param name="minDistanceBetween"></param>
-        public void Build(float minDistanceBetween)
+        public void BuildArea(float minDistanceBetween)
         {
             var usedIndexes = new KeyValuePair<GridSettings, List<Vector2Int>>[spawnAreas.Length];
             for (int i = 0; i < spawnAreas.Length; i++)

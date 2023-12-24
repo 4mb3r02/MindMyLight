@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BirdBehaviour : MonoBehaviour
 {
     Rigidbody rigidbodyComponent;
-    enum movementDirection
-    {Left, Right}
 
-    [field: SerializeField]
-    movementDirection direction;
+    [field: SerializeField] 
+    public MoveDirection Direction;
 
 
     [field: SerializeField]
@@ -37,16 +36,22 @@ public class BirdBehaviour : MonoBehaviour
 
     public void moveForward()
     {
-        if (direction == movementDirection.Right)
+        if (Direction == MoveDirection.Right)
         {
             rigidbodyComponent.transform.Rotate(0, 180, 0);
         }
         rigidbodyComponent.velocity = -(transform.forward * speed);
     }
 
+    public void SetDestroyLocation(float destroyLocationLeft, float destroyLocationRight)
+    {
+        destroyXLeft = destroyLocationLeft;
+        destroyXRight = destroyLocationRight;
+    }
+
     public void destroyBirdCheck(float locatieLeft, float locatieRight)
     {
-        if(direction == movementDirection.Left && transform.position.x <= locatieLeft)
+        if(Direction == MoveDirection.Left && transform.position.x <= locatieLeft)
         {
             Destroy(gameObject);
         } else

@@ -54,20 +54,21 @@
     <UnityVersion>2022.3.11f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Level 2\IEntitySpawner.cs" />
     <Compile Include="Assets\Scripts\General\Borders.cs" />
+    <Compile Include="Assets\Scripts\Level 2\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\Level 1\cometShark.cs" />
     <Compile Include="Assets\Scripts\Level 2\LevelController.cs" />
-    <Compile Include="Assets\Scripts\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\Level 2\Dialogue.cs" />
-    <Compile Include="Assets\Scripts\General\Models\IEntitySpawner.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
+    <Compile Include="Assets\Scripts\Level 2\ObstacleSpawner.cs" />
     <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
-    <Compile Include="Assets\Scripts\General\HazardSpawner.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\Obstacle.cs" />
     <Compile Include="Assets\Scripts\General\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Level 2\DialogueManager.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Assets\Scripts\Level 1\Stardust.cs" />
     <Compile Include="Assets\Scripts\Level 2\AutoAnimation.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Spike.cs" />
-    <Compile Include="Assets\enemie.cs" />
     <Compile Include="Assets\Scripts\Level 2\BalloonRange.cs" />
     <Compile Include="Assets\Scripts\General\EnemieDamage.cs" />
     <Compile Include="Assets\Scripts\General\Movement.cs" />
@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
     <Compile Include="Assets\Scripts\General\Models\Bags.cs" />
     <Compile Include="Assets\Scripts\General\EnemieMovement.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\EntityBase.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Bird.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
   </ItemGroup>
@@ -377,12 +378,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
