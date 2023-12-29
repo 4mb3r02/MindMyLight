@@ -1,9 +1,14 @@
 using System;
+using System.Collections;
+using System.IO;
+using System.Security.Cryptography;
 using Assets.Scripts.General;
 using Assets.Scripts.General.Models;
 using Assets.Scripts.Level_2.Entities;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Level_2
 {
@@ -19,18 +24,18 @@ namespace Assets.Scripts.Level_2
         //    public MoveDirection MoveDirection;
         //}
 
+        #region Editor Settings
         [Header("----------- Level Settings -----------")]
         public int AmountOfBalloons = 4;
-        public int AmountOfSpikes = 10;
-        public int AmountOfBirds = 20;
-
-        //public Obstacle[] Obstacles;
-
-        [Header("----------- Level Settings -----------")]
         public RectTransform[] BalloonSpawnAreas;
 
+        [Header("----------- Obstacle Settings -----------")]
+        public int SpikeMinDistanceBetween = 20;
+        public int BirdMinDistanceBetween = 20;
+        public float SpikeSpawnTime = 5f;
+        public float BirdSpawnTime = 5f;
+
         [Header("------------ Level Models ------------")]
-        public GameObject BalloonPrefab;
         public GameObject SpikePrefab;
         public GameObject BirdPrefab;
 
@@ -38,15 +43,28 @@ namespace Assets.Scripts.Level_2
         public GameObject CloudPrefab;
 
         public GameObject CloudLayer;
-        public int DistanceBetweenRadius = 50;
+        public int MinDistanceBetween = 50;
+        #endregion
 
+        #region Variables
         private LevelBuilder _levelBuilder;
 
         private GameObject _levelLayer, _spawnAreaLeft, _spawnAreaTop, _spawnAreaRight, _spawnAreaBottom;
+        private bool isPlaying = true;
+
+        private AssetBundle balloonPrefabsBundle;
+        private int collectedBalloons;
+        private GameObject[] balloonPrefabs;
+        #endregion
 
         // Start is called before the first frame update
         void Start()
         {
+            _levelBuilder = new LevelBuilder();
+
+            balloonPrefabsBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "prefabs/balloons"));
+            balloonPrefabs = balloonPrefabsBundle.LoadAllAssets<GameObject>();
+
             _levelLayer = GameObject.Find("Level");
             _spawnAreaLeft = GameObject.Find("SpawnAreaLeft");
             _spawnAreaTop = GameObject.Find("SpawnAreaTop");
@@ -55,6 +73,8 @@ namespace Assets.Scripts.Level_2
 
             CreateClouds();
             ConstructLevel();
+
+            Balloon.OnBalloonCollected += OnBalloonCollected;
         }
 
         // Update is called once per frame
@@ -63,10 +83,13 @@ namespace Assets.Scripts.Level_2
 
         }
 
+        void OnDestroy()
+        {
+            balloonPrefabsBundle.Unload(true);
+        }
+
         void ConstructLevel()
         {
-            _levelBuilder = new LevelBuilder();
-
             AddBalloons();
             AddObstacles();
         }
@@ -75,67 +98,84 @@ namespace Assets.Scripts.Level_2
         {
             _levelBuilder.SetSpawnAreas(BalloonSpawnAreas);
 
-            var balloon = new Balloon()
+            for (int i = 0; i < AmountOfBalloons; i++)
             {
-                EntityPrefab = BalloonPrefab,
-                ParentLayer = _levelLayer
-            };
+                var balloon = ScriptableObject.CreateInstance<Balloon>();
+                var entity = balloonPrefabs[Random.Range(0, balloonPrefabs.Length)];
+                balloon.Init(entity, _levelLayer);
 
-            _levelBuilder.AddSpawnEntity(balloon, AmountOfBalloons);
+                _levelBuilder.AddSpawnEntity(balloon, 1);
+            }
+
             _levelBuilder.BuildArea(50);
+        }
+
+        private void OnBalloonCollected()
+        {
+            collectedBalloons++;
+            // Collected all balloons
+            if (collectedBalloons == AmountOfBalloons)
+            {
+                isPlaying = false;
+            }
         }
 
         void AddObstacles()
         {
-            AddSpikes();
+            StartCoroutine(AddSpikes());
 
             var leftSpawnArea = _spawnAreaLeft.GetComponent<RectTransform>();
-            AddBirds(leftSpawnArea, MoveDirection.Right);
+            StartCoroutine(AddBirds(leftSpawnArea, MoveDirection.Right));
 
             var rightSpawnArea = _spawnAreaRight.GetComponent<RectTransform>();
-            AddBirds(rightSpawnArea, MoveDirection.Left);
+            StartCoroutine(AddBirds(rightSpawnArea, MoveDirection.Left));
+
         }
 
-        void AddSpikes()
+        IEnumerator AddSpikes()
         {
-            Spike spike = new Spike()
+            while (isPlaying)
             {
-                EntityPrefab = SpikePrefab,
-                ParentLayer = _levelLayer
-            };
+                Spike spike = ScriptableObject.CreateInstance<Spike>();
+                spike.Init(SpikePrefab, _levelLayer);
 
-            var spikeSpawnArea = _spawnAreaTop.GetComponent<RectTransform>();
-            _levelBuilder.SetSpawnAreas(spikeSpawnArea);
+                RectTransform spikeSpawnArea = _spawnAreaTop.GetComponent<RectTransform>();
+                GridSettings grid = GridSettings.Create(spikeSpawnArea, SpikeMinDistanceBetween);
 
-            _levelBuilder.AddSpawnEntity(spike, AmountOfSpikes);
-            _levelBuilder.BuildArea(10);
+                _levelBuilder.SetSpawnAreas(spikeSpawnArea);
+                _levelBuilder.AddSpawnEntity(spike, grid.GridWidth / 3);
+                _levelBuilder.BuildArea(grid);
 
-            spike.Activate();
+                spike.Activate();
+
+                yield return new WaitForSeconds(SpikeSpawnTime);
+            }
         }
 
-        void AddBirds(RectTransform spawnArea, MoveDirection moveDirection)
+        IEnumerator AddBirds(RectTransform spawnArea, MoveDirection moveDirection)
         {
-            var amount = AmountOfBirds / 2;
-
-            _levelBuilder.SetSpawnAreas(spawnArea);
-
-
-            Bird bird = new Bird()
+            while (isPlaying)
             {
-                EntityPrefab = BirdPrefab,
-                ParentLayer = _levelLayer,
-                MoveDirection = moveDirection
-            };
-            _levelBuilder.AddSpawnEntity(bird, amount);
-            _levelBuilder.BuildArea(10);
+                Bird bird = ScriptableObject.CreateInstance<Bird>();
+                bird.Init(BirdPrefab, _levelLayer);
+                bird.MoveDirection = moveDirection;
 
-            bird.Activate();
+                GridSettings grid = GridSettings.Create(spawnArea, BirdMinDistanceBetween);
+
+                _levelBuilder.SetSpawnAreas(spawnArea);
+                _levelBuilder.AddSpawnEntity(bird, grid.GridHeight / 3);
+                _levelBuilder.BuildArea(grid);
+
+                bird.Activate();
+
+                yield return new WaitForSeconds(BirdSpawnTime);
+            }
         }
 
         void CreateClouds()
         {
             var rect = GetComponent<RectTransform>();
-            var settings = GridSettings.Create(rect, DistanceBetweenRadius);
+            var settings = GridSettings.Create(rect, MinDistanceBetween);
             var iterationPerPoint = PoissonDiskSampling.CalculateIterationPerPoint(settings);
 
             var points = PoissonDiskSampling.Sampling(settings, iterationPerPoint);

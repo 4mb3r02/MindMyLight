@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 2272668982
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 31733e527d1850d2f949b0b93d3e2b37
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2d8df09e698f722ada1caa03d3413830
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 31733e527d1850d2f949b0b93d3e2b37
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Images/Level Selector/Levels/Level_2.jpg
+- Assets/Images/Level Selector/Levels/Level_3.jpg
+- Assets/Images/Level Selector/Levels/Level_1.jpg
+Dependencies: []

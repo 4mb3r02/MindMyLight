@@ -501,16 +501,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a7240e3ed9a364ebb0185e704c4ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AmountOfBalloons: 8
-  AmountOfSpikes: 10
-  AmountOfBirds: 20
+  AmountOfBalloons: 5
   BalloonSpawnAreas:
   - {fileID: 1774560641}
   - {fileID: 1786919485}
   - {fileID: 293726169}
   - {fileID: 284058242}
-  BalloonPrefab: {fileID: 1562297601874383627, guid: c2e9ec877013b0d4e9d9829004beb8c4,
-    type: 3}
+  SpikeMinDistanceBetween: 20
+  BirdMinDistanceBetween: 20
+  SpikeSpawnTime: 5
+  BirdSpawnTime: 5
+  BalloonPrefabs: []
   SpikePrefab: {fileID: 8085331224055338578, guid: 44f41a0799b16a34cab884b4197e64b9,
     type: 3}
   BirdPrefab: {fileID: 7340884404977399735, guid: c6a1fe00cc9aed2459bdafe38ea1e371,
@@ -518,7 +519,7 @@ MonoBehaviour:
   CloudPrefab: {fileID: 1562297601874383627, guid: 30b60be2b74ba0044bc3765f12fa4acb,
     type: 3}
   CloudLayer: {fileID: 904751818}
-  DistanceBetweenRadius: 25
+  MinDistanceBetween: 50
 --- !u!1 &368202204
 GameObject:
   m_ObjectHideFlags: 0

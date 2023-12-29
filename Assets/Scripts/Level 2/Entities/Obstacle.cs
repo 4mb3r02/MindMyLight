@@ -14,8 +14,8 @@ namespace Assets.Scripts.Level_2.Entities
 
         void Start()
         {
-            if (canRespawn)
-                StartCoroutine(Respawn());
+            //if (canRespawn)
+               // StartCoroutine(Respawn());
         }
 
         public void SetRespawn(bool respawn)

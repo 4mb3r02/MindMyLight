@@ -16,14 +16,14 @@ namespace Assets.Scripts.Level_2.Entities
             
             spikeBehaviour.SetDestroyLocation(levelTransform.rect.yMin);
 
-            var x = entity.CloneViaSerialization();
+            //var x = entity.CloneViaSerialization();
             
-            var obstacle = entity.GetOrAddComponent<Obstacle>();
-            obstacle.ParentLayer = ParentLayer;
-            obstacle.SpawnSpeed = SpawnSpeed;
-            obstacle.EntityPrefab = x;
-            obstacle.Grid = grid;
-            obstacle.Setup(gridIndex, grid);
+            //var obstacle = entity.GetOrAddComponent<Obstacle>();
+            //obstacle.ParentLayer = ParentLayer;
+            //obstacle.SpawnSpeed = SpawnSpeed;
+            //obstacle.EntityPrefab = x;
+            //obstacle.Grid = grid;
+            //obstacle.Setup(gridIndex, grid);
         }
     }
 }

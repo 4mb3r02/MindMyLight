@@ -14,11 +14,11 @@ namespace Assets.Scripts.Level_2
             public IEntitySpawner Entity;
         }
 
-        private class SpawnAreaSettings
-        {
-            public RectTransform[] SpawnAreas;
-            public List<SpawnEntitySettings> SpawnEntities = new();
-        }
+        //private class SpawnAreaSettings
+        //{
+        //    public RectTransform[] SpawnAreas;
+        //    public List<SpawnEntitySettings> SpawnEntities = new();
+        //}
 
         //private readonly Dictionary<Guid, SpawnAreaSettings> spawnAreas = new();
 
@@ -72,36 +72,60 @@ namespace Assets.Scripts.Level_2
         }
 
         /// <summary>
-        /// Builds the level
+        /// Builds the area
         /// </summary>
-        /// <param name="minDistanceBetween"></param>
+        /// <param name="minDistanceBetween">Min distance between of spawned entities</param>
         public void BuildArea(float minDistanceBetween)
         {
             var usedIndexes = new KeyValuePair<GridSettings, List<Vector2Int>>[spawnAreas.Length];
             for (int i = 0; i < spawnAreas.Length; i++)
             {
-                var settings = GridSettings.Create(spawnAreas[i], minDistanceBetween);
-                usedIndexes[i] = new KeyValuePair<GridSettings, List<Vector2Int>>(settings, new List<Vector2Int>());
+                var gridSettings = GridSettings.Create(spawnAreas[i], minDistanceBetween);
+                usedIndexes[i] = new KeyValuePair<GridSettings, List<Vector2Int>>(gridSettings, new List<Vector2Int>());
             }
 
+            BuildArea(usedIndexes);
+        }
+
+        /// <summary>
+        /// Builds the area
+        /// </summary>
+        /// <param name="grid">Settings for the grid</param>
+        public void BuildArea(GridSettings grid)
+        {
+            var usedIndexes = new KeyValuePair<GridSettings, List<Vector2Int>>[spawnAreas.Length];
+            for (int i = 0; i < spawnAreas.Length; i++)
+            {
+                usedIndexes[i] = new KeyValuePair<GridSettings, List<Vector2Int>>(grid, new List<Vector2Int>());
+            }
+
+            BuildArea(usedIndexes);
+        }
+
+        /// <summary>
+        /// Builds the level
+        /// </summary>
+        /// <param name="usedIndexes"></param>
+        private void BuildArea(KeyValuePair<GridSettings, List<Vector2Int>>[] usedIndexes)
+        {
             foreach (var spawnEntity in spawnEntities)
             {
                 for (int x = 0; x < spawnEntity.Amount; x++)
                 {
                     // Set index based on the rest value of the spawn areas length and current point
                     int i = x % spawnAreas.Length;
-                    (GridSettings settings, var value) = usedIndexes[i];
+                    (GridSettings gridSettings, var value) = usedIndexes[i];
 
                     Vector2Int gridIndex;
 
                     // Recalculate if already in use
                     do
                     {
-                        gridIndex = new Vector2Int(Random.Range(0, settings.GridWidth), Random.Range(0, settings.GridHeight));
+                        gridIndex = new Vector2Int(Random.Range(0, gridSettings.GridWidth), Random.Range(0, gridSettings.GridHeight));
                     } while (value.Contains(gridIndex));
 
                     value.Add(gridIndex);
-                    spawnEntity.Entity.Spawn(gridIndex, settings);
+                    spawnEntity.Entity.Spawn(gridIndex, gridSettings);
                 }
             }
 

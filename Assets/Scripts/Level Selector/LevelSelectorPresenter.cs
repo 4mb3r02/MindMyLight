@@ -1,6 +1,6 @@
+using System.IO;
 using Assets.Scripts.General;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,26 +15,34 @@ namespace Assets.Scripts.LevelSelector
 
         private PlayLevelButton[] playLevelButtons;
 
-
+        private AssetBundle imageLevelsBundle;
         // Start is called before the first frame update
         private void Start()
         {
             VisualElement root = GetComponent<UIDocument>().rootVisualElement;
             root.Q<Button>("HomeButton").clicked += OnHomeClicked;
 
+
+            imageLevelsBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "images/levels"));
+
             // Construct level buttons
             playLevelButtons = new PlayLevelButton[PageCount];
             for (int i = 0; i < PageCount; i++)
             {
-                playLevelButtons[i] = new PlayLevelButton(root.Q<TemplateContainer>($"PlayButton{i + 1}"));
+                playLevelButtons[i] = new PlayLevelButton(root.Q<TemplateContainer>($"PlayButton{i + 1}"), imageLevelsBundle);
             }
-            
+
             // Initialize level buttons
             SetLevelPage(1);
 
             // todo Add functionality for navigation buttons
             root.Q<VisualElement>("PreviousPageButton").visible = false;
             root.Q<VisualElement>("NextPageButton").visible = false;
+        }
+
+        private void OnDestroy()
+        {
+            imageLevelsBundle.Unload(true);
         }
 
         private void OnHomeClicked()
