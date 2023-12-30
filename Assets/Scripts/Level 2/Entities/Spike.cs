@@ -11,10 +11,9 @@ namespace Assets.Scripts.Level_2.Entities
         public void Spawn(Vector2Int gridIndex, GridSettings grid)
         {
             var entity = base.SpawnObstacle(gridIndex, grid);
+            var levelTransform = entity.GetComponentInParent<RectTransform>();
 
             var spikeBehaviour = entity.GetOrAddComponent<SpikeBehaviour>();
-            var levelTransform = entity.GetComponentInParent<RectTransform>();
-            
             spikeBehaviour.SetDestroyLocation(levelTransform.rect.yMin);
 
             //var x = entity.CloneViaSerialization();
