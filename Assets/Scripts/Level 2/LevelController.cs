@@ -96,7 +96,7 @@ namespace Assets.Scripts.Level_2
 
         void AddBalloons()
         {
-            levelCreator.SetSpawnAreas(BalloonSpawnAreas);
+            levelCreator.SetSpawningAreas(BalloonSpawnAreas);
 
             for (int i = 0; i < AmountOfBalloons; i++)
             {
@@ -142,7 +142,7 @@ namespace Assets.Scripts.Level_2
                 RectTransform spikeSpawnArea = _spawnAreaTop.GetComponent<RectTransform>();
                 GridSettings grid = GridSettings.Create(spikeSpawnArea, SpikeMinDistanceBetween);
 
-                levelCreator.SetSpawnArea(spikeSpawnArea);
+                levelCreator.SetSpawningAreas(spikeSpawnArea);
                 levelCreator.AddSpawnEntity(spike, grid.GridWidth / 3);
                 levelCreator.BuildArea(grid);
 
@@ -162,7 +162,7 @@ namespace Assets.Scripts.Level_2
 
                 GridSettings grid = GridSettings.Create(spawnArea, BirdMinDistanceBetween);
 
-                levelCreator.SetSpawnArea(spawnArea);
+                levelCreator.SetSpawningAreas(spawnArea);
                 levelCreator.AddSpawnEntity(bird, grid.GridHeight / 3);
                 levelCreator.BuildArea(grid);
 

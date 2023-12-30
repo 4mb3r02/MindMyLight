@@ -50,12 +50,7 @@ namespace Assets.Scripts.Level_2
         private List<SpawnEntitySettings> spawnEntities = new();
         private RectTransform[] spawnAreas;
 
-        public void SetSpawnArea(RectTransform area)
-        {
-            this.spawnAreas = new[] { area };
-        }
-
-        public void SetSpawnAreas(RectTransform[] areas)
+        public void SetSpawningAreas(params RectTransform[] areas)
         {
             this.spawnAreas = areas;
         }
