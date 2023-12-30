@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Level 2\IEntitySpawner.cs" />
     <Compile Include="Assets\Scripts\General\Borders.cs" />
-    <Compile Include="Assets\Scripts\Level 2\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\Level 1\cometShark.cs" />
     <Compile Include="Assets\Scripts\Level 2\LevelController.cs" />
     <Compile Include="Assets\Scripts\Level 2\Dialogue.cs" />
@@ -97,6 +96,7 @@
     <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
     <Compile Include="Assets\Scripts\General\Models\Bags.cs" />
     <Compile Include="Assets\Scripts\General\EnemieMovement.cs" />
+    <Compile Include="Assets\Scripts\Level 2\LevelCreator.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\EntityBase.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Bird.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />

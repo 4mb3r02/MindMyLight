@@ -5,8 +5,8 @@ namespace Assets.Scripts.General.Models
 {
     public class Bags
     {
-        public Vector2?[,] Grid;
-        public List<Vector2> SamplePoints;
-        public List<Vector2> ActivePoints;
+        public Vector2?[,] Grid { get; set; }
+        public List<Vector2> SamplePoints { get; set; }
+        public List<Vector2> ActivePoints { get; set; }
     }
 }

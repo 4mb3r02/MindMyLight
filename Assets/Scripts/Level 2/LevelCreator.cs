@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Level_2
 {
-    internal class LevelBuilder
+    internal class LevelCreator
     {
         private class SpawnEntitySettings
         {
@@ -50,7 +50,12 @@ namespace Assets.Scripts.Level_2
         private List<SpawnEntitySettings> spawnEntities = new();
         private RectTransform[] spawnAreas;
 
-        public void SetSpawnAreas(params RectTransform[] areas)
+        public void SetSpawnArea(RectTransform area)
+        {
+            this.spawnAreas = new[] { area };
+        }
+
+        public void SetSpawnAreas(RectTransform[] areas)
         {
             this.spawnAreas = areas;
         }
@@ -66,9 +71,9 @@ namespace Assets.Scripts.Level_2
 
         public void Reset()
         {
-           // spawnAreas.Clear();
-           spawnAreas = null;
-           spawnEntities = new List<SpawnEntitySettings>();
+            // spawnAreas.Clear();
+            spawnAreas = null;
+            spawnEntities = new List<SpawnEntitySettings>();
         }
 
         /// <summary>
@@ -103,7 +108,7 @@ namespace Assets.Scripts.Level_2
         }
 
         /// <summary>
-        /// Builds the level
+        /// Builds the level area
         /// </summary>
         /// <param name="usedIndexes"></param>
         private void BuildArea(KeyValuePair<GridSettings, List<Vector2Int>>[] usedIndexes)

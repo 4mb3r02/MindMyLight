@@ -43,11 +43,11 @@ namespace Assets.Scripts.Level_2
         public GameObject CloudPrefab;
 
         public GameObject CloudLayer;
-        public int MinDistanceBetween = 50;
+        public int CloudMinDistanceBetween = 50;
         #endregion
 
         #region Variables
-        private LevelBuilder _levelBuilder;
+        private LevelCreator levelCreator;
 
         private GameObject _levelLayer, _spawnAreaLeft, _spawnAreaTop, _spawnAreaRight, _spawnAreaBottom;
         private bool isPlaying = true;
@@ -60,7 +60,7 @@ namespace Assets.Scripts.Level_2
         // Start is called before the first frame update
         void Start()
         {
-            _levelBuilder = new LevelBuilder();
+            levelCreator = new LevelCreator();
 
             balloonPrefabsBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "prefabs/balloons"));
             balloonPrefabs = balloonPrefabsBundle.LoadAllAssets<GameObject>();
@@ -71,7 +71,7 @@ namespace Assets.Scripts.Level_2
             _spawnAreaRight = GameObject.Find("SpawnAreaRight");
             _spawnAreaBottom = GameObject.Find("SpawnAreaBottom");
 
-            CreateClouds();
+            AddClouds();
             ConstructLevel();
 
             Balloon.OnBalloonCollected += OnBalloonCollected;
@@ -96,7 +96,7 @@ namespace Assets.Scripts.Level_2
 
         void AddBalloons()
         {
-            _levelBuilder.SetSpawnAreas(BalloonSpawnAreas);
+            levelCreator.SetSpawnAreas(BalloonSpawnAreas);
 
             for (int i = 0; i < AmountOfBalloons; i++)
             {
@@ -104,10 +104,10 @@ namespace Assets.Scripts.Level_2
                 var entity = balloonPrefabs[Random.Range(0, balloonPrefabs.Length)];
                 balloon.Init(entity, _levelLayer);
 
-                _levelBuilder.AddSpawnEntity(balloon, 1);
+                levelCreator.AddSpawnEntity(balloon, 1);
             }
 
-            _levelBuilder.BuildArea(50);
+            levelCreator.BuildArea(50);
         }
 
         private void OnBalloonCollected()
@@ -142,9 +142,9 @@ namespace Assets.Scripts.Level_2
                 RectTransform spikeSpawnArea = _spawnAreaTop.GetComponent<RectTransform>();
                 GridSettings grid = GridSettings.Create(spikeSpawnArea, SpikeMinDistanceBetween);
 
-                _levelBuilder.SetSpawnAreas(spikeSpawnArea);
-                _levelBuilder.AddSpawnEntity(spike, grid.GridWidth / 3);
-                _levelBuilder.BuildArea(grid);
+                levelCreator.SetSpawnArea(spikeSpawnArea);
+                levelCreator.AddSpawnEntity(spike, grid.GridWidth / 3);
+                levelCreator.BuildArea(grid);
 
                 spike.Activate();
 
@@ -162,9 +162,9 @@ namespace Assets.Scripts.Level_2
 
                 GridSettings grid = GridSettings.Create(spawnArea, BirdMinDistanceBetween);
 
-                _levelBuilder.SetSpawnAreas(spawnArea);
-                _levelBuilder.AddSpawnEntity(bird, grid.GridHeight / 3);
-                _levelBuilder.BuildArea(grid);
+                levelCreator.SetSpawnArea(spawnArea);
+                levelCreator.AddSpawnEntity(bird, grid.GridHeight / 3);
+                levelCreator.BuildArea(grid);
 
                 bird.Activate();
 
@@ -172,13 +172,12 @@ namespace Assets.Scripts.Level_2
             }
         }
 
-        void CreateClouds()
+        void AddClouds()
         {
             var rect = GetComponent<RectTransform>();
-            var settings = GridSettings.Create(rect, MinDistanceBetween);
-            var iterationPerPoint = PoissonDiskSampling.CalculateIterationPerPoint(settings);
+            var settings = GridSettings.Create(rect, CloudMinDistanceBetween);
 
-            var points = PoissonDiskSampling.Sampling(settings, iterationPerPoint);
+            var points = PoissonDiskSampling.Sampling(settings, true);
 
             foreach (var point in points)
             {
