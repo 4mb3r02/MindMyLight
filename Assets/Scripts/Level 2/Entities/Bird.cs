@@ -1,5 +1,6 @@
 using Assets.Scripts.General;
 using Assets.Scripts.General.Models;
+using Assets.Scripts.Level_2.Entities.Behaviours;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;

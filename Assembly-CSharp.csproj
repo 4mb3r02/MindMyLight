@@ -77,20 +77,19 @@
     <Compile Include="Assets\Scripts\Level 1\Stardust.cs" />
     <Compile Include="Assets\Scripts\Level 2\AutoAnimation.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Spike.cs" />
-    <Compile Include="Assets\Scripts\Level 2\BalloonRange.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\Behaviours\BalloonBehaviour.cs" />
     <Compile Include="Assets\Scripts\General\EnemieDamage.cs" />
     <Compile Include="Assets\Scripts\General\Movement.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\Behaviours\SpikeBehaviour.cs" />
     <Compile Include="Assets\Scripts\General\MovementGravity.cs" />
     <Compile Include="Assets\Scripts\General\Collector.cs" />
     <Compile Include="Assets\Scripts\Level 1\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
     <Compile Include="Assets\Scripts\General\Models\GridSettings.cs" />
     <Compile Include="Assets\Scripts\General\EndScreen.cs" />
-    <Compile Include="Assets\Scripts\Level 2\BirdBehaviour.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\General\MovementNoGravity.cs" />
     <Compile Include="Assets\Scripts\General\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\Level 2\SpikeBehaviour.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Balloon.cs" />
     <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
     <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
@@ -99,6 +98,7 @@
     <Compile Include="Assets\Scripts\Level 2\LevelCreator.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\EntityBase.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Bird.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\Behaviours\BirdBehaviour.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
   </ItemGroup>
   <ItemGroup>

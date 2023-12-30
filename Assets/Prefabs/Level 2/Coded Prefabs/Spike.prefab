@@ -168,7 +168,7 @@ MonoBehaviour:
   spikeModel: {fileID: 5628150358634053048}
   rotationSpeed: 3
   movementSpeed: 5
-  exelerationSpeed: 1.005
+  accelerationSpeed: 1.005
   destroyY: 0
 --- !u!54 &8272148863088907308
 Rigidbody:

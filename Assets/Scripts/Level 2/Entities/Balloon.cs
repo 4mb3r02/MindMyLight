@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.Scripts.General.Models;
+using Assets.Scripts.Level_2.Entities.Behaviours;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
@@ -18,7 +19,7 @@ namespace Assets.Scripts.Level_2.Entities
             );
 
             var entity = Instantiate(EntityPrefab, pos, Quaternion.identity, ParentLayer.transform);
-            entity.AddComponent<BalloonRange>();
+            entity.AddComponent<BalloonBehaviour>();
         }
 
         public static event Action OnBalloonCollected;

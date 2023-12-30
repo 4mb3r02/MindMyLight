@@ -146,10 +146,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7340884404977399735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a971f79e5e22fb44b385b2ca1e6b67d, type: 3}
+  m_Script: {fileID: 11500000, guid: c7a7fe558e761714ab00a6e3153acd45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
+  Direction: 0
   speed: 3
   destroyXLeft: -10
   destroyXRight: 10
