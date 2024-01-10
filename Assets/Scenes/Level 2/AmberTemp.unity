@@ -498,6 +498,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: RequestScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1222939059133762985, guid: 9603efe60e704794899d3f7964a61f1c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 28.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222939059133762985, guid: 9603efe60e704794899d3f7964a61f1c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 34.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2173936242236682123, guid: 9603efe60e704794899d3f7964a61f1c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -547,6 +557,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980555861612086915, guid: 9603efe60e704794899d3f7964a61f1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

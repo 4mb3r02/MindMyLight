@@ -25,7 +25,6 @@ public class RequestScreenLogic : MonoBehaviour
 
     public GameObject kid5Cheering;
     public GameObject kid5Asking;
-    int number;
     int kidNumber;
 
     GameObject[] asking;
@@ -38,39 +37,17 @@ public class RequestScreenLogic : MonoBehaviour
     {
         asking = new GameObject[] { kid1Asking, kid2Asking, kid3Asking, kid4Asking, kid5Asking};
         cheering = new GameObject[] { kid1Cheering, kid2Cheering, kid3Cheering, kid4Cheering, kid5Cheering};
-        number = 0;
         kidNumber = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            //if button pressed variable ++ and onto the switch case
-            number++;
-            switch (number)
-            {
-                case 1:
-                    KidAskBalloon();
-                    MoveScreenUp();
-                    break;
-
-                case 2:
-                    KidCheering();
-                    break;
-
-                case 3:
-                    MoveScreenDown();
-                    number = 0;
-                    break;
-            }
-        }
         
     }
+
     public void KidAskBalloon()
     {
-        
         Convetti.SetActive(false);
         Balloon.SetActive(true);
 
@@ -88,6 +65,14 @@ public class RequestScreenLogic : MonoBehaviour
         asking[kidNumber].SetActive(false);
         cheering[kidNumber].SetActive(true);
         
+    }
+
+    public void NextKid()
+    {
+        KidCheering();
+        Invoke("MoveScreenDown", 1.0f);
+        Invoke("KidAskBalloon", 1.5f);
+        Invoke("MoveScreenUp", 2.0f);
     }
 
     public void MoveScreenDown()
