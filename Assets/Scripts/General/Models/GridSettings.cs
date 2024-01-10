@@ -7,18 +7,16 @@ namespace Assets.Scripts.General.Models
     {
         public const float InvertRootTwo = 0.70710678118f; // Becaust two dimension grid.
 
-        public Vector2 BottomLeft;
-        public Vector2 TopRight;
-        public Vector2 Center;
-        public Rect Dimension;
+        public Vector2 BottomLeft { get; private set; }
+        public Vector2 TopRight { get; private set; }
+        public Vector2 Center { get; private set; }
+        public Rect Dimension { get; private set; }
+        public float MinimumDistance { get; private set; }
+        public float CellSize { get; private set; }
+        public int GridWidth { get; private set; }
+        public int GridHeight { get; private set; }
 
-        public float MinimumDistance;
-
-        public float CellSize;
-        public int GridWidth;
-        public int GridHeight;
-
-        public static GridSettings Create(RectTransform rect, float min)
+        public static GridSettings Create(RectTransform rect, float minDistance)
         {
             Vector3[] worldCorners = new Vector3[4];
             rect.GetWorldCorners(worldCorners);
@@ -26,7 +24,7 @@ namespace Assets.Scripts.General.Models
             var tr = worldCorners[2];
 
             var dimension = (tr - bl);
-            var cell = min * InvertRootTwo;
+            var cell = minDistance * InvertRootTwo;
 
             return new GridSettings
             {
@@ -35,7 +33,7 @@ namespace Assets.Scripts.General.Models
                 Center = (bl + tr) * 0.5f,
                 Dimension = new Rect(new Vector2(bl.x, bl.y), new Vector2(dimension.x, dimension.y)),
 
-                MinimumDistance = min,
+                MinimumDistance = minDistance,
 
                 CellSize = cell,
                 GridWidth = Mathf.CeilToInt(dimension.x / cell),

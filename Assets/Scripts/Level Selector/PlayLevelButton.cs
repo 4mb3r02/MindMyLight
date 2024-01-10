@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Assets.Scripts.General;
 using UnityEditor;
@@ -12,22 +13,22 @@ namespace Assets.Scripts.LevelSelector
 
     public class PlayLevelButton
     {
-        private readonly Button _playLevelButton;
-        private const string ImagePath = "Assets/Images/Level Selector";
-
         public TemplateContainer Reference { get; }
         public bool Visible { get; private set; }
         public int Level { get; private set; }
 
-        public PlayLevelButton(TemplateContainer reference)
+        public AssetBundle ImageLevelsBundle { get; set; }
+
+        public PlayLevelButton(TemplateContainer reference, AssetBundle imageLevelsBundle)
         {
             this.Reference = reference;
+            this.ImageLevelsBundle = imageLevelsBundle;
 
-            _playLevelButton = reference.Q<Button>();
-            _playLevelButton.clicked += OnPlayClicked;
+            Button playLevelButton = reference.Q<Button>();
+            playLevelButton.clicked += OnPlayClicked;
         }
 
-        public PlayLevelButton(TemplateContainer reference, int level, bool visible = true) : this(reference)
+        public PlayLevelButton(TemplateContainer reference, AssetBundle imageLevelsBundle, int level, bool visible = true) : this(reference, imageLevelsBundle)
         {
             this.Level = level;
             this.Visible = visible;
@@ -45,8 +46,7 @@ namespace Assets.Scripts.LevelSelector
         {
             Reference.Q<Label>("PlayButtonLabel").text = $"Chapter {Level}";
 
-            Reference.Q<VisualElement>("PlayButtonImage").style.backgroundImage =
-                new StyleBackground(AssetDatabase.LoadAssetAtPath<Sprite>($"{ImagePath}/Levels/Level_{Level}.jpg"));
+            Reference.Q<VisualElement>("PlayButtonImage").style.backgroundImage = new StyleBackground(ImageLevelsBundle.LoadAsset<Sprite>($"Level_{Level}.jpg"));
             SetVisibility(this.Visible);
         }
 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8512822424277742264}
   - component: {fileID: 341052727100830262}
   - component: {fileID: 1313792685749256113}
-  - component: {fileID: 9167178502212621780}
   m_Layer: 0
   m_Name: Balloon
   m_TagString: Untagged
@@ -108,20 +107,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9167178502212621780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7919187188364651001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20208892202d9e847b2ba7e8c97545c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <BalloonPrefab>k__BackingField: {fileID: 0}
-  <LevelLayer>k__BackingField: {fileID: 0}
 --- !u!1 &8560044718090861884
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +118,7 @@ GameObject:
   - component: {fileID: 2155819557032370240}
   - component: {fileID: 4412710570107725860}
   - component: {fileID: 1034881875128500542}
-  - component: {fileID: 4803565247997526429}
+  - component: {fileID: 541578610757856005}
   m_Layer: 0
   m_Name: BalloonRange
   m_TagString: Untagged
@@ -205,7 +190,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4803565247997526429
+--- !u!114 &541578610757856005
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,7 +199,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8560044718090861884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ca9c4c34a3fb34680b4adcdd45139b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b48f9efa5079c94f9c54001878187f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rangeTimer: 0
+  rangeTimer: 2
