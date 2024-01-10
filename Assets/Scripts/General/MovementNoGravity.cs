@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovementNoGravity : Movement
 {
-    Borders border = new Borders();
     public override void Moving(Rigidbody rigidbody, float speed)
     {
+        if (border == null) return;
+
         border.BorderCollition(rigidbody, bottomLeftLimit, topRightLimit);
         rigidbody.useGravity = false;
 

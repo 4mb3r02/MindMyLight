@@ -20,15 +20,6 @@ namespace Assets.Scripts.Level_2.Entities
             birdBehaviour.Direction = MoveDirection;
             birdBehaviour.SetDestroyLocation(levelTransform.rect.xMin, levelTransform.rect.xMax);
 
-            //var x = entity.CloneViaSerialization();
-
-            //var obstacle = entity.GetOrAddComponent<Obstacle>();
-            //obstacle.ParentLayer = ParentLayer;
-            //obstacle.SpawnSpeed = SpawnSpeed;
-            //obstacle.EntityPrefab = x;
-            //obstacle.Grid = grid;
-            //obstacle.Setup(gridIndex, grid);
-
         }
     }
 }

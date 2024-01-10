@@ -17,6 +17,12 @@ public class Movement : MonoBehaviour
 
     public Vector3 topRightLimit;
     public Vector3 bottomLeftLimit;
+    public Borders border;
+
+    public void Start()
+    {
+        border = gameObject.AddComponent<Borders>();
+    }
 
     public void MovementController()
     {
