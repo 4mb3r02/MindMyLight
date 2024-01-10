@@ -7,7 +7,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Level_2
-{ public class ObstacleSpawner : EntityBase
+{
+    public class ObstacleSpawner : EntityBase
     {
         private readonly List<GameObject> obstacles = new();
 

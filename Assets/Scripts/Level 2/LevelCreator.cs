@@ -13,40 +13,7 @@ namespace Assets.Scripts.Level_2
             public int Amount;
             public IEntitySpawner Entity;
         }
-
-        //private class SpawnAreaSettings
-        //{
-        //    public RectTransform[] SpawnAreas;
-        //    public List<SpawnEntitySettings> SpawnEntities = new();
-        //}
-
-        //private readonly Dictionary<Guid, SpawnAreaSettings> spawnAreas = new();
-
-        //public Guid AddSpawnArea(RectTransform[] area)
-        //{
-        //    var spawnArea = new SpawnAreaSettings()
-        //    {
-        //        SpawnAreas = area
-        //    };
-        //    var key = Guid.NewGuid();
-
-        //    spawnAreas.Add(key, spawnArea);
-
-        //    return key;
-        //}
-
-        //public void AddSpawnEntity(Guid areaId, IEntitySpawner entity, int amount)
-        //{
-        //    if (!spawnAreas.ContainsKey(areaId))
-        //        throw new KeyNotFoundException("Spawn entity could not be added, because spawn area could not be found");
-
-        //    spawnAreas[areaId].SpawnEntities.Add(new SpawnEntitySettings()
-        //    {
-        //        Entity = entity,
-        //        Amount = amount,
-        //    });
-        //}
-
+        
         private List<SpawnEntitySettings> spawnEntities = new();
         private RectTransform[] spawnAreas;
 
