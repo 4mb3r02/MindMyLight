@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EndScreen : MonoBehaviour
 {
     public static EndScreen instance;
+    int MaxLevel = 2; //making number higher than 9 breaks the system
 
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject succeedScreen;
@@ -14,7 +15,7 @@ public class EndScreen : MonoBehaviour
     GameObject youDied;
     GameObject mainMenuButton;
     GameObject retryButton;
-    //string[] numberCheck;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -27,26 +28,6 @@ public class EndScreen : MonoBehaviour
         }     
     }
 
-    public void GetScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void LoadMainMenu()
-    {
-        SceneLoader.LoadMainMenu();
-    }
-
-    public void LoadNextLevel()
-    {
-        SceneLoader.LoadLevel(FindNumber()+1);
-    }
-
-    public void reloadLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void TurnOnDeathScreen()
     {
         deathScreen.SetActive(true);
@@ -57,10 +38,33 @@ public class EndScreen : MonoBehaviour
         succeedScreen.SetActive(true);
     }
 
+    public void LoadMainMenu()
+    {
+        SceneLoader.LoadMainMenu();
+    }
+
+    public void LoadNextLevel()
+    {
+        int currentLevel = FindNumber();
+        if (currentLevel < MaxLevel)
+        {
+            SceneLoader.LoadLevel(currentLevel+1);
+        } else
+        {
+            LoadMainMenu();
+        }
+        
+    }
+
+    public void reloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public int FindNumber()
     {
         string currentScene = SceneManager.GetActiveScene().name;
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i <= MaxLevel; i++)
         {
             char c = '0';
             int r = i;
