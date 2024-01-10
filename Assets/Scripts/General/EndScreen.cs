@@ -14,6 +14,7 @@ public class EndScreen : MonoBehaviour
     GameObject youDied;
     GameObject mainMenuButton;
     GameObject retryButton;
+    //string[] numberCheck;
     // Start is called before the first frame update
     public void Start()
     {
@@ -38,19 +39,16 @@ public class EndScreen : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneLoader.LoadLevel(2);
-        //make non harcore
+        SceneLoader.LoadLevel(FindNumber()+1);
     }
 
     public void reloadLevel()
     {
-        SceneLoader.LoadLevel(1);
-        //make non hardcode
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void TurnOnDeathScreen()
     {
-       // Debug.Log("player died");
         deathScreen.SetActive(true);
     }
 
@@ -58,5 +56,22 @@ public class EndScreen : MonoBehaviour
     {
         succeedScreen.SetActive(true);
     }
-    
+
+    public int FindNumber()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        for (int i = 0; i < 10; i++)
+        {
+            char c = '0';
+            int r = i;
+            c += (char) r;
+            Debug.Log(currentScene);
+            if (currentScene.Contains(c))
+            {
+                return i;
+            }
+            
+        }
+        return -1;
+    }
 }
