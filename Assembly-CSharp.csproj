@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\General\MovementNoGravity.cs" />
     <Compile Include="Assets\Scripts\General\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Balloon.cs" />
+    <Compile Include="Assets\Scripts\Level 2\DetectBreeze.cs" />
     <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
     <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
     <Compile Include="Assets\Scripts\General\Models\Bags.cs" />

@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool convoChildrenOver = false;
     public bool cameraOff = false;
+    public bool breezeCollected = false;
 
     void Start()
     {
@@ -77,6 +78,12 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("I'm ending the dialogue!");
         animator.SetBool("IsOpen", false);
+        if (breezeCollected)
+        {
+            autoAnimation.goToVillageScene = true;
+            Debug.Log("Test2");
+        }
+
         if (convoChildrenOver)
         {
             autoAnimation.checkConvoFinished = true;

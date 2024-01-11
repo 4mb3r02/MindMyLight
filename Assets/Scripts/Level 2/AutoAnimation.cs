@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AutoAnimation : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class AutoAnimation : MonoBehaviour
     float moveSpeed = 0.35f;
     bool checkColl;
     public bool checkConvoFinished;
+    public bool goToVillageScene;
 
     private void Start()
     {
@@ -26,9 +28,17 @@ public class AutoAnimation : MonoBehaviour
         {
             GoClose();
         }
+
         if(checkConvoFinished == true)
         {
             FlyUp();
+        }
+
+        if(goToVillageScene == true)
+        {
+            Debug.Log("Reach?");
+            SceneManager.LoadScene("Level 2 Village");
+            goToVillageScene = false;
         }
     }
     public void Collision(Collider other)
@@ -79,12 +89,18 @@ public class AutoAnimation : MonoBehaviour
         Vector3 PosA = transform.position;
         Vector3 PosB = target.position;
 
-       transform.position = Vector3.Lerp(PosA, PosB, 0.5f * Time.deltaTime);
+        Invoke("loadSceneLevel2Gameplay" , 2.0f);
+        transform.position = Vector3.Lerp(PosA, PosB, 0.5f * Time.deltaTime);
         if (Math.Abs(PosA.x - PosB.x) < 0.1)
         {
             checkConvoFinished = false;
-            Debug.Log("up reached");
+            
         }
+    }
+    
+    public void loadSceneLevel2Gameplay()
+    {
+        SceneManager.LoadScene("Level 2 Game");
     }
 
 }
