@@ -85,7 +85,7 @@ namespace Assets.Scripts.Level_2
 
         void OnDestroy()
         {
-            balloonPrefabsBundle.Unload(true);
+            balloonPrefabsBundle?.Unload(true);
         }
 
         void ConstructLevel()
