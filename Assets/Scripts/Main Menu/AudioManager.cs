@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXgrass;
     [SerializeField] AudioSource SFXbirds;
     [SerializeField] AudioSource SFXshark;
+    [SerializeField] AudioSource SFXwind;
 
 
     [Header("----------- Audio Clip -----------")]
@@ -27,6 +28,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip backgroundMusicMMenu;
     public AudioClip backgroundMusiclvl1;
     public AudioClip backgroundMusiclvl2;
+    public AudioClip backgroundMusiclvl22;
     public AudioClip birds;
     public AudioClip treeWind;
     public AudioClip stepsGrass;
@@ -104,6 +106,7 @@ public class AudioManager : MonoBehaviour
         {
             musicSource.clip = backgroundMusicMMenu;
             musicSource.Play();
+            SFXwind.Stop();
 
         }
 
@@ -130,6 +133,18 @@ public class AudioManager : MonoBehaviour
             SFXbirds.Play();
 
             SFXgrass.clip = stepsGrass;
+        }
+
+        if(NumScene == 5)
+        {
+            ChangeVolume(0.55f);
+            musicSource.Stop();
+            SFXbirds.Stop();
+            SFXgrass.Stop();
+
+            musicSource.clip = backgroundMusiclvl22;
+            SFXwind.Play();
+            musicSource.Play();
         }
     }
 
