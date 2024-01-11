@@ -66,30 +66,39 @@
     justify-content: center;
     align-items: center;
     color: rgba(0, 0, 0, 0.5);
-    background-color: rgb(202, 202, 202);
+    background-color: rgb(255, 255, 255);
     border-bottom-width: 6px;
 }
 
 .play-button-text {
-    -unity-text-align: upper-center;
+    -unity-text-align: middle-center;
     justify-content: flex-start;
     align-self: auto;
     align-items: auto;
-    font-size: 40px;
+    font-size: 70px;
     color: rgb(0, 0, 0);
+    -unity-font: url('project://database/Assets/Text-Fonts/SUNRISE%20MINIMALIST.otf?fileID=12800000&guid=d5a08e7e8cba61d468a41195c314bb03&type=3#SUNRISE MINIMALIST');
+    -unity-font-definition: initial;
+    -unity-font-style: bold;
+    white-space: normal;
+    margin-top: 10px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    margin-left: 2px;
 }
 
 .play-button-text-container {
     flex-grow: 1;
     align-items: stretch;
     align-self: stretch;
-    background-color: rgb(202, 202, 202);
+    background-color: rgb(255, 255, 255);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     color: rgb(0, 0, 0);
     justify-content: center;
+    -unity-text-align: upper-left;
 }
 
 .play-button-image-container {
@@ -107,7 +116,7 @@
 .page-arrow {
     background-image: url('project://database/Assets/Images/General/arrow.png?fileID=21300000&guid=e48ff456fe82bc643a3d0dbb4890353c&type=3#arrow');
     height: auto;
-    -unity-background-image-tint-color: rgb(219, 219, 219);
+    -unity-background-image-tint-color: rgb(0, 0, 0);
     -unity-background-scale-mode: scale-to-fit;
     flex-grow: 1;
 }
@@ -123,6 +132,7 @@
     padding-right: 50px;
     padding-bottom: 50px;
     padding-left: 50px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .play-button-row {
@@ -140,7 +150,7 @@
 
 .container {
     flex-grow: 1;
-    background-color: rgb(255, 255, 255);
+    background-image: url('project://database/Assets/Images/General/menu-background.png?fileID=2800000&guid=833c5884be50306458df979e8afc3d5f&type=3#menu-background');
     padding-top: 2%;
     padding-right: 2%;
     padding-bottom: 2%;
@@ -150,10 +160,12 @@
 .title {
     position: relative;
     align-items: auto;
-    font-size: 72px;
+    font-size: 120px;
     -unity-text-align: middle-center;
-    -unity-font-style: bold;
+    -unity-font-style: normal;
     flex-grow: 1;
+    -unity-font: url('project://database/Assets/Text-Fonts/Tealand.ttf?fileID=12800000&guid=120db783f6479d747bd66eb7f9361451&type=3#Tealand');
+    -unity-font-definition: initial;
 }
 
 .main-content {
@@ -190,6 +202,7 @@
     flex-grow: 1;
     background-image: url('project://database/Assets/Images/General/home.png?fileID=2800000&guid=a086c307f935a8442800e858fdb569c7&type=3#home');
     -unity-background-scale-mode: scale-and-crop;
+    -unity-background-image-tint-color: rgb(0, 0, 0);
 }
 
 .home-button {
@@ -198,10 +211,10 @@
     border-bottom-right-radius: 75px;
     border-bottom-left-radius: 75px;
     flex-grow: 0;
-    border-left-color: rgb(255, 255, 255);
-    border-right-color: rgb(255, 255, 255);
-    border-top-color: rgb(255, 255, 255);
-    border-bottom-color: rgb(255, 255, 255);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
     position: absolute;
     width: 150px;
     height: 150px;
@@ -210,6 +223,11 @@
     padding-bottom: 25px;
     padding-left: 25px;
     align-self: center;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 6px;
+    border-right-width: 6px;
+    border-bottom-width: 6px;
+    border-left-width: 6px;
 }
 
 .footer {
