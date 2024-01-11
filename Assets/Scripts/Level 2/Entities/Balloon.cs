@@ -1,19 +1,14 @@
 ﻿using System;
 using Assets.Scripts.General.Models;
+using Assets.Scripts.Level_2.Entities.Behaviours;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 
 namespace Assets.Scripts.Level_2.Entities
 {
-    public class Balloon : MonoBehaviour, ICollectible, IEntitySpawner
+    public class Balloon : EntityBase, ICollectible, IEntitySpawner
     {
-        [field: SerializeField]
-        public GameObject BalloonPrefab { get; set; }
-
-        [field: SerializeField]
-        public GameObject LevelLayer { get; set; }
-
         public void Spawn(Vector2Int gridIndex, GridSettings settings)
         {
             // Uses center position within the calculated grid element index
@@ -23,13 +18,14 @@ namespace Assets.Scripts.Level_2.Entities
                 Mathf.FloorToInt(settings.BottomLeft.y + (gridIndex.y * settings.CellSize) + halfCellSize)
             );
 
-            Instantiate(BalloonPrefab, pos, Quaternion.identity, LevelLayer.transform);
+            var entity = Instantiate(EntityPrefab, pos, Quaternion.identity, ParentLayer.transform);
+            entity.AddComponent<BalloonBehaviour>();
         }
 
         public static event Action OnBalloonCollected;
         public void Collect()
         {
-            Destroy(gameObject);
+            Destroy(EntityPrefab);
             OnBalloonCollected?.Invoke();
 
         }

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EndScreen : MonoBehaviour
 {
     public static EndScreen instance;
+    int MaxLevel = 2; //making number higher than 9 breaks the system
 
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject succeedScreen;
@@ -14,6 +15,7 @@ public class EndScreen : MonoBehaviour
     GameObject youDied;
     GameObject mainMenuButton;
     GameObject retryButton;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -26,9 +28,14 @@ public class EndScreen : MonoBehaviour
         }     
     }
 
-    public void GetScene()
+    public void TurnOnDeathScreen()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        deathScreen.SetActive(true);
+    }
+
+    public void TurnOnSucceedScreen()
+    {
+        succeedScreen.SetActive(true);
     }
 
     public void LoadMainMenu()
@@ -38,25 +45,37 @@ public class EndScreen : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneLoader.LoadLevel(2);
-        //make non harcore
+        int currentLevel = FindNumber();
+        if (currentLevel < MaxLevel)
+        {
+            SceneLoader.LoadLevel(currentLevel+1);
+        } else
+        {
+            LoadMainMenu();
+        }
+        
     }
 
     public void reloadLevel()
     {
-        SceneLoader.LoadLevel(1);
-        //make non hardcode
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void TurnOnDeathScreen()
+    public int FindNumber()
     {
-       // Debug.Log("player died");
-        deathScreen.SetActive(true);
+        string currentScene = SceneManager.GetActiveScene().name;
+        for (int i = 0; i <= MaxLevel; i++)
+        {
+            char c = '0';
+            int r = i;
+            c += (char) r;
+            Debug.Log(currentScene);
+            if (currentScene.Contains(c))
+            {
+                return i;
+            }
+            
+        }
+        return -1;
     }
-
-    public void TurnOnSucceedScreen()
-    {
-        succeedScreen.SetActive(true);
-    }
-    
 }

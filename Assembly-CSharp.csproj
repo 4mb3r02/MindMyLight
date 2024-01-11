@@ -59,15 +59,15 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Level 2\IEntitySpawner.cs" />
+    <Compile Include="Assets\Scripts\Level 2\RequestScreenLogic.cs" />
     <Compile Include="Assets\Scripts\General\Borders.cs" />
     <Compile Include="Assets\Scripts\Level 1\cometShark.cs" />
     <Compile Include="Assets\Scripts\Level 2\LevelController.cs" />
-    <Compile Include="Assets\Scripts\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\Level 2\Dialogue.cs" />
-    <Compile Include="Assets\Scripts\General\Models\IEntitySpawner.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
+    <Compile Include="Assets\Scripts\Level 2\ObstacleSpawner.cs" />
     <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
-    <Compile Include="Assets\Scripts\General\HazardSpawner.cs" />
     <Compile Include="Assets\Scripts\General\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Level 2\GroupChildren.cs" />
@@ -77,27 +77,29 @@
     <Compile Include="Assets\Scripts\Level 1\Stardust.cs" />
     <Compile Include="Assets\Scripts\Level 2\AutoAnimation.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Spike.cs" />
-    <Compile Include="Assets\enemie.cs" />
-    <Compile Include="Assets\Scripts\Level 2\BalloonRange.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\Behaviours\BalloonBehaviour.cs" />
     <Compile Include="Assets\Scripts\General\EnemieDamage.cs" />
     <Compile Include="Assets\Scripts\General\Movement.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\Behaviours\SpikeBehaviour.cs" />
     <Compile Include="Assets\Scripts\General\MovementGravity.cs" />
     <Compile Include="Assets\Scripts\General\Collector.cs" />
     <Compile Include="Assets\Scripts\Level 1\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\Main Menu\AudioManager.cs" />
     <Compile Include="Assets\Scripts\General\Models\GridSettings.cs" />
     <Compile Include="Assets\Scripts\General\EndScreen.cs" />
-    <Compile Include="Assets\Scripts\Level 2\BirdBehaviour.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\General\MovementNoGravity.cs" />
     <Compile Include="Assets\Scripts\General\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\Level 2\SpikeBehaviour.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Balloon.cs" />
+    <Compile Include="Assets\Scripts\Level 2\DetectBreeze.cs" />
     <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
     <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
     <Compile Include="Assets\Scripts\General\Models\Bags.cs" />
     <Compile Include="Assets\Scripts\General\EnemieMovement.cs" />
+    <Compile Include="Assets\Scripts\Level 2\LevelCreator.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\EntityBase.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Bird.cs" />
+    <Compile Include="Assets\Scripts\Level 2\Entities\Behaviours\BirdBehaviour.cs" />
     <Compile Include="Assets\Scripts\General\Player.cs" />
   </ItemGroup>
   <ItemGroup>

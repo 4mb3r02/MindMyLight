@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.General.Models;
-using UnityEditor.Presets;
 using UnityEngine;
 
 namespace Assets.Scripts.General
@@ -13,17 +12,17 @@ namespace Assets.Scripts.General
     {
         public const int DefaultIterationPerPoint = 30;
 
-        public static List<Vector2> Sampling(RectTransform rect, float minimumDistance, int iterationPerPoint = DefaultIterationPerPoint)
+        public static List<Vector2> Sampling(RectTransform rect, float minimumDistance, bool calcIterationPerPoint = true)
         {
             var settings = GridSettings.Create(
                 rect,
                 minimumDistance
                 );
 
-            return Sampling(settings, iterationPerPoint);
+            return Sampling(settings, calcIterationPerPoint);
         }
 
-        public static List<Vector2> Sampling(GridSettings settings, int iterationPerPoint = DefaultIterationPerPoint)
+        public static List<Vector2> Sampling(GridSettings settings, bool calcIterationPerPoint = true)
         {
             var bags = new Bags()
             {
@@ -33,6 +32,9 @@ namespace Assets.Scripts.General
             };
 
             GetFirstPoint(settings, bags);
+
+            var iterationPerPoint =
+                calcIterationPerPoint ? Mathf.CeilToInt(settings.GridHeight * settings.GridWidth) : DefaultIterationPerPoint;
 
             var fixedIterationPerPoint = iterationPerPoint <= 0 ? DefaultIterationPerPoint : iterationPerPoint;
             do
@@ -123,17 +125,12 @@ namespace Assets.Scripts.General
             );
         }
 
-        public static Vector2Int GetGridIndex(Vector2 point, GridSettings set)
+        private static Vector2Int GetGridIndex(Vector2 point, GridSettings set)
         {
             return new Vector2Int(
                 Mathf.FloorToInt((point.x - set.BottomLeft.x) / set.CellSize),
                 Mathf.FloorToInt((point.y - set.BottomLeft.y) / set.CellSize)
             );
-        }
-
-        public static int CalculateIterationPerPoint(GridSettings settings)
-        {
-            return Mathf.CeilToInt(settings.GridHeight * settings.GridWidth);
         }
 
         private static Vector2 GetRandPosInCircle(float fieldMin, float fieldMax)

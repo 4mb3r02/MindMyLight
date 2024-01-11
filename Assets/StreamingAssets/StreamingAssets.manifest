@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 3314721988
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: images/levels
+      Dependencies: {}
+    Info_1:
+      Name: prefabs/balloons
+      Dependencies: {}
