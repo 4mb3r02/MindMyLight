@@ -68,7 +68,6 @@
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />
     <Compile Include="Assets\Scripts\Level 2\ObstacleSpawner.cs" />
     <Compile Include="Assets\Scripts\Level Selector\PlayLevelButton.cs" />
-    <Compile Include="Assets\Scripts\Level 2\Entities\Obstacle.cs" />
     <Compile Include="Assets\Scripts\General\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\General\ICollectible.cs" />
     <Compile Include="Assets\Scripts\Level 2\GroupChildren.cs" />
@@ -89,10 +88,10 @@
     <Compile Include="Assets\Scripts\General\Models\GridSettings.cs" />
     <Compile Include="Assets\Scripts\General\EndScreen.cs" />
     <Compile Include="Assets\Scripts\Main Menu\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\Level 2\SpikesBehaviour.cs" />
     <Compile Include="Assets\Scripts\General\MovementNoGravity.cs" />
     <Compile Include="Assets\Scripts\General\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Level 2\Entities\Balloon.cs" />
+    <Compile Include="Assets\Scripts\Level 2\DetectBreeze.cs" />
     <Compile Include="Assets\Unity-Assets\External\SoftShadow.cs" />
     <Compile Include="Assets\Scripts\General\PoissonDiskSampling.cs" />
     <Compile Include="Assets\Scripts\General\Models\Bags.cs" />

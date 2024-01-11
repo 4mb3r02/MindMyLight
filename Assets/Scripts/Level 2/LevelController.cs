@@ -116,6 +116,7 @@ namespace Assets.Scripts.Level_2
             // Collected all balloons
             if (collectedBalloons == AmountOfBalloons)
             {
+                //hier ergens kids sking balloon screen koppelen
                 isPlaying = false;
             }
         }
