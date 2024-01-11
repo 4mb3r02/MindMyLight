@@ -66,6 +66,11 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave wave)
     {
+        // ==================================================
+
+        FindObjectOfType<AudioManager>().PlaySharkSonud();
+
+        // ==================================================
         enemy =  new ArrayList();
         Debug.Log("Spawning Wave " + wave.name);
         state = SpawnState.SPAWNING;
