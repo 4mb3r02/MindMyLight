@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\Level 2\RequestScreenLogic.cs" />
     <Compile Include="Assets\Scripts\General\Borders.cs" />
     <Compile Include="Assets\Scripts\Level 1\cometShark.cs" />
+    <Compile Include="Assets\Scripts\Level 2\CollectBalloon.cs" />
     <Compile Include="Assets\Scripts\Level 2\LevelController.cs" />
     <Compile Include="Assets\Scripts\Level 2\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Level Selector\LevelSelectorPresenter.cs" />

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -184,7 +184,7 @@ PrefabInstance:
     - target: {fileID: 3377577438981233433, guid: 5fa8b6d32b2a0ea4da81a2f3ced95eb4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3377577438981233433, guid: 5fa8b6d32b2a0ea4da81a2f3ced95eb4,
         type: 3}
@@ -511,7 +511,6 @@ MonoBehaviour:
   BirdMinDistanceBetween: 20
   SpikeSpawnTime: 5
   BirdSpawnTime: 5
-  BalloonPrefabs: []
   SpikePrefab: {fileID: 8085331224055338578, guid: 44f41a0799b16a34cab884b4197e64b9,
     type: 3}
   BirdPrefab: {fileID: 7340884404977399735, guid: c6a1fe00cc9aed2459bdafe38ea1e371,
@@ -519,7 +518,7 @@ MonoBehaviour:
   CloudPrefab: {fileID: 1562297601874383627, guid: 30b60be2b74ba0044bc3765f12fa4acb,
     type: 3}
   CloudLayer: {fileID: 904751818}
-  MinDistanceBetween: 50
+  CloudMinDistanceBetween: 50
 --- !u!1 &368202204
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +781,7 @@ PrefabInstance:
     - target: {fileID: 3377577438981233433, guid: 5fa8b6d32b2a0ea4da81a2f3ced95eb4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3377577438981233433, guid: 5fa8b6d32b2a0ea4da81a2f3ced95eb4,
         type: 3}
@@ -1194,7 +1193,7 @@ PrefabInstance:
     - target: {fileID: 3377577438981233433, guid: 5fa8b6d32b2a0ea4da81a2f3ced95eb4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3377577438981233433, guid: 5fa8b6d32b2a0ea4da81a2f3ced95eb4,
         type: 3}
@@ -1318,7 +1317,7 @@ PrefabInstance:
     - target: {fileID: 3377577438981233433, guid: 5fa8b6d32b2a0ea4da81a2f3ced95eb4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3377577438981233433, guid: 5fa8b6d32b2a0ea4da81a2f3ced95eb4,
         type: 3}
@@ -1397,7 +1396,7 @@ PrefabInstance:
     - target: {fileID: 2495089675540658483, guid: 4a489887a17afd54a9e2e2be0e363161,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2495089675540658483, guid: 4a489887a17afd54a9e2e2be0e363161,
         type: 3}
