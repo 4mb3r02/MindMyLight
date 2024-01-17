@@ -40,8 +40,6 @@ namespace Assets.Scripts.Level_2
         public GameObject BirdPrefab;
 
         [Header("------------- Background -------------")]
-        public GameObject CloudPrefab;
-
         public GameObject CloudLayer;
         public int CloudMinDistanceBetween = 50;
         #endregion
@@ -55,6 +53,9 @@ namespace Assets.Scripts.Level_2
         private AssetBundle balloonPrefabsBundle;
         private int collectedBalloons;
         private GameObject[] balloonPrefabs;
+
+        private AssetBundle cloudPrefabsBundle;
+        private GameObject[] cloudPrefabs;
         #endregion
 
         // Start is called before the first frame update
@@ -64,6 +65,8 @@ namespace Assets.Scripts.Level_2
 
             balloonPrefabsBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "prefabs/balloons"));
             balloonPrefabs = balloonPrefabsBundle.LoadAllAssets<GameObject>();
+            cloudPrefabsBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "prefabs/clouds"));
+            cloudPrefabs = cloudPrefabsBundle.LoadAllAssets<GameObject>();
 
             _levelLayer = GameObject.Find("Level");
             _spawnAreaLeft = GameObject.Find("SpawnAreaLeft");
@@ -85,7 +88,8 @@ namespace Assets.Scripts.Level_2
 
         void OnDestroy()
         {
-            balloonPrefabsBundle.Unload(true);
+            balloonPrefabsBundle?.Unload(true);
+            cloudPrefabsBundle?.Unload(true);
         }
 
         void ConstructLevel()
@@ -182,7 +186,8 @@ namespace Assets.Scripts.Level_2
 
             foreach (var point in points)
             {
-                Instantiate(CloudPrefab, point, Quaternion.identity, CloudLayer.transform);
+                var entity = cloudPrefabs[Random.Range(0, cloudPrefabs.Length)];
+                Instantiate(entity, point, entity.transform.rotation, CloudLayer.transform);
             }
         }
     }
