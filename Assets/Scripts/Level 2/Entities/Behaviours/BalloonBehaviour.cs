@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Level_2.Entities.Behaviours
 {
-    public class BalloonBehaviour : MonoBehaviour
+    public class BalloonBehaviour : MonoBehaviour, ICollectible
     {
-        float moveAwaySpeed = 3;
+        float moveAwaySpeed = 4;
         bool exitRange = true;
         public float rangeTimer;
     
@@ -37,7 +38,12 @@ namespace Assets.Scripts.Level_2.Entities.Behaviours
                 MovingToPlayer();
             }
         }
-
+        public static event Action OnBalloonCollected;
+        public void Collect()
+        {
+            Destroy(gameObject);
+            OnBalloonCollected?.Invoke();
+        }
 
     }
 }

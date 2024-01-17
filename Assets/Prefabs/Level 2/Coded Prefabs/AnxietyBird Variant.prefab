@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 0
-  speed: 3
+  speed: 8
   destroyXLeft: -10
   destroyXRight: 10
