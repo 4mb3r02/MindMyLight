@@ -14,12 +14,13 @@ namespace Assets.Scripts.Level_2
 
         public GameObject SpawnObstacle(Vector2Int gridIndex, GridSettings grid)
         {
-            Position = new Vector2(
+            Position = new Vector3(
                 Random.Range(grid.BottomLeft.x, grid.TopRight.x),
-                Random.Range(grid.BottomLeft.y, grid.TopRight.y)
+                Random.Range(grid.BottomLeft.y, grid.TopRight.y), 0
             );
+            
 
-            var entity = Instantiate(EntityPrefab, Position, Quaternion.identity, ParentLayer.transform);
+            var entity = Instantiate(EntityPrefab, Position, EntityPrefab.transform.rotation, ParentLayer.transform);
             entity.SetActive(false);
 
             obstacles.Add(entity);
