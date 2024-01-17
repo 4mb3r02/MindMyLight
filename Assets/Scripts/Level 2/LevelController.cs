@@ -187,6 +187,8 @@ namespace Assets.Scripts.Level_2
             foreach (var point in points)
             {
                 var entity = cloudPrefabs[Random.Range(0, cloudPrefabs.Length)];
+                entity.transform.localScale = new Vector3(200, 200, 200);
+
                 Instantiate(entity, point, entity.transform.rotation, CloudLayer.transform);
             }
         }

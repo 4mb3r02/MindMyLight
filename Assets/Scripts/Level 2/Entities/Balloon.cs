@@ -18,7 +18,7 @@ namespace Assets.Scripts.Level_2.Entities
                 Mathf.FloorToInt(settings.BottomLeft.y + (gridIndex.y * settings.CellSize) + halfCellSize)
             );
 
-            var entity = Instantiate(EntityPrefab, pos, Quaternion.identity, ParentLayer.transform);
+            var entity = Instantiate(EntityPrefab, pos, EntityPrefab.transform.rotation, ParentLayer.transform);
             entity.AddComponent<BalloonBehaviour>();
         }
 
