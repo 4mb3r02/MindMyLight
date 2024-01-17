@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/Stylesheets/LevelSelector.uss?fileID=7433441132597879392&amp;guid=3201020df8e8200459a08d697613d8ea&amp;type=3#LevelSelector" />
+    <Style src="project://database/Assets/Scripts/Level%20Selector/LevelSelector.uss?fileID=7433441132597879392&amp;guid=79ca30d8e42f44049b8d1fce59c640ad&amp;type=3#LevelSelector" />
     <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" class="play-button">
         <Shadow shadow-scale="1" shadow-corner-radius="20" shadow-offset-x="4" shadow-offset-y="8" class="play-button-image-container">
             <ui:VisualElement name="PlayButtonImage" focusable="false" class="play-button-image" style="display: none; overflow: visible; visibility: visible;" />
