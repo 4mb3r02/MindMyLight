@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using Assets.Scripts.General;
 using Assets.Scripts.General.Models;
 using Assets.Scripts.Level_2.Entities;
+using Assets.Scripts.Level_2.Entities.Behaviours;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -77,7 +78,7 @@ namespace Assets.Scripts.Level_2
             AddClouds();
             ConstructLevel();
 
-            Balloon.OnBalloonCollected += OnBalloonCollected;
+            BalloonBehaviour.OnBalloonCollected += OnBalloonCollected;
         }
 
         // Update is called once per frame
@@ -122,6 +123,7 @@ namespace Assets.Scripts.Level_2
             {
                 //hier ergens kids sking balloon screen koppelen
                 isPlaying = false;
+                EndScreen.instance.TurnOnSucceedScreen();
             }
         }
 
@@ -187,9 +189,7 @@ namespace Assets.Scripts.Level_2
             foreach (var point in points)
             {
                 var entity = cloudPrefabs[Random.Range(0, cloudPrefabs.Length)];
-                entity.transform.localScale = new Vector3(200, 200, 200);
-
-                Instantiate(entity, point, entity.transform.rotation, CloudLayer.transform);
+                Instantiate(entity, new Vector3(point.x, point.y,5), entity.transform.rotation, CloudLayer.transform);
             }
         }
     }

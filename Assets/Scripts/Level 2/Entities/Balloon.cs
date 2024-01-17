@@ -7,7 +7,7 @@ using Vector2 = UnityEngine.Vector2;
 
 namespace Assets.Scripts.Level_2.Entities
 {
-    public class Balloon : EntityBase, ICollectible, IEntitySpawner
+    public class Balloon : EntityBase, IEntitySpawner
     {
         public void Spawn(Vector2Int gridIndex, GridSettings settings)
         {
@@ -20,14 +20,6 @@ namespace Assets.Scripts.Level_2.Entities
 
             var entity = Instantiate(EntityPrefab, pos, EntityPrefab.transform.rotation, ParentLayer.transform);
             entity.AddComponent<BalloonBehaviour>();
-        }
-
-        public static event Action OnBalloonCollected;
-        public void Collect()
-        {
-            Destroy(EntityPrefab);
-            OnBalloonCollected?.Invoke();
-
         }
     }
 }
